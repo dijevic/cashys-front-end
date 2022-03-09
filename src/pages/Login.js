@@ -1,5 +1,5 @@
 import React from 'react'
-import { LoginStyled } from '../components/auth/login'
+import { LoginComponent } from '../components/auth/login'
 
 
 
@@ -9,6 +9,6 @@ import { LoginStyled } from '../components/auth/login'
 
 export const Login = () => {
     return (
-        <LoginStyled />
+        <LoginComponent />
     )
 }

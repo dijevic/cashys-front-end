@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import backgroundAuth from '../../../assets/images/background-auth.png'
+import backgroundAuth from '../../assets/images/background-auth.png'
 
 
 export const Div = styled.div`
@@ -31,7 +31,6 @@ color:${props => props.color || "rgba(0, 0, 0, 0.7)"};
 font-size:${props => props.fontSize || '1.5rem'};
 margin-top:12px;
 text-align:center ;
-
 @media(min-width:768px){
 font-size:${props => props.fontSize || '2rem'};
 

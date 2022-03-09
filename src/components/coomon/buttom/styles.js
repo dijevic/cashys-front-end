@@ -1,22 +1,61 @@
 import styled, { css } from 'styled-components';
+import { theme } from '../../../styles/theme';
+
+const { colors, buttonTypes } = theme
+
+
+
+
+const customLinkCss = css`
+${({ type }) => (type == buttonTypes.link) && css`
+background:none;
+border-bottom:2px solid transparent ;
+border-radius:0px;
+
+&:hover{
+    ${({ type }) => (type == buttonTypes.link) && css`
+background:none;
+border-bottom:2px solid ${colors.burgundy} ;
+border-radius:0px;
+
+`}
+}
+
+
+
+`}
+
+
+`
+
+
 
 export const sharedStyle = css`
-background:#7899D4;
+background:${({ background }) => (background) ? background : 'var(--blue)'};
 border-radius:5px;
+
+box-shadow: ${({ type }) => (type !== buttonTypes.link) ? `3px 3px 7px ${theme.colors.black}` : 'none'};
 color:#fff ;
 cursor:pointer;
-font-size:${props => props.fontSize || '1rem'};
+font-size:${({ fontSize }) => fontSize || '1rem'};
 margin:20px auto ;
 max-width:70% ;
-padding:${props => (props.padding === 'large') ? '22px' : '12px 15px'};
+padding:${({ padding }) => (padding === 'large') ? '22px' : '12px 15px'};
+transition:.5s ease-in-out all ;
+text-align:center;
+
 
 
 &:hover{
-transition:.5s ease-in-out all ;
-
-    background:#7899D470;
+background:${({ background, type }) => (background && type !== buttonTypes.link) ? colors.lightBurgundy : colors.lightBlue};
 
 }
+/* custom link styled  */
+
+${customLinkCss}
+
+
+
 @media(min-width:768px){
 font-size:${props => props.fontSize || '1.3rem'};
 min-width:170px;

@@ -1,34 +1,29 @@
+// thirt party importations
 import React from 'react'
 import validator from 'validator'
 
-// own files and files
-
-import { useForm } from '../../../hooks/useForm'
-import { Buttom } from '../../coomon/buttom'
+// styled components
+import { Div, DivForm, P, Span } from '../styles'
+import { LinkButtom } from '../../coomon/buttom/LinkButtomStyled'
+import { theme } from '../../../styles/theme'
 import { Form } from '../../coomon/form'
 import { Input } from '../../coomon/input'
-import { Link } from '../../coomon/buttom/Link'
+import { useForm } from '../../../hooks/useForm'
+import { Buttom } from '../../coomon/buttom'
 
-// style component
-import { Div, DivForm, P, Span } from '../styles'
-import { theme } from '../../../styles/theme'
-
-
-const { colors, buttonTypes } = theme
-
-
-export const LoginComponent = () => {
-
+export const SignUpComponent = () => {
 
 
     const initialState = {
+        name: '',
         email: '',
-        password: ''
+        password: '',
+        password2: ''
 
     }
     const [stateValues, handleInputChange] = useForm(initialState)
 
-    const { email, password } = stateValues
+    const { name, email, password, password2 } = stateValues
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -44,14 +39,10 @@ export const LoginComponent = () => {
 
 
     }
-
-
-
-
     return (
         <Div>
             <DivForm>
-                <P>start for free</P>
+                <P>Create your account for free</P>
                 <P
                     fontSize="3rem"
                     color="white">Login Now <Span fontSize="4rem">!</Span>
@@ -66,37 +57,39 @@ export const LoginComponent = () => {
                         onChange={handleInputChange}
                         autoComplete="off" />
                     <Input
+                        type="text"
+                        placeholder="Your Name"
+                        name="name"
+                        value={name}
+                        onChange={handleInputChange}
+                        autoComplete="off" />
+                    <Input
                         type="password"
                         placeholder="password"
                         name="password"
                         value={password}
                         onChange={handleInputChange}
                         autoComplete="off" />
+                    <Input
+                        type="password"
+                        placeholder="password"
+                        name="password2"
+                        value={password2}
+                        onChange={handleInputChange}
+                        autoComplete="off" />
 
-                    <Buttom content="Login" />
+                    <Buttom content="Sign Up !" />
 
-                    <Link
-                        background={colors.burgundy}
+                    <LinkButtom
+                        background={theme.colors.burgundy}
                         to="/">Forgot Your password ?
-                    </Link>
+                    </LinkButtom>
                 </Form>
 
-                <P
-                    color={colors.white} >
-                    not a member yet ?
-                    <Link
-                        background="none"
-                        type={buttonTypes.link}
-                        to="/signup">
-                        <Span>Sign up !</Span>
-                    </Link>
-                </P>
-
+                <P color={theme.colors.white} >not a member yet ? <Span>Sign up</Span></P>
 
 
             </DivForm>
         </Div>
-
-
     )
 }

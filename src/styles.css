@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Hubballi&display=swap");
 
+:root {
+  --white: #fff;
+  --blue: #7899d4;
+  --blue-grey: #7272ab;
+  --purple: #700548;
+  --black: #080705;
+  --burgundy: #362023;
+  --light-burgundy: #36202380;
+  --light-blue: #7899d480;
+}
 * {
   padding: 0;
   margin: 0px;
