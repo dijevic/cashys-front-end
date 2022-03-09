@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyledForm } from './styles'
 
-export const Form = ({ children }) => {
+export const Form = ({ children, ...props }) => {
     return (
-        <StyledForm >{children}</StyledForm>
+        <StyledForm {...props}  >{children}</StyledForm>
     )
 }
