@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
+
 import background404 from '../../assets/images/404background.jpg'
 
 export const Div = styled.div`
 align-items:center;
-background: url(${background404}) ;
+background: url(${background404})  ;
 background-repeat:no-repeat ;
 border-right:4px solid  ;
 background-size:cover ;
@@ -14,19 +15,6 @@ justify-content:center;
 min-height:100vh;
 padding:20px ;
 width:100%;
-/* position:relative;
-&::after{
-    content:'';
-    display:block;
-    position:absolute;
-    top:0 ;
-    left:0px;
-    width:100% ;
-    height:100%;
-    background:rgba(0,0,0,0.4)
-
-} */
-
 
 `
 
@@ -68,3 +56,4 @@ transition:0.4s ease all;
 
 
 `
+
