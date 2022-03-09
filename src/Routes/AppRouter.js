@@ -10,6 +10,7 @@ import {
 
 
 } from 'react-router-dom'
+import { NavBar } from '../components/ui/NavBar'
 import { NotFound } from '../pages/NotFound'
 import { AuthRouter } from './AuthRouter'
 import { ContentRouter } from './ContentRouter'
@@ -30,22 +31,25 @@ export const AppRouter = () => {
         <Router>
 
             <div>
+                {/* <NavBar />  */}
                 <Routes>
-
-                    <Route
-                        element={
-                            <PrivateRoute
-                                isAuth={true}
-                                children={ContentRouter} />}
-                        path="/*" />
-
 
                     <Route
                         element={
                             <PublicRoute
                                 isAuth={isAuth}
                                 children={AuthRouter} />}
-                        path="/auth/*" />
+                        path="/*" />
+
+                    <Route
+                        element={
+                            <PrivateRoute
+                                isAuth={isAuth}
+                                children={ContentRouter} />}
+                        path="/dashboard/*" />
+
+
+
 
                     <Route path="*" element={<NotFound />} />
 

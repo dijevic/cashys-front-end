@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Hubballi&display=swap");
+
 * {
   padding: 0;
-  margin: 0;
+  margin: 0px;
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
@@ -10,6 +12,7 @@
 body {
   width: 100%;
   min-height: 100vh;
+  font-family: "Hubballi", cursive;
 }
 
 html {
