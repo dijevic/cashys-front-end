@@ -1,34 +1,33 @@
+
+// thirt party components
 import React from 'react'
 import validator from 'validator'
-
-// own files and files
-
 import { useForm } from '../../../hooks/useForm'
-import { Buttom } from '../../coomon/buttom'
-import { Form } from '../../coomon/form'
-import { Input } from '../../coomon/input'
-import { Link } from '../../coomon/buttom/Link'
-
-// style component
-import { Div, DivForm, P, Span } from '../styles'
 import { theme } from '../../../styles/theme'
 
 
+// styled components
+import { Buttom } from '../../coomon/buttom'
+import { Link } from '../../coomon/buttom/Link'
+import { Form } from '../../coomon/form'
+import { Input } from '../../coomon/input'
+import { Div, DivForm, P, Span } from '../styles'
 const { colors, buttonTypes } = theme
 
 
-export const LoginComponent = () => {
 
 
+export const ResetPasswordComponent = () => {
 
     const initialState = {
         email: '',
-        password: ''
+        password: '',
+        password2: ''
 
     }
     const [stateValues, handleInputChange] = useForm(initialState)
 
-    const { email, password } = stateValues
+    const { email, password, password2 } = stateValues
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -42,20 +41,25 @@ export const LoginComponent = () => {
             return alert('a password is required')
         }
 
+        if (validator.isEmpty(password) || validator.isEmpty(password2)) {
+            return alert('a password is required')
+
+        }
+        if (!validator.equals(password, password2)) {
+            return alert('password has to be same')
+
+        }
+
 
 
     }
-
-
-
-
     return (
         <Div>
             <DivForm>
-                <P>start for free</P>
+                <P>Forgot your password ?</P>
                 <P
                     fontSize="3rem"
-                    color="white">Login Now <Span fontSize="4rem">!</Span>
+                    color="white">Reset it now<Span fontSize="4rem">!</Span>
                 </P>
 
                 <Form onSubmit={handleSubmit}>
@@ -73,31 +77,31 @@ export const LoginComponent = () => {
                         value={password}
                         onChange={handleInputChange}
                         autoComplete="off" />
+                    <Input
+                        type="password"
+                        placeholder="password"
+                        name="password2"
+                        value={password2}
+                        onChange={handleInputChange}
+                        autoComplete="off" />
 
-                    <Buttom content="Login" />
+                    <Buttom content="Recover password now !" />
 
-                    <Link
-                        background={colors.burgundy}
-                        to="/resetpassword">Forgot Your password ?
-                    </Link>
+
                 </Form>
 
-                <P
-                    color={colors.white} >
-                    not a member yet ?
-                    <Link
-                        background="none"
-                        type={buttonTypes.link}
-                        to="/signup">
-                        <Span>Sign up !</Span>
-                    </Link>
-                </P>
+
+                <Link
+                    type={buttonTypes.link}
+                    color={colors.burgundy}
+                    to="/"><Span>Go back Home</Span>
+                </Link>
+
+
 
 
 
             </DivForm>
         </Div>
-
-
     )
 }

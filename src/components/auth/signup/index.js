@@ -4,12 +4,14 @@ import validator from 'validator'
 
 // styled components
 import { Div, DivForm, P, Span } from '../styles'
-import { LinkButtom } from '../../coomon/buttom/LinkButtomStyled'
 import { theme } from '../../../styles/theme'
 import { Form } from '../../coomon/form'
 import { Input } from '../../coomon/input'
 import { useForm } from '../../../hooks/useForm'
 import { Buttom } from '../../coomon/buttom'
+import { Link } from '../../coomon/buttom/Link'
+
+const { colors, buttonTypes } = theme
 
 export const SignUpComponent = () => {
 
@@ -36,6 +38,16 @@ export const SignUpComponent = () => {
         if (validator.isEmpty(password)) {
             return alert('a password is required')
         }
+
+        if (validator.isEmpty(password) || validator.isEmpty(password2) || validator.isEmpty(name)) {
+            return alert('a password is required')
+
+        }
+        if (!validator.equals(password, password2)) {
+            return alert('password has to be same')
+
+        }
+
 
 
     }
@@ -80,13 +92,17 @@ export const SignUpComponent = () => {
 
                     <Buttom content="Sign Up !" />
 
-                    <LinkButtom
-                        background={theme.colors.burgundy}
-                        to="/">Forgot Your password ?
-                    </LinkButtom>
                 </Form>
 
-                <P color={theme.colors.white} >not a member yet ? <Span>Sign up</Span></P>
+                <P color={colors.white} >do you has an account ?
+
+                    <Link
+                        type={buttonTypes.link}
+                        to="/"><Span>Sign In</Span>
+                    </Link>
+
+
+                </P>
 
 
             </DivForm>

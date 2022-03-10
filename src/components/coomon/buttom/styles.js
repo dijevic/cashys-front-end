@@ -35,7 +35,7 @@ background:${({ background }) => (background) ? background : 'var(--blue)'};
 border-radius:5px;
 
 box-shadow: ${({ type }) => (type !== buttonTypes.link) ? `3px 3px 7px ${theme.colors.black}` : 'none'};
-color:#fff ;
+color:${({ color }) => color || colors.white} ;
 cursor:pointer;
 font-size:${({ fontSize }) => fontSize || '1rem'};
 margin:20px auto ;
@@ -47,7 +47,7 @@ text-align:center;
 
 
 &:hover{
-background:${({ background, type }) => (background && type !== buttonTypes.link) ? colors.lightBurgundy : colors.lightBlue};
+background:${({ background }) => (background) ? colors.lightBurgundy : colors.lightBlue};
 
 }
 /* custom link styled  */
