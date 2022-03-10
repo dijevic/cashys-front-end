@@ -94,7 +94,11 @@ export const ResetPasswordComponent = () => {
                 <Link
                     type={buttonTypes.link}
                     color={colors.burgundy}
-                    to="/"><Span>Go back Home</Span>
+                    to="/">
+                    <Span
+                        color={colors.white}
+
+                    >Go back Home</Span>
                 </Link>
 
 

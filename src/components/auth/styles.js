@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import backgroundAuth from '../../assets/images/background-auth.png'
+import { theme } from '../../styles/theme';
+const { colors } = theme
 
 
 export const Div = styled.div`
@@ -41,7 +43,7 @@ font-size:${props => props.fontSize || '2rem'};
 `
 
 export const Span = styled.span`
-color:#7899D4;
+color:${props => props.color || colors.blue};
 font-size:${props => props.fontSize || '1.5rem'};
 font-weight:bold ;
 @media(min-width:768px){
