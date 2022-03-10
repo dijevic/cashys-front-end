@@ -4,25 +4,32 @@ import styled from 'styled-components'
 import background404 from '../../assets/images/404background.jpg'
 
 export const Div = styled.div`
-align-items:center;
 background: url(${background404})  ;
 background-repeat:no-repeat ;
-border-right:4px solid  ;
-background-size:cover ;
-display:flex;
-flex-direction :column; ;
-justify-content:center;
+background-size:cover;
 min-height:100vh;
-padding:20px ;
 width:100%;
 
 `
+export const Container = styled.div`
+align-items:center;
+border-right:4px solid  ;
+background:rgba(0,0,0,0.4);
+background-size:cover ;
+display:flex;
+flex-direction:column; 
+justify-content:center;
+height:100vh;
+padding:10px;
 
+`
 export const P = styled.p`
 color:#080705;
 font-size:7rem;
 font-weight:bold;
 line-height:8rem;
+text-align: center;
+transform : ${({ rotate }) => rotate && 'rotate(90deg)'};
 
 
 
@@ -36,24 +43,4 @@ margin-top:20px;
 
 `
 
-export const Button = styled.button`
-background:#362023 ;
-border-radius:5px ;
-color:#ffffff;
-font-size:1rem;
-font-family: "Hubballi", cursive;
-margin-top:20px;
-padding:15px 20px;
-transition:0.4s ease all;
-
-
-@media(min-width: 768px) {
-    &:hover{
-        opacity:0.8 ;
-    }
-    
-}
-
-
-`
 

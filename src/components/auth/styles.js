@@ -1,32 +1,31 @@
 import styled from 'styled-components';
 import backgroundAuth from '../../assets/images/background-auth.png'
 import { theme } from '../../styles/theme';
-const { colors } = theme
+const { colors, animations } = theme
+
+
+
 
 
 export const Div = styled.div`
 width: 100%;
 height: 100vh;
-background:url( ${props => props.background || backgroundAuth}) ;
+background:url( ${({ background }) => background || backgroundAuth}) ;
 background-size:cover;
-display:flex;
+
+`
+
+export const DivForm = styled.div`
 align-items:center;
-justify-content:center ;
-
-`
-
-
-export const DivForm = styled(Div)`
-
-flex-direction:column; 
+background-size:cover;
 background:rgba(0,0,0,0.7);
+display:flex;
+flex-direction:column; 
+height: 100vh;
+justify-content:center ;
 padding:10px;
-
-
-
+width: 100%;
 `
-
-
 
 export const P = styled.p`
 color:${props => props.color || "rgba(0, 0, 0, 0.7)"};
@@ -35,11 +34,10 @@ margin-top:12px;
 text-align:center ;
 @media(min-width:768px){
 font-size:${props => props.fontSize || '2rem'};
-
+animation-name: ${({ animate }) => (animate) && animations.fadeInup};
+animation-iteration-count: initial;
+animation-duration: 0.9s;
 }
-
-
-
 `
 
 export const Span = styled.span`

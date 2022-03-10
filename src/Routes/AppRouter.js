@@ -8,7 +8,7 @@ import {
 
 
 } from 'react-router-dom'
-import { NavBar } from '../components/ui/NavBar'
+import { NavBar } from '../components/ui/navbar/NavBar'
 import { NotFound } from '../pages/NotFound'
 import { AuthRouter } from './AuthRouter'
 import { ContentRouter } from './ContentRouter'
@@ -29,7 +29,7 @@ export const AppRouter = () => {
         <Router>
 
             <div>
-                {/* <NavBar />  */}
+                <NavBar />
                 <Routes>
 
                     <Route

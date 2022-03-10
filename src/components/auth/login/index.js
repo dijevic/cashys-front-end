@@ -52,7 +52,7 @@ export const LoginComponent = () => {
     return (
         <Div>
             <DivForm>
-                <P>start for free</P>
+                <P animate>start for free</P>
                 <P
                     fontSize="3rem"
                     color="white">Login Now <Span fontSize="4rem">!</Span>

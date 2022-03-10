@@ -54,10 +54,11 @@ export const SignUpComponent = () => {
     return (
         <Div>
             <DivForm>
-                <P>Create your account for free</P>
+                <P animate>Create your account for free</P>
                 <P
                     fontSize="3rem"
-                    color="white">Login Now <Span fontSize="4rem">!</Span>
+
+                    color="white">Sign Up Now <Span fontSize="4rem">!</Span>
                 </P>
 
                 <Form onSubmit={handleSubmit}>

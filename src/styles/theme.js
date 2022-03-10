@@ -1,3 +1,4 @@
+import { keyframes } from 'styled-components'
 
 
 export const theme = {
@@ -19,12 +20,44 @@ export const theme = {
 
     },
 
-
+    // BUTTON TYPES
     buttonTypes: {
 
         buttom: 'buttom',
         buttonLink: 'buttom-link',
         link: 'link'
+
+    },
+
+
+    // animations 
+    animations: {
+        fadeInLeft: keyframes`
+        from {
+          opacity:0;
+          transform: translateX(-100px);
+        }
+      
+        to {
+          opacity : 1;
+          transform: translateX(0);
+      
+        }`,
+
+
+        fadeInup: keyframes`
+        from {
+          opacity:0;
+          transform: translateY(-100px);
+        }
+      
+        to {
+          opacity : 1;
+          transform: translateY(0);
+      
+        }`
+
+
 
     }
 

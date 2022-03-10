@@ -56,7 +56,7 @@ export const ResetPasswordComponent = () => {
     return (
         <Div>
             <DivForm>
-                <P>Forgot your password ?</P>
+                <P animate>Forgot your password ?</P>
                 <P
                     fontSize="3rem"
                     color="white">Reset it now<Span fontSize="4rem">!</Span>
