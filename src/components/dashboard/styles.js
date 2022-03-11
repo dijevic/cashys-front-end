@@ -44,10 +44,9 @@ font-size: 1rem;
 color:${colors.white};
 line-height: 1rem;
 margin: 10px ;
-border: 1px solid ${colors.white};
 padding: 20px 15px;
 border-radius: 12px;
-background:${colors.lightBlue};
+background: rgba(0,0,0,0.4);
 
 animation-name:${animations.fadeInLeft};
 animation-iteration-count: initial;
