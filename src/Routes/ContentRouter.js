@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Dashboard } from '../pages/Dashboard'
+import { Profile } from '../pages/Profile'
 import { NotFound } from '../pages/NotFound'
 
 export const ContentRouter = () => {
@@ -8,6 +9,7 @@ export const ContentRouter = () => {
         <Routes>
 
             <Route element={<Dashboard />} path="/" />
+            <Route element={<Profile />} path="/profile" />
             <Route element={<NotFound />} path="*" />
 
 

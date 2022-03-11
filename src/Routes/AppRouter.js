@@ -45,7 +45,7 @@ export const AppRouter = () => {
                             <PrivateRoute
                                 isAuth={isAuth}
                                 children={ContentRouter} />}
-                        path="/dashboard/*" />
+                        path="/app/*" />
 
 
 

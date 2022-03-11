@@ -10,7 +10,6 @@ background:${colors.burgundy};
 
 `
 
-
 const sharedStyles = css`
 
 font-size:1rem;
@@ -30,7 +29,6 @@ line-height:1.3rem;
 
 :hover{
     cursor:pointer;
-
 }
 }
 `
@@ -47,8 +45,6 @@ font-size: 1.1rem;
 line-height: 1.1rem;
 margin-left: 10px;
 display:inline;
-
-
 
 `
 

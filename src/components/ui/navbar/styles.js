@@ -9,6 +9,21 @@ padding:5px ;
 background:${colors.burgundy};
 display: flex;
 align-items: center;
+justify-content:space-between;
+
+@media(min-width:768px){
+    svg{
+    width:35px;
+    height:35px;
+    transition:0.3s ease-in-out fill; 
+
+    :hover{
+        fill:${colors.blue};
+        stroke:${colors.white};
+    }
+
+}
+}
 `
 
 export const StyledLogo = styled.div`
