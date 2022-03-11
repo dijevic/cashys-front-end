@@ -20,12 +20,12 @@ export const DashboardComponent = () => {
             <Span>Diego Vielma</Span>
             <Span>10000 $</Span>
 
-            <Div maxWidth="320px">
+            <Div maxWidth="320">
                 <Buttom content="Add Money" />
                 <Buttom background={colors.burgundy} content="Debt Money" />
             </Div>
 
-            <Div maxWidth="600px" background direction="column">
+            <Div maxWidth="600" background direction="column">
                 <Ul>
                     <Operation />
                     <Operation />

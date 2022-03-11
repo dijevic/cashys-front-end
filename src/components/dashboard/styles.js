@@ -1,4 +1,7 @@
+// react imp
 import styled from 'styled-components'
+
+// styled Components
 import { theme } from '../../styles/theme'
 
 
@@ -13,7 +16,12 @@ width: 40%;
 margin-top:20px;
 flex-direction: ${({ direction }) => direction || 'row'};
 width: 100%;
-max-width : ${({ maxWidth }) => (maxWidth) && maxWidth};
+max-width : ${({ maxWidth }) => (maxWidth) && maxWidth}px;
+
+@media(min-width:768px){
+max-width : ${({ maxWidth }) => (maxWidth) && Number(maxWidth) + 100}px;
+
+}
 
 
 `
@@ -28,14 +36,14 @@ margin-top:40px;
 `
 
 export const Ul = styled.ul`
-/* background: rgba(0,0,0,0.9); */
-
 width: 100%;
-
 display: flex;
 flex-direction: column;
 max-height: 500px;
 overflow-y: scroll;
+margin-bottom: 100px;
+
+
 
 `
 
@@ -45,17 +53,22 @@ color:${colors.white};
 line-height: 1rem;
 margin: 10px ;
 padding: 20px 15px;
-border-radius: 12px;
+border-radius: 5px;
 background: rgba(0,0,0,0.4);
-
 animation-name:${animations.fadeInLeft};
 animation-iteration-count: initial;
 animation-duration: 0.9s;
+transition: .3s background-color ease-in;
 
 
 @media(min-width:768px){
-    font-size: 1.4rem;
+font-size: 1.4rem;
 line-height: 1.4rem;
+
+&:hover{
+background: rgba(0,0,0,0.6);
+
+}
 
 
 }

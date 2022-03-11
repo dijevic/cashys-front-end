@@ -1,5 +1,5 @@
 import React from 'react'
-import { Li, Ul } from './styles'
+import { Li } from './styles'
 
 export const Operation = () => {
     return (

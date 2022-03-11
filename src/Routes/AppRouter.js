@@ -9,6 +9,7 @@ import {
 
 } from 'react-router-dom'
 import { NavBar } from '../components/ui/navbar/NavBar'
+import { Footer } from '../pages/Footer'
 import { NotFound } from '../pages/NotFound'
 import { AuthRouter } from './AuthRouter'
 import { ContentRouter } from './ContentRouter'
@@ -55,6 +56,8 @@ export const AppRouter = () => {
 
 
                 </Routes>
+
+                <Footer />
             </div>
         </Router>
 
