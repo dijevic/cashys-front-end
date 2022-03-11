@@ -1,20 +1,24 @@
 import React from 'react'
-import { LinkButtom } from '../coomon/buttom/LinkButtomStyled'
-import { Div, P, Span, Container } from './styles'
+import { MainBackground, Container } from '../coomon/div'
+import { Link } from '../coomon/buttom/Link'
+import { P, Span } from './styles'
 
 export const NotFoundComponent = () => {
     return (
-        <Div padding={false}>
+        <MainBackground>
             <Container>
                 <P>404 </P>
-                <P rotate="true">:(</P>
+                <P
+                    rotate="true">
+                    <span>:</span><span>|</span>
+                </P>
                 <Span>The page you are looking for does not exist </Span>
-                <LinkButtom to="/">GO BACK HOME</LinkButtom>
+                <Link to="/">GO BACK HOME</Link>
 
             </Container>
 
 
 
-        </Div>
+        </MainBackground>
     )
 }

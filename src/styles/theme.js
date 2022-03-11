@@ -25,7 +25,7 @@ export const theme = {
 
         buttom: 'buttom',
         buttonLink: 'buttom-link',
-        link: 'link'
+        link: 'link',
 
     },
 

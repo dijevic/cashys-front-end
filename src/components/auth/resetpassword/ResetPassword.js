@@ -11,7 +11,9 @@ import { Buttom } from '../../coomon/buttom'
 import { Link } from '../../coomon/buttom/Link'
 import { Form } from '../../coomon/form'
 import { Input } from '../../coomon/input'
-import { Div, DivForm, P, Span } from '../styles'
+import { P, Span } from '../styles'
+import { Container, MainBackground } from '../../coomon/div'
+
 const { colors, buttonTypes } = theme
 
 
@@ -54,8 +56,8 @@ export const ResetPasswordComponent = () => {
 
     }
     return (
-        <Div>
-            <DivForm>
+        <MainBackground>
+            <Container>
                 <P animate>Forgot your password ?</P>
                 <P
                     fontSize="3rem"
@@ -105,7 +107,7 @@ export const ResetPasswordComponent = () => {
 
 
 
-            </DivForm>
-        </Div>
+            </Container>
+        </MainBackground>
     )
 }

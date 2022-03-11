@@ -5,7 +5,7 @@ const { colors } = theme
 
 
 export const StyledNav = styled.nav`
-padding:10px 20px;
+padding:5px ;
 background:${colors.burgundy};
 display: flex;
 align-items: center;
@@ -15,7 +15,7 @@ export const StyledLogo = styled.div`
 width: 25px;
 height: 25px;
 border-radius: 100%;
-margin-right: 25px;
+margin-right:10px;
 background: ${({ color }) => color};
 
 

@@ -10,7 +10,8 @@ import { Input } from '../../coomon/input'
 import { Link } from '../../coomon/buttom/Link'
 
 // style component
-import { Div, DivForm, P, Span } from '../styles'
+import { P, Span } from '../styles'
+import { Container, MainBackground } from '../../coomon/div'
 import { theme } from '../../../styles/theme'
 
 
@@ -50,8 +51,8 @@ export const LoginComponent = () => {
 
 
     return (
-        <Div>
-            <DivForm>
+        <MainBackground>
+            <Container>
                 <P animate>start for free</P>
                 <P
                     fontSize="3rem"
@@ -95,8 +96,8 @@ export const LoginComponent = () => {
 
 
 
-            </DivForm>
-        </Div>
+            </Container>
+        </MainBackground>
 
 
     )

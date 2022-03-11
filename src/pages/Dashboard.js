@@ -1,7 +1,7 @@
 import React from 'react'
+import { DashboardComponent } from '../components/dashboard'
 
-export const Dashboard = () => {
-    return (
-        <div>Dashboard</div>
-    )
+
+export const Dashboard = ({ children }) => {
+    return <DashboardComponent>{children}</DashboardComponent>
 }
