@@ -4,7 +4,7 @@ import React from 'react'
 // styled components imp
 import { theme } from '../../../styles/theme'
 import { Link } from '../../coomon/buttom/Link'
-import { StyledNav, StyledLogo, P } from './styles'
+import { StyledNav, StyledLogo, P, Div } from './styles'
 import { UserIcon } from '../../coomon/icons/User'
 
 
@@ -22,13 +22,17 @@ export const NavBar = () => {
                 <P>Cashys  <span>!</span></P>
             </Link>
 
-            <Link
-                type={buttonTypes.link}
-                centered="true"
-                to="/app/profile">
-                <UserIcon />
-                <span>Profile</span>
-            </Link>
+            <Div>
+                <Link
+                    type={buttonTypes.link}
+                    direction="column"
+                    centered="true"
+                    borderBottom={false}
+                    to="/app/profile">
+                    <UserIcon />
+                    <span>Profile</span>
+                </Link>
+            </Div>
 
         </StyledNav>
 

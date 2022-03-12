@@ -87,15 +87,20 @@ export const ResetPasswordComponent = () => {
                         onChange={handleInputChange}
                         autoComplete="off" />
 
-                    <Buttom content="Recover password now !" />
+                    <Buttom
+                        padding="true"
+                        content="Recover password now !"
+                    />
 
 
                 </Form>
 
 
                 <Link
-                    type={buttonTypes.link}
+                    borderBottom="true"
                     color={colors.burgundy}
+                    padding="true"
+                    type={buttonTypes.link}
                     to="/">
                     <Span
                         color={colors.white}

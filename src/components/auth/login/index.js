@@ -75,9 +75,13 @@ export const LoginComponent = () => {
                         onChange={handleInputChange}
                         autoComplete="off" />
 
-                    <Buttom content="Login" />
+                    <Buttom
+                        padding="true"
+                        content="Login"
+                    />
 
                     <Link
+                        padding="true"
                         background={colors.burgundy}
                         to="/resetpassword">Forgot Your password ?
                     </Link>
@@ -88,6 +92,8 @@ export const LoginComponent = () => {
                     not a member yet ?
                     <Link
                         background="none"
+                        borderBottom="true"
+                        padding="true"
                         type={buttonTypes.link}
                         to="/signup">
                         <Span>Sign up !</Span>

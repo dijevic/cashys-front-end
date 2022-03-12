@@ -35,9 +35,10 @@ export const ProfileComponent = () => {
 
                 </Input>
 
-                <Buttom content="save" />
+                <Buttom padding="true" content="save" />
 
                 <Link
+                    padding="true"
                     background={colors.burgundy}
                     to="/">Go Back </Link>
 

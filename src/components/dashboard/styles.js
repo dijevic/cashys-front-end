@@ -10,7 +10,8 @@ export const Div = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-around;
-background: ${({ background }) => (background) ? background : 'rgba(0,0,0,0.8)'};
+box-shadow:${({ shadow }) => (shadow) ? '5px 5px 7px rgba(0,0,0,0.8)' : 'none'};
+background: ${({ background }) => (background) ? background : 'rgba(0,0,0,0.5)'};
 border-radius: 10px;
 width: 40%;
 margin-top:20px;
@@ -27,39 +28,42 @@ max-width : ${({ maxWidth }) => (maxWidth) && Number(maxWidth) + 100}px;
 `
 
 export const Span = styled.span`
-color: ${colors.white};
+color: ${({ color }) => color || colors.white};
 font-size: 2rem;
+font-weight:bold;
 line-height: 2rem;
-margin-top:40px;
+margin-top:50px;
+text-align:center;
+@media(min-width:768px){
+font-size: 2.5rem;
+line-height: 2.5rem;
+}
 
 
 `
 
 export const Ul = styled.ul`
-width: 100%;
 display: flex;
 flex-direction: column;
-max-height: 500px;
-overflow-y: scroll;
 margin-bottom: 100px;
-
-
-
+width: 100%;
 `
 
 export const Li = styled.li`
-font-size: 1rem;
+
+animation-duration: 0.9s;
+animation-iteration-count: initial;
+animation-name:${animations.fadeInLeft};
+background: rgba(0,0,0,0.5);
+border-radius: 5px;
+box-shadow:5px 5px 7px rgba(0,0,0,0.6);
 color:${colors.white};
+cursor:pointer;
+font-size: 1rem;
 line-height: 1rem;
 margin: 10px ;
 padding: 20px 15px;
-border-radius: 5px;
-background: rgba(0,0,0,0.4);
-animation-name:${animations.fadeInLeft};
-animation-iteration-count: initial;
-animation-duration: 0.9s;
 transition: .3s background-color ease-in;
-
 
 @media(min-width:768px){
 font-size: 1.4rem;

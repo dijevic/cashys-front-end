@@ -92,13 +92,18 @@ export const SignUpComponent = () => {
                         onChange={handleInputChange}
                         autoComplete="off" />
 
-                    <Buttom content="Sign Up !" />
+                    <Buttom
+                        padding="true"
+                        content="Sign Up !"
+                    />
 
                 </Form>
 
                 <P color={colors.white} >do you has an account ?
 
                     <Link
+                        borderBottom="true"
+                        padding="true"
                         type={buttonTypes.link}
                         to="/"><Span>Sign In</Span>
                     </Link>

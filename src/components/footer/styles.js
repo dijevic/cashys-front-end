@@ -6,12 +6,12 @@ export const Footer = styled.footer`
 width: 100%;
 height:50px;
 padding:20px 10px;
-background:${colors.burgundy};
-
+background:none;
+position:absolute;
+bottom:0;
 `
 
 const sharedStyles = css`
-
 font-size:1rem;
 line-height:1rem;
 color: ${colors.white};
@@ -26,10 +26,6 @@ align-items: center;
 font-size:1.3rem;
 line-height:1.3rem;
 
-
-:hover{
-    cursor:pointer;
-}
 }
 `
 
@@ -45,6 +41,8 @@ font-size: 1.1rem;
 line-height: 1.1rem;
 margin-left: 10px;
 display:inline;
+cursor:pointer;
+
 
 `
 
