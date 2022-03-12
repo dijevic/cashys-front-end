@@ -27,6 +27,7 @@ export const NavBar = () => {
                 centered="true"
                 to="/app/profile">
                 <UserIcon />
+                <span>Profile</span>
             </Link>
 
         </StyledNav>
