@@ -1,3 +1,5 @@
+
+// third  party imp
 import React from 'react'
 
 // components
@@ -5,13 +7,12 @@ import React from 'react'
 import { UserProfileIcon } from '../coomon/icons/UserProfileIcon'
 
 // styled components
-import { MainBackground, Container } from '../coomon/div'
-import { Form } from '../coomon/form'
 import { Input } from '../coomon/input'
 import { Buttom } from '../coomon/buttom'
 import { Link } from '../coomon/buttom/Link'
 import { theme } from '../../styles/theme'
 import { H2 } from './styles'
+import { Form } from '../coomon/form'
 
 
 
@@ -20,14 +21,14 @@ const { colors } = theme
 export const ProfileComponent = () => {
 
 
-    return <MainBackground>
+    return (
 
-        <Container>
 
+        <>
             <UserProfileIcon />
             <H2>Hi Again Diego </H2>
 
-            <Form>
+            <Form >
                 <Input type="text" placeholder="name">
 
                 </Input>
@@ -43,8 +44,9 @@ export const ProfileComponent = () => {
                     to="/">Go Back </Link>
 
             </Form>
+        </>
 
-        </Container>
 
-    </MainBackground>
+    )
+
 }

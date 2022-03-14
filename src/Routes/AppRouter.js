@@ -8,6 +8,8 @@ import {
 
 
 } from 'react-router-dom'
+import { Container, MainBackground } from '../components/coomon/div'
+import { Modal } from '../components/ui/modal'
 import { NavBar } from '../components/ui/navbar/NavBar'
 import { Footer } from '../pages/Footer'
 import { NotFound } from '../pages/NotFound'
@@ -29,36 +31,37 @@ export const AppRouter = () => {
 
         <Router>
 
-            <div>
+            <>
                 <NavBar />
-                <Routes>
+                <MainBackground>
+                    <Container>
+                        {/* <Modal /> */}
+                        <Routes>
 
-                    <Route
-                        element={
-                            <PublicRoute
-                                isAuth={isAuth}
-                                children={AuthRouter} />}
-                        path="/*" />
+                            <Route
+                                element={
+                                    <PublicRoute
+                                        isAuth={isAuth}
+                                        children={AuthRouter} />}
+                                path="/*" />
 
-                    <Route
-                        element={
-                            <PrivateRoute
-                                isAuth={isAuth}
-                                children={ContentRouter} />}
-                        path="/app/*" />
-
-
-
-
-                    <Route path="*" element={<NotFound />} />
+                            <Route
+                                element={
+                                    <PrivateRoute
+                                        isAuth={isAuth}
+                                        children={ContentRouter} />}
+                                path="/app/*" />
 
 
+                            <Route path="*" element={<NotFound />} />
+                        </Routes>
+                    </Container>
 
 
-                </Routes>
+                </MainBackground>
 
                 <Footer />
-            </div>
+            </>
         </Router>
 
     )

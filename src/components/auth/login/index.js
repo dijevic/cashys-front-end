@@ -11,7 +11,6 @@ import { Link } from '../../coomon/buttom/Link'
 
 // style component
 import { P, Span } from '../styles'
-import { Container, MainBackground } from '../../coomon/div'
 import { theme } from '../../../styles/theme'
 
 
@@ -51,59 +50,58 @@ export const LoginComponent = () => {
 
 
     return (
-        <MainBackground>
-            <Container>
-                <P animate>start for free</P>
-                <P
-                    fontSize="3rem"
-                    color="white">Login Now <Span fontSize="4rem">!</Span>
-                </P>
+        <>
+            <P animate>start for free</P>
+            <P
+                fontSize="3rem"
+                color="white">Login Now <Span fontSize="4rem">!</Span>
+            </P>
 
-                <Form onSubmit={handleSubmit}>
-                    <Input
-                        type="email"
-                        placeholder="Your Email"
-                        name="email"
-                        value={email}
-                        onChange={handleInputChange}
-                        autoComplete="off" />
-                    <Input
-                        type="password"
-                        placeholder="password"
-                        name="password"
-                        value={password}
-                        onChange={handleInputChange}
-                        autoComplete="off" />
+            <Form onSubmit={handleSubmit}>
+                <Input
+                    type="email"
+                    placeholder="Your Email"
+                    name="email"
+                    value={email}
+                    onChange={handleInputChange}
+                    autoComplete="off" />
+                <Input
+                    type="password"
+                    placeholder="password"
+                    name="password"
+                    value={password}
+                    onChange={handleInputChange}
+                    autoComplete="off" />
 
-                    <Buttom
-                        padding="true"
-                        content="Login"
-                    />
+                <Buttom
+                    padding="true"
+                    content="Login"
+                />
 
-                    <Link
-                        padding="true"
-                        background={colors.burgundy}
-                        to="/resetpassword">Forgot Your password ?
-                    </Link>
-                </Form>
+                <Link
+                    padding="true"
+                    background={colors.burgundy}
+                    to="/resetpassword">Forgot Your password ?
+                </Link>
+            </Form>
 
-                <P
-                    color={colors.white} >
-                    not a member yet ?
-                    <Link
-                        background="none"
-                        borderBottom="true"
-                        padding="true"
-                        type={buttonTypes.link}
-                        to="/signup">
-                        <Span>Sign up !</Span>
-                    </Link>
-                </P>
+            <P
+                color={colors.white} >
+                not a member yet ?
+                <Link
+                    background="none"
+                    borderBottom="true"
+                    padding="true"
+                    type={buttonTypes.link}
+                    to="/signup">
+                    <Span>Sign up !</Span>
+                </Link>
+            </P>
+        </>
 
 
 
-            </Container>
-        </MainBackground>
+
 
 
     )

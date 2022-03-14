@@ -1,11 +1,10 @@
-// thyrt party imp
+// third  party imp
 import React from 'react'
 
 
 // styled components 
 import { theme } from '../../styles/theme'
 import { Buttom } from '../coomon/buttom'
-import { MainBackground, Container } from '../coomon/div'
 import { Div, Span, Ul } from './styles'
 import { Operation } from './Operation'
 const { colors } = theme
@@ -13,14 +12,13 @@ const { colors } = theme
 export const DashboardComponent = () => {
 
 
-    return <MainBackground>
+    return (
 
-        <Container >
+        <>
             <Span color={colors.black}>Take Control of your income and debts</Span>
             <Span> BALANCE : 10000 $</Span>
 
             <Div
-                shadow
                 maxWidth="320">
                 <Buttom padding content="Add Money" />
                 <Buttom padding background={colors.burgundy} content="Debt Money" />
@@ -46,7 +44,8 @@ export const DashboardComponent = () => {
 
 
 
-        </Container>
+        </>
 
-    </MainBackground >
+    )
+
 }

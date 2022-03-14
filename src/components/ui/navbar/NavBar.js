@@ -19,6 +19,7 @@ export const NavBar = () => {
                 centered="true" to="/">
                 <StyledLogo color={colors.blue} />
                 <StyledLogo color={colors.white} />
+                <StyledLogo color={colors.purple} />
                 <P>Cashys  <span>!</span></P>
             </Link>
 
@@ -27,7 +28,6 @@ export const NavBar = () => {
                     type={buttonTypes.link}
                     direction="column"
                     centered="true"
-                    borderBottom={false}
                     to="/app/profile">
                     <UserIcon />
                     <span>Profile</span>

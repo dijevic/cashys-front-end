@@ -12,12 +12,7 @@ import { Link } from '../../coomon/buttom/Link'
 import { Form } from '../../coomon/form'
 import { Input } from '../../coomon/input'
 import { P, Span } from '../styles'
-import { Container, MainBackground } from '../../coomon/div'
-
 const { colors, buttonTypes } = theme
-
-
-
 
 export const ResetPasswordComponent = () => {
 
@@ -56,63 +51,58 @@ export const ResetPasswordComponent = () => {
 
     }
     return (
-        <MainBackground>
-            <Container>
-                <P animate>Forgot your password ?</P>
-                <P
-                    fontSize="3rem"
-                    color="white">Reset it now<Span fontSize="4rem">!</Span>
-                </P>
+        <>
+            <P animate>Forgot your password ?</P>
+            <P
+                fontSize="3rem"
+                color="white">Reset it now<Span fontSize="4rem">!</Span>
+            </P>
 
-                <Form onSubmit={handleSubmit}>
-                    <Input
-                        type="email"
-                        placeholder="Your Email"
-                        name="email"
-                        value={email}
-                        onChange={handleInputChange}
-                        autoComplete="off" />
-                    <Input
-                        type="password"
-                        placeholder="password"
-                        name="password"
-                        value={password}
-                        onChange={handleInputChange}
-                        autoComplete="off" />
-                    <Input
-                        type="password"
-                        placeholder="password"
-                        name="password2"
-                        value={password2}
-                        onChange={handleInputChange}
-                        autoComplete="off" />
+            <Form onSubmit={handleSubmit}>
+                <Input
+                    type="email"
+                    placeholder="Your Email"
+                    name="email"
+                    value={email}
+                    onChange={handleInputChange}
+                    autoComplete="off" />
+                <Input
+                    type="password"
+                    placeholder="password"
+                    name="password"
+                    value={password}
+                    onChange={handleInputChange}
+                    autoComplete="off" />
+                <Input
+                    type="password"
+                    placeholder="password"
+                    name="password2"
+                    value={password2}
+                    onChange={handleInputChange}
+                    autoComplete="off" />
 
-                    <Buttom
-                        padding="true"
-                        content="Recover password now !"
-                    />
-
-
-                </Form>
-
-
-                <Link
-                    borderBottom="true"
-                    color={colors.burgundy}
+                <Buttom
                     padding="true"
-                    type={buttonTypes.link}
-                    to="/">
-                    <Span
-                        color={colors.white}
-
-                    >Go back Home</Span>
-                </Link>
+                    content="Recover password now !"
+                />
 
 
+            </Form>
 
 
+            <Link
+                borderBottom="true"
+                color={colors.burgundy}
+                padding="true"
+                type={buttonTypes.link}
+                to="/">
+                <Span
+                    color={colors.white}
 
-            </Container>
-        </MainBackground>
+                >Go back Home</Span>
+            </Link>
+
+        </>
+
     )
 }

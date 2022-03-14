@@ -15,7 +15,7 @@ background-size:cover;
 export const StyledContainer = styled.div`
 align-items:center;
 background-size:cover;
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.4);
 display:flex;
 flex-direction:column; 
 justify-content:center ;

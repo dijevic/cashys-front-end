@@ -29,7 +29,6 @@ color:${colors.white};
 font-size: 2rem;
 font-weight: bold;
 line-height: 2rem;
-
     span{
         color:${colors.blue}
     }
@@ -37,25 +36,21 @@ line-height: 2rem;
 `
 
 export const Div = styled.div`
-background:${colors.blue};
-border-radius:10px;
 padding:2px 5px;
 width:fit-content;
-transition:0.3s ease-in-out all ;
+transition:.3s ease-in-out all ;
 @media(min-width:768px){
     svg{
     height:28px;
-    transition:0.3s ease-in-out fill; 
     width:28px;
 }
 &:hover{
-padding:2px 10px;
+    transform: translateY(-4px);
+
     svg{
-    fill:${colors.blue};
+    fill:${colors.white};
     stroke:${colors.white};
     }
-
-
 }
 }
 

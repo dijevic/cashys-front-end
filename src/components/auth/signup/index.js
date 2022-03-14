@@ -10,7 +10,6 @@ import { Input } from '../../coomon/input'
 import { useForm } from '../../../hooks/useForm'
 import { Buttom } from '../../coomon/buttom'
 import { Link } from '../../coomon/buttom/Link'
-import { MainBackground, Container } from '../../coomon/div'
 
 const { colors, buttonTypes } = theme
 
@@ -53,66 +52,66 @@ export const SignUpComponent = () => {
 
     }
     return (
-        <MainBackground>
-            <Container>
-                <P animate>Create your account for free</P>
-                <P
-                    fontSize="3rem"
 
-                    color="white">Sign Up Now <Span fontSize="4rem">!</Span>
-                </P>
+        <>
+            <P animate>Create your account for free</P>
+            <P
+                fontSize="3rem"
 
-                <Form onSubmit={handleSubmit}>
-                    <Input
-                        type="email"
-                        placeholder="Your Email"
-                        name="email"
-                        value={email}
-                        onChange={handleInputChange}
-                        autoComplete="off" />
-                    <Input
-                        type="text"
-                        placeholder="Your Name"
-                        name="name"
-                        value={name}
-                        onChange={handleInputChange}
-                        autoComplete="off" />
-                    <Input
-                        type="password"
-                        placeholder="password"
-                        name="password"
-                        value={password}
-                        onChange={handleInputChange}
-                        autoComplete="off" />
-                    <Input
-                        type="password"
-                        placeholder="password"
-                        name="password2"
-                        value={password2}
-                        onChange={handleInputChange}
-                        autoComplete="off" />
+                color="white">Sign Up Now <Span fontSize="4rem">!</Span>
+            </P>
 
-                    <Buttom
-                        padding="true"
-                        content="Sign Up !"
-                    />
+            <Form onSubmit={handleSubmit}>
+                <Input
+                    type="email"
+                    placeholder="Your Email"
+                    name="email"
+                    value={email}
+                    onChange={handleInputChange}
+                    autoComplete="off" />
+                <Input
+                    type="text"
+                    placeholder="Your Name"
+                    name="name"
+                    value={name}
+                    onChange={handleInputChange}
+                    autoComplete="off" />
+                <Input
+                    type="password"
+                    placeholder="password"
+                    name="password"
+                    value={password}
+                    onChange={handleInputChange}
+                    autoComplete="off" />
+                <Input
+                    type="password"
+                    placeholder="password"
+                    name="password2"
+                    value={password2}
+                    onChange={handleInputChange}
+                    autoComplete="off" />
 
-                </Form>
+                <Buttom
+                    padding="true"
+                    content="Sign Up !"
+                />
 
-                <P color={colors.white} >do you has an account ?
+            </Form>
 
-                    <Link
-                        borderBottom="true"
-                        padding="true"
-                        type={buttonTypes.link}
-                        to="/"><Span>Sign In</Span>
-                    </Link>
+            <P color={colors.white} >do you has an account ?
 
-
-                </P>
+                <Link
+                    borderBottom="true"
+                    padding="true"
+                    type={buttonTypes.link}
+                    to="/"><Span>Sign In</Span>
+                </Link>
 
 
-            </Container>
-        </MainBackground>
+            </P>
+
+
+        </>
+
     )
 }
