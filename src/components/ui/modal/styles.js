@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import DatePicker from "react-datepicker";
+
 import { theme } from '../../../styles/theme'
 
 
@@ -23,6 +25,11 @@ margin:20px 0px;
 line-height: 1.3rem;
 font-style: bold;
 border-bottom: 2px solid ${colors.blue};
+padding: 10px;
+@media (min-width: 768px) {
+font-size:1.5rem;
+line-height: 1.5rem; 
+}
 `
 
 export const Span = styled.span`
@@ -47,4 +54,15 @@ stroke:${colors.white}
   }
 }
 }
+`
+
+export const StyledDataPicker = styled(DatePicker)`
+
+width:100%;
+border: 2px solid transparent;
+border-bottom: 2px solid ${colors.blue};
+padding: 15px 18px;
+font-size: 1.2rem;
+line-height: 1.2rem;
+
 `

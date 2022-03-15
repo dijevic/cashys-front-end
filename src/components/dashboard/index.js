@@ -1,6 +1,7 @@
 // third  party imp
 import React from 'react'
 
+// hooks
 
 // styled components 
 import { theme } from '../../styles/theme'
@@ -9,7 +10,10 @@ import { Div, Span, Ul } from './styles'
 import { Operation } from './Operation'
 const { colors } = theme
 
+
+
 export const DashboardComponent = () => {
+
 
 
     return (

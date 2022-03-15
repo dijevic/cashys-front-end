@@ -91,7 +91,7 @@ export const ResetPasswordComponent = () => {
 
 
             <Link
-                borderBottom="true"
+                borderbottom="true"
                 color={colors.burgundy}
                 padding="true"
                 type={buttonTypes.link}

@@ -101,10 +101,11 @@ export const SignUpComponent = () => {
             <P color={colors.white} >do you has an account ?
 
                 <Link
-                    borderBottom="true"
+                    borderbottom="true"
                     padding="true"
                     type={buttonTypes.link}
-                    to="/"><Span>Sign In</Span>
+                    to="/">
+                    <Span>Sign In</Span>
                 </Link>
 
 

@@ -25,6 +25,7 @@ background: none;
 border-bottom:2px solid ${colors.blue};
 border-radius: 0px;
 
+
 `}
 
 @media(min-width:768px){

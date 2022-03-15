@@ -1,6 +1,6 @@
 // thirt party importations
 
-import React from 'react'
+import React, { useState } from 'react'
 import {
     BrowserRouter as Router,
     Route,
@@ -9,10 +9,10 @@ import {
 
 } from 'react-router-dom'
 import { Container, MainBackground } from '../components/coomon/div'
-import { Modal } from '../components/ui/modal'
 import { NavBar } from '../components/ui/navbar/NavBar'
 import { Footer } from '../pages/Footer'
 import { NotFound } from '../pages/NotFound'
+import { useUserStore } from '../store/store'
 import { AuthRouter } from './AuthRouter'
 import { ContentRouter } from './ContentRouter'
 
@@ -24,8 +24,7 @@ import { PublicRoute } from './PublicRoute'
 
 export const AppRouter = () => {
 
-    const isAuth = true
-
+    const user = useUserStore(state => state.user)
 
     return (
 
@@ -35,20 +34,19 @@ export const AppRouter = () => {
                 <NavBar />
                 <MainBackground>
                     <Container>
-                        {/* <Modal /> */}
                         <Routes>
 
                             <Route
                                 element={
                                     <PublicRoute
-                                        isAuth={isAuth}
+                                        isAuth={user}
                                         children={AuthRouter} />}
                                 path="/*" />
 
                             <Route
                                 element={
                                     <PrivateRoute
-                                        isAuth={isAuth}
+                                        isAuth={user}
                                         children={ContentRouter} />}
                                 path="/app/*" />
 

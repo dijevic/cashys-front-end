@@ -16,7 +16,7 @@ flex-direction:${({ direction }) => (direction) && direction};
 
 &:hover{
 background:none;
-border-bottom:${({ borderBottom }) => (borderBottom) && `2px solid ${colors.burgundy}`} ;
+border-bottom:${({ borderbottom }) => (borderbottom) && `2px solid ${colors.white}`} ;
 border-radius:0px;
 transform: translateY(0px);
 }

@@ -24,6 +24,7 @@ border-radius: 30px;
 max-width: 450px;
 position: relative;
 border:2px solid ${colors.blue};
+top: 20px;
 `
     };
 

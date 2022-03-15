@@ -25,13 +25,51 @@ margin-right:10px;
 width: 25px;
 `
 export const P = styled.p`
+border-bottom:2px solid transparent;
 color:${colors.white};
 font-size: 2rem;
 font-weight: bold;
 line-height: 2rem;
-    span{
-        color:${colors.blue}
+position:relative;
+
+span{
+        color:${colors.blue};
+        transition:.5s ease-in-out all;
     }
+&::after{
+    content:'';
+    display: block;
+    position:absolute;
+    width:0%;
+    height:2px;
+    background: ${colors.blue};
+    transition: .3s ease-in-out all;
+    bottom: -10px;
+}
+&:hover{
+    span{
+        display: inline-block;
+        transform:translateY(-10px)
+    }
+
+    &::after{
+    content:'';
+    width:100%;
+ 
+}
+   
+}
+   
+
+
+`
+
+export const Span = styled.span`
+border-bottom: 2px solid transparent;
+font-size: 1.3rem;
+line-height: 1.3rem;
+transition: .3s ease all;
+
 
 `
 
@@ -46,12 +84,11 @@ transition:.3s ease-in-out all ;
 }
 &:hover{
     transform: translateY(-4px);
-
-    svg{
-    fill:${colors.white};
-    stroke:${colors.white};
+    ${Span}{
+        border-bottom: 2px solid ${colors.blue};
     }
 }
 }
 
 `
+

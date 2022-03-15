@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import validator from 'validator'
 
 // own files and files
@@ -12,25 +12,31 @@ import { Link } from '../../coomon/buttom/Link'
 // style component
 import { P, Span } from '../styles'
 import { theme } from '../../../styles/theme'
-
+import { loginService } from '../../../services/loginService'
+import { useUserStore } from '../../../store/store'
 
 const { colors, buttonTypes } = theme
 
 
+
+
 export const LoginComponent = () => {
 
-
-
+    const setUser = useUserStore(state => state.setUser)
     const initialState = {
-        email: '',
-        password: ''
+        email: 'dijevic.developer@gmail.com',
+        password: '1234567'
 
     }
     const [stateValues, handleInputChange] = useForm(initialState)
 
     const { email, password } = stateValues
 
-    const handleSubmit = (e) => {
+
+
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
 
@@ -44,6 +50,7 @@ export const LoginComponent = () => {
 
 
 
+        loginService({ email, password }, setUser)
     }
 
 
@@ -90,7 +97,7 @@ export const LoginComponent = () => {
                 not a member yet ?
                 <Link
                     background="none"
-                    borderBottom="true"
+                    borderbottom="true"
                     padding="true"
                     type={buttonTypes.link}
                     to="/signup">

@@ -51,14 +51,17 @@ width: 100%;
 
 export const Li = styled.li`
 
+align-items:center;
 animation-duration: 0.9s;
 animation-iteration-count: initial;
 animation-name:${animations.fadeInLeft};
-background: ${colors.blueGrey};
+background: rgba(0, 0, 0,0.7);
 border-radius: 20px;
-box-shadow:5px 5px 7px rgba(0,0,0,0.6);
+/* border: 2px solid ${colors.blue}; */
+box-shadow:5px 5px 7px rgba(0,0,0,0.3);
 color:${colors.white};
 cursor:pointer;
+display:flex;
 font-size: 1rem;
 line-height: 1rem;
 margin: 10px ;
@@ -70,7 +73,9 @@ font-size: 1.4rem;
 line-height: 1.4rem;
 
 &:hover{
-background: rgba(0,0,0,0.6);
+background: ${colors.lightBlue};
+/* border:2px solid ${colors.white}; */
+
 
 }
 
@@ -78,3 +83,29 @@ background: rgba(0,0,0,0.6);
 }
 
 `
+
+export const P = styled.p`
+display:flex;
+flex-direction:column;
+font-size:1.3rem;
+line-height:1.3rem;
+span{
+    font-style:italic;
+}
+`
+
+export const SpanIcon = styled.span`
+align-items:center;
+background:${colors.blue};
+border-radius:100%;
+box-shadow:5px 5px 7px rgba(0,0,0,0.3);
+display:flex;
+height:40px;
+margin-right:10px;
+padding:5px;
+width:40px;
+
+`
+
+
+

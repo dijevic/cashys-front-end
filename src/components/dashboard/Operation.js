@@ -1,10 +1,22 @@
 import React from 'react'
-import { Li } from './styles'
+import { PlusIcon } from '../coomon/icons/Plus'
+import { MinusIcon } from '../coomon/icons/Minus'
+import { Li, SpanIcon, P } from './styles'
 
 export const Operation = () => {
     return (
 
-        <Li>Operacion: 300000  tipo : varios</Li>
+        <Li>
+            <SpanIcon>
+                <PlusIcon />
+            </SpanIcon>
+
+            <P>Operacion: 300000
+                <span>12/12/12</span>
+
+            </P>
+
+        </Li>
 
     )
 }
