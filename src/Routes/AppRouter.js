@@ -7,6 +7,7 @@ import {
     Routes,
 
 
+
 } from 'react-router-dom'
 import { Container, MainBackground } from '../components/coomon/div'
 import { Spinner } from '../components/coomon/spinner'
@@ -26,23 +27,24 @@ import { PublicRoute } from './PublicRoute'
 
 export const AppRouter = () => {
 
+
+
     const user = useUserStore(state => state.user)
     const setUser = useUserStore(state => state.setUser)
-    const [checking, setChecking] = useState(false)
+    const [checking, setChecking] = useState(true)
     const token = localStorage.getItem('token')
 
     useEffect(async () => {
         if (token) {
             RenewTokenService(setUser, setChecking)
-            console.log('hello')
-
+        } else {
+            setChecking(false)
         }
     }, [token])
 
     if (checking) {
-        <Spinner />
+        return (<Spinner />)
     }
-
 
     return (
 

@@ -10,8 +10,7 @@ width: 100%;
 height:100vh;
 position:fixed;
 top: 0;
-background: rgba(0,0,0,0.7);
-flex-direction: column;
+background: rgba(0,0,0,0.4);
 span{
     display: flex;
 
@@ -27,4 +26,8 @@ font-weight: bold;
 margin-top:80px;
 font-style: italic;
 
+`
+
+export const Span = styled.span`
+display: flex;
 `

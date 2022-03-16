@@ -17,7 +17,7 @@ align-items:center;
 background-size:cover;
 background:rgba(0,0,0,0.4);
 display:flex;
-flex-direction:column; 
+flex-direction:${({ direction }) => (direction) ? direction : 'column'}; 
 justify-content:center ;
 padding:10px;
 width: 100%;
