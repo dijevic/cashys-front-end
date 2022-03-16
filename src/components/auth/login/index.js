@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import validator from 'validator'
 
 // own files and files
@@ -14,6 +14,7 @@ import { P, Span } from '../styles'
 import { theme } from '../../../styles/theme'
 import { loginService } from '../../../services/loginService'
 import { useUserStore } from '../../../store/store'
+import { Spinner } from '../../coomon/spinner'
 
 const { colors, buttonTypes } = theme
 
@@ -23,6 +24,7 @@ const { colors, buttonTypes } = theme
 export const LoginComponent = () => {
 
     const setUser = useUserStore(state => state.setUser)
+    const [loading, setLoading] = useState(true)
     const initialState = {
         email: 'dijevic.developer@gmail.com',
         password: '1234567'
@@ -50,7 +52,17 @@ export const LoginComponent = () => {
 
 
 
-        loginService({ email, password }, setUser)
+        loginService({ email, password }, setUser, setLoading)
+
+
+    }
+
+    if (loading) {
+        return (
+
+            <Spinner />
+        )
+
     }
 
 

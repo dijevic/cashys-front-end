@@ -55,7 +55,31 @@ export const theme = {
           opacity : 1;
           transform: translateY(0);
       
-        }`
+        }`,
+
+        moveUpToDown: keyframes`
+        from {
+            transform: translateY(-20px);
+        }
+        to{
+            transform: translateY(0px);
+
+        }
+        
+        
+        `,
+        moveDownToUp: keyframes`
+        from {
+            transform: translateY(20px);
+        }
+        to{
+            transform: translateY(-40px);
+
+        }
+        
+        
+        `,
+
 
 
 

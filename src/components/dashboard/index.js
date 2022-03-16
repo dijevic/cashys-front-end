@@ -13,9 +13,6 @@ const { colors } = theme
 
 
 export const DashboardComponent = () => {
-
-
-
     return (
 
         <>

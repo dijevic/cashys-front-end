@@ -1,9 +1,8 @@
 import { paths } from "../config/methodsFetch"
 import { fetchWithNotToken } from "../helpers/fetchWithoutToken"
-import { useUserStore } from "../store/store"
 
-export const loginService = async (fetchData, setUser) => {
-
+export const loginService = async (fetchData, setUser, setLoading) => {
+    setLoading(true)
     try {
 
         try {
@@ -19,10 +18,11 @@ export const loginService = async (fetchData, setUser) => {
                     name: data.name
                 }
                 setUser(user)
+                setLoading(false)
 
             } else {
                 setUser(false)
-                console.log('error')
+                setLoading(false)
             }
 
 

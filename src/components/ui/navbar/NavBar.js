@@ -4,11 +4,12 @@ import React from 'react'
 // styled components imp
 import { theme } from '../../../styles/theme'
 import { Link } from '../../coomon/buttom/Link'
-import { StyledNav, StyledLogo, P, Div, Span } from './styles'
+import { StyledNav, Div, Span } from './styles'
 import { UserIcon } from '../../coomon/icons/User'
+import { BrandLogo } from '../../coomon/logo'
 
 
-const { colors, buttonTypes } = theme
+const { buttonTypes } = theme
 export const NavBar = () => {
     return (
 
@@ -17,10 +18,7 @@ export const NavBar = () => {
             <Link
                 type={buttonTypes.link}
                 centered="true" to="/">
-                <StyledLogo color={colors.blue} />
-                <StyledLogo color={colors.white} />
-                <StyledLogo color={colors.purple} />
-                <P>Cashys  <span>!</span></P>
+                <BrandLogo />
             </Link>
 
             <Div>
