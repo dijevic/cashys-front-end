@@ -11,14 +11,19 @@ height:100vh;
 position:fixed;
 top: 0;
 background: rgba(0,0,0,0.7);
+flex-direction: column;
+span{
+    display: flex;
+}
 
 `
 
 export const Span = styled.span`
 font-size: 2.5rem;
 line-height: 2.5rem;
-color: ${colors.black};
+color: ${colors.white};
 font-weight: bold;
+margin-top:25px;
 
 
 `

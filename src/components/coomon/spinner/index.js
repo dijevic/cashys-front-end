@@ -5,8 +5,10 @@ import { Div, Span } from './styles'
 export const Spinner = () => {
     return (
         <Div>
+            <span>
 
-            <BrandLogo spinner="true" />
+                <BrandLogo spinner="true" />
+            </span>
             <Span>Loading ...</Span>
         </Div>
     )

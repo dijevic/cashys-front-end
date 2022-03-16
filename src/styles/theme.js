@@ -62,7 +62,7 @@ export const theme = {
             transform: translateY(-20px);
         }
         to{
-            transform: translateY(0px);
+            transform: translateY(30px);
 
         }
         

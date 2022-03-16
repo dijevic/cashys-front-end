@@ -7,10 +7,13 @@ import { Link } from '../../coomon/buttom/Link'
 import { StyledNav, Div, Span } from './styles'
 import { UserIcon } from '../../coomon/icons/User'
 import { BrandLogo } from '../../coomon/logo'
+import { useUserStore } from '../../../store/store'
 
 
 const { buttonTypes } = theme
 export const NavBar = () => {
+
+    const user = useUserStore(state => state.user)
     return (
 
         <StyledNav>
@@ -20,17 +23,21 @@ export const NavBar = () => {
                 centered="true" to="/">
                 <BrandLogo />
             </Link>
+            {
+                (user) &&
+                <Div>
+                    <Link
+                        type={buttonTypes.link}
+                        direction="column"
+                        centered="true"
+                        to="/app/profile">
+                        <UserIcon />
+                        <Span>Profile</Span>
+                    </Link>
+                </Div>
 
-            <Div>
-                <Link
-                    type={buttonTypes.link}
-                    direction="column"
-                    centered="true"
-                    to="/app/profile">
-                    <UserIcon />
-                    <Span>Profile</Span>
-                </Link>
-            </Div>
+            }
+
 
         </StyledNav>
 
