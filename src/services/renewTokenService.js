@@ -1,14 +1,16 @@
 import { paths } from "../config/methodsFetch"
-import { fetchWithNotToken } from "../helpers/fetchWithoutToken"
+import { fetchWithToken } from "../helpers/fetchWithToken"
 
-export const loginService = async (fetchData, setUser, setLoading) => {
+export const RenewTokenService = async (setUser, setLoading) => {
+
+
     setLoading(true)
+
     try {
 
         try {
-            const resp = await fetchWithNotToken(fetchData, 'POST', paths.login)
+            const resp = await fetchWithToken('test', 'GET', paths.renewToken)
             const data = await resp.json()
-
 
             if (data.ok) {
                 localStorage.setItem('token', data.token)
@@ -17,16 +19,15 @@ export const loginService = async (fetchData, setUser, setLoading) => {
                     id: data.id,
                     name: data.name
                 }
-                setLoading(false)
+
                 setUser(user)
+                setLoading(false)
 
             } else {
-                setLoading(false)
+
                 setUser(false)
+                setLoading(false)
             }
-
-
-
 
         } catch (e) {
             console.log(e)
@@ -35,4 +36,5 @@ export const loginService = async (fetchData, setUser, setLoading) => {
     } catch (error) {
         console.log(error)
     }
+
 }

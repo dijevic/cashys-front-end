@@ -1,9 +1,9 @@
-import styled, { animation } from 'styled-components'
+import styled from 'styled-components'
 
 // styled components
 import { theme } from '../../../styles/theme'
 
-const { colors, animations } = theme
+const { colors } = theme
 
 
 export const StyledNav = styled.nav`

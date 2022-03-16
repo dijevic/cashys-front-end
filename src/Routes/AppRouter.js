@@ -1,6 +1,6 @@
 // thirt party importations
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     BrowserRouter as Router,
     Route,
@@ -9,9 +9,11 @@ import {
 
 } from 'react-router-dom'
 import { Container, MainBackground } from '../components/coomon/div'
+import { Spinner } from '../components/coomon/spinner'
 import { NavBar } from '../components/ui/navbar/NavBar'
 import { Footer } from '../pages/Footer'
 import { NotFound } from '../pages/NotFound'
+import { RenewTokenService } from '../services/renewTokenService'
 import { useUserStore } from '../store/store'
 import { AuthRouter } from './AuthRouter'
 import { ContentRouter } from './ContentRouter'
@@ -25,6 +27,22 @@ import { PublicRoute } from './PublicRoute'
 export const AppRouter = () => {
 
     const user = useUserStore(state => state.user)
+    const setUser = useUserStore(state => state.setUser)
+    const [checking, setChecking] = useState(false)
+    const token = localStorage.getItem('token')
+
+    useEffect(async () => {
+        if (token) {
+            RenewTokenService(setUser, setChecking)
+            console.log('hello')
+
+        }
+    }, [token])
+
+    if (checking) {
+        <Spinner />
+    }
+
 
     return (
 
