@@ -1,15 +1,22 @@
 import React from 'react'
-import { BrandLogo } from '../logo'
-import { Div, Span } from './styles'
+
+// styled components
+import { DotComponent } from '../dot'
+import { Div, P } from './styles'
+import { theme } from '../../../styles/theme'
+
+const { animations } = theme
 
 export const Spinner = () => {
     return (
         <Div>
             <span>
+                <DotComponent spinner="true" />
+                <DotComponent spinner="true" />
+                <DotComponent spinner="true" />
 
-                <BrandLogo spinner="true" />
             </span>
-            <Span>Loading ...</Span>
+            <P>Loading ...</P>
         </Div>
     )
 }

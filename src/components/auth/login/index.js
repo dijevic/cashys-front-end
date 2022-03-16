@@ -24,7 +24,7 @@ const { colors, buttonTypes } = theme
 export const LoginComponent = () => {
 
     const setUser = useUserStore(state => state.setUser)
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const initialState = {
         email: 'dijevic.developer@gmail.com',
         password: '1234567'

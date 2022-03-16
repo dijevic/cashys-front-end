@@ -1,8 +1,9 @@
 import React from 'react'
 import { theme } from '../../../styles/theme'
-import { Dot, P } from './styles'
+import { DotComponent } from '../dot'
+import { P } from './styles'
 
-const { colors, animations } = theme
+const { colors, } = theme
 
 export const BrandLogo = ({ spinner }) => {
 
@@ -10,9 +11,8 @@ export const BrandLogo = ({ spinner }) => {
 
     return (
         <>
-            <Dot animate={(spinner) && animations.moveUpToDown} animatedelay="0s" background={colors.blue} />
-            <Dot animate={(spinner) && animations.moveDownToUp} animatedelay=".4s" background={colors.white} />
-            <Dot animate={(spinner) && animations.moveUpToDown} animatedelay=".8s" background={colors.purple} />
+            <DotComponent background={colors.blue} />
+
             <P>Cashys  <span>!</span></P>
         </>
 

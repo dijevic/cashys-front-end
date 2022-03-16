@@ -14,16 +14,17 @@ background: rgba(0,0,0,0.7);
 flex-direction: column;
 span{
     display: flex;
+
 }
 
 `
 
-export const Span = styled.span`
+export const P = styled.p`
 font-size: 2.5rem;
 line-height: 2.5rem;
 color: ${colors.white};
 font-weight: bold;
-margin-top:25px;
-
+margin-top:80px;
+font-style: italic;
 
 `
