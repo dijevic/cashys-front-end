@@ -11,7 +11,6 @@ import { LogoutIcon } from '../../coomon/icons/LogoutIcon'
 
 const { buttonTypes } = theme
 export const NavBar = ({ open }) => {
-    console.log(open)
 
     return (
 

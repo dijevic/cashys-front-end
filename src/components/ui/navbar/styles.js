@@ -19,6 +19,8 @@ transition: 0.3s ease all;
 position: static;
 background: none;
 padding: 0px;
+transform: translateX(0);
+
 }
 
 `

@@ -18,6 +18,7 @@ export const Header = () => {
     const handleOpenMenu = () => {
         setOpenMenu(!openMenu)
 
+
     }
     return (
         <StyledHeader>
@@ -27,7 +28,10 @@ export const Header = () => {
                 <BrandLogo />
             </Link>
             <span onClick={handleOpenMenu}>
+
+
                 {
+
                     (openMenu) ? <CloseMenuIcon /> : <MenuIcon />
                 }
 
