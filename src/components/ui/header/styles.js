@@ -6,7 +6,7 @@ width: 100%;
 background: ${colors.burgundy};
 display:flex;
 justify-content: space-between;
-padding: 10px;
+padding: 10px 20px;
 position:relative;
 align-items: center;
 @media(min-width:768px){

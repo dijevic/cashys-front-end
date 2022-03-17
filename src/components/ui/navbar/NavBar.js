@@ -7,10 +7,18 @@ import { Link } from '../../coomon/buttom/Link'
 import { StyledNav, Ul, Li, P } from './styles'
 import { UserIcon } from '../../coomon/icons/User'
 import { LogoutIcon } from '../../coomon/icons/LogoutIcon'
+import { useUserStore } from '../../../store/store'
 
 
 const { buttonTypes } = theme
 export const NavBar = ({ open }) => {
+    const setUser = useUserStore(state => state.setUser)
+
+
+    const handleLogOut = () => {
+        setUser(false)
+        localStorage.clear()
+    }
 
     return (
 
@@ -27,7 +35,7 @@ export const NavBar = ({ open }) => {
                     </Link>
 
                 </Li>
-                <Li open={open}>
+                <Li open={open} onClick={handleLogOut}>
                     <LogoutIcon />
                     <P>log out</P>
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useUserStore } from '../../../store/store'
 
 // styled components
 import { theme } from '../../../styles/theme'
@@ -12,7 +13,7 @@ import { StyledHeader } from './styles'
 const { buttonTypes } = theme
 
 export const Header = () => {
-
+    const user = useUserStore(state => state.user)
     const [openMenu, setOpenMenu] = useState(false)
 
     const handleOpenMenu = () => {
@@ -27,16 +28,23 @@ export const Header = () => {
                 centered="true" to="/">
                 <BrandLogo />
             </Link>
-            <span onClick={handleOpenMenu}>
+
+            {
+                (user) &&
+                <>
+                    <span onClick={handleOpenMenu}>
 
 
-                {
+                        {
 
-                    (openMenu) ? <CloseMenuIcon /> : <MenuIcon />
-                }
+                            (openMenu) ? <CloseMenuIcon /> : <MenuIcon />
+                        }
 
-            </span>
-            <NavBar open={openMenu} />
+                    </span>
+                    <NavBar open={openMenu} />
+                </>
+            }
+
         </StyledHeader>
     )
 }
