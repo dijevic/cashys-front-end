@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom'
 import { Container, MainBackground } from '../components/coomon/div'
 import { Spinner } from '../components/coomon/spinner'
-import { NavBar } from '../components/ui/navbar/NavBar'
+import { Header } from '../components/ui/header'
 import { Footer } from '../pages/Footer'
 import { NotFound } from '../pages/NotFound'
 import { RenewTokenService } from '../services/renewTokenService'
@@ -34,13 +34,13 @@ export const AppRouter = () => {
     const [checking, setChecking] = useState(true)
     const token = localStorage.getItem('token')
 
-    useEffect(async () => {
+    useEffect(() => {
         if (token) {
             RenewTokenService(setUser, setChecking)
         } else {
             setChecking(false)
         }
-    }, [token])
+    }, [token, setUser])
 
     if (checking) {
         return (<Spinner />)
@@ -51,7 +51,7 @@ export const AppRouter = () => {
         <Router>
 
             <>
-                <NavBar />
+                <Header />
                 <MainBackground>
                     <Container>
                         <Routes>

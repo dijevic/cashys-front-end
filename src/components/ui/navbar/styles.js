@@ -3,87 +3,99 @@ import styled from 'styled-components'
 // styled components
 import { theme } from '../../../styles/theme'
 
-const { colors } = theme
+const { colors, animations } = theme
 
 
 export const StyledNav = styled.nav`
-padding:10px  ;
-background:${colors.burgundy};
+position: absolute;
+top: 56px;
+right: 0;
+width: 100%;
+background: ${colors.white};
+padding: 25px;
+transform: translateX( ${({ open }) => (open) ? '0px' : '-100%'});
+transition: 0.3s ease all;
+@media(min-width:768px){
+position: static;
+background: none;
+padding: 0px;
+}
+
+`
+
+export const Ul = styled.ul`
+width: 100%;
+height: 100%;
 display: flex;
-align-items: center;
-justify-content:space-between;
+flex-direction: column;
+justify-content: flex-start;
+
 
 @media(min-width:768px){
-padding:10px 100px;
+    flex-direction:row;
+    justify-content: flex-end;
+    align-items: center;
+  
 }
+
 `
 
 
-export const Span = styled.span`
-border-bottom: 2px solid transparent;
+export const P = styled.p`
 font-size: 1.3rem;
 line-height: 1.3rem;
-transition: .3s ease all;
-
-
-
-
-`
-
-export const Div = styled.div`
-padding:2px 5px;
-width:fit-content;
-transition:.3s ease-in-out all ;
-display: flex;
-align-items: center;
-justify-content: center;
+border-bottom:2px solid transparent ;
+color:${colors.black};
+transition:.3s ease all;
 @media(min-width:768px){
-    svg{
-    height:28px;
-    width:28px;
-}
-.icon-tabler-user{
-    transition: .3s ease all;
-}
-a{
-    &:hover{
-    ${Span}{
-        transform: translateY(-4px);
-        border-bottom: 2px solid ${colors.blue};
-    }
-    .icon-tabler-user{
-        transition: .3s ease all;
-        transform: translateY(-4px);
+font-size: 1.5rem;
+line-height: 1.5rem;
+color: ${colors.white};
 
-    }
-}
-}
 }
 
 `
-
-export const DivLogout = styled.div`
+export const Li = styled.li`
+padding: 10px 0px;
 display: flex;
-align-items: center;
 justify-content: center;
-margin-left: 20px;
+align-items: center;
 cursor: pointer;
-background: ${colors.white};
-padding: 5px 10px;
-border-radius: 10px;
-box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.3);
-p{
-    font-size: 1.3rem;
-    line-height: 1.3rem;
-    border-bottom:2px solid transparent ;
-
-}
-
-&:hover{
-
-    p{
-        border-bottom:2px solid ${colors.purple} ;
+position: relative;
+animation-name: ${({ open }) => open && animations.fadeInLeft};
+animation-iteration-count: initial;
+animation-duration:1s ;
+@media(min-width:768px){
+padding: 5px;
+margin-left: 20px;
+    svg{
+            fill: none;
+            stroke: ${colors.blue};
+            margin-right: 5px;
+        }
+    &::after{
+    content:'';
+    display: block;
+    position:absolute;
+    width:0%;
+    height:2px;
+    background: ${colors.blue};
+    transition: .3s ease-in-out all;
+    bottom: 0px;
+    left: 0;
     }
+    &:hover{
+        &::after{
+        content: '';
+        width: 100%;
+
+    }
+   
 }
+}
+   
+
 `
+
+
 
