@@ -1,6 +1,6 @@
 
 // thirt party components
-import React from 'react'
+import React, { useState } from 'react'
 import validator from 'validator'
 import { useForm } from '../../../hooks/useForm'
 import { theme } from '../../../styles/theme'
@@ -11,6 +11,7 @@ import { Buttom } from '../../coomon/buttom'
 import { Link } from '../../coomon/buttom/Link'
 import { Form } from '../../coomon/form'
 import { Input } from '../../coomon/input'
+import { ShowPasswordComponent } from '../../coomon/showpassword'
 import { P, Span } from '../styles'
 const { colors, buttonTypes } = theme
 
@@ -23,6 +24,7 @@ export const ResetPasswordComponent = () => {
 
     }
     const [stateValues, handleInputChange] = useForm(initialState)
+    const [showPassword, setShowPassword] = useState(false)
 
     const { email, password, password2 } = stateValues
 
@@ -67,19 +69,22 @@ export const ResetPasswordComponent = () => {
                     onChange={handleInputChange}
                     autoComplete="off" />
                 <Input
-                    type="password"
+                    type={(showPassword) ? 'text' : 'password'}
                     placeholder="password"
                     name="password"
                     value={password}
                     onChange={handleInputChange}
                     autoComplete="off" />
                 <Input
-                    type="password"
+                    type={(showPassword) ? 'text' : 'password'}
                     placeholder="password"
                     name="password2"
                     value={password2}
                     onChange={handleInputChange}
                     autoComplete="off" />
+
+                <ShowPasswordComponent callback={setShowPassword} showPassword={showPassword} />
+
 
                 <Buttom
                     padding="true"

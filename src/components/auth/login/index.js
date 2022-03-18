@@ -15,6 +15,7 @@ import { theme } from '../../../styles/theme'
 import { loginService } from '../../../services/loginService'
 import { useUserStore } from '../../../store/store'
 import { Spinner } from '../../coomon/spinner'
+import { ShowPasswordComponent } from '../../coomon/showpassword'
 
 const { colors, buttonTypes } = theme
 
@@ -24,6 +25,8 @@ const { colors, buttonTypes } = theme
 export const LoginComponent = () => {
 
     const setUser = useUserStore(state => state.setUser)
+    const [showPassword, setShowPassword] = useState(false)
+
     const [loading, setLoading] = useState(false)
     const initialState = {
         email: 'dijevic.developer@gmail.com',
@@ -65,7 +68,7 @@ export const LoginComponent = () => {
 
     }
 
-
+    console.log(showPassword)
 
 
     return (
@@ -85,12 +88,14 @@ export const LoginComponent = () => {
                     onChange={handleInputChange}
                     autoComplete="off" />
                 <Input
-                    type="password"
+                    type={(showPassword) ? 'text' : 'password'}
                     placeholder="password"
                     name="password"
                     value={password}
                     onChange={handleInputChange}
                     autoComplete="off" />
+
+                <ShowPasswordComponent callback={setShowPassword} showPassword={showPassword} />
 
                 <Buttom
                     padding="true"

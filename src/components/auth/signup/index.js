@@ -1,5 +1,5 @@
 // thirt party importations
-import React from 'react'
+import React, { useState } from 'react'
 import validator from 'validator'
 
 // styled components
@@ -10,10 +10,13 @@ import { Input } from '../../coomon/input'
 import { useForm } from '../../../hooks/useForm'
 import { Buttom } from '../../coomon/buttom'
 import { Link } from '../../coomon/buttom/Link'
+import { ShowPasswordComponent } from '../../coomon/showpassword'
+
 
 const { colors, buttonTypes } = theme
 
 export const SignUpComponent = () => {
+
 
 
     const initialState = {
@@ -23,6 +26,9 @@ export const SignUpComponent = () => {
         password2: ''
 
     }
+
+
+    const [showPassword, setshowPassword] = useState(false)
     const [stateValues, handleInputChange] = useForm(initialState)
 
     const { name, email, password, password2 } = stateValues
@@ -51,6 +57,8 @@ export const SignUpComponent = () => {
 
 
     }
+
+
     return (
 
         <>
@@ -77,19 +85,21 @@ export const SignUpComponent = () => {
                     onChange={handleInputChange}
                     autoComplete="off" />
                 <Input
-                    type="password"
+                    type={(showPassword) ? 'text' : 'password'}
                     placeholder="password"
                     name="password"
                     value={password}
                     onChange={handleInputChange}
                     autoComplete="off" />
                 <Input
-                    type="password"
+                    type={(showPassword) ? 'text' : 'password'}
                     placeholder="password"
                     name="password2"
                     value={password2}
                     onChange={handleInputChange}
                     autoComplete="off" />
+                <ShowPasswordComponent callback={setshowPassword} showPassword={showPassword} />
+
 
                 <Buttom
                     padding="true"
