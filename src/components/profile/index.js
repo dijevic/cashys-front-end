@@ -1,6 +1,6 @@
 
 // third  party imp
-import React from 'react'
+import React, { useState } from 'react'
 
 // components
 
@@ -17,6 +17,7 @@ import { Link } from '../coomon/buttom/Link'
 import { theme } from '../../styles/theme'
 import { H2 } from './styles'
 import { Form } from '../coomon/form'
+import { ShowPasswordComponent } from '../coomon/showpassword'
 
 
 
@@ -24,6 +25,7 @@ const { colors } = theme
 
 export const ProfileComponent = () => {
     const user = useUserStore(state => state.user)
+    const [showPassword, setShowPassword] = useState(false)
 
     return (
 
@@ -36,9 +38,10 @@ export const ProfileComponent = () => {
                 <Input type="text" placeholder="name">
 
                 </Input>
-                <Input type="password" placeholder="Password">
-
-                </Input>
+                <Input
+                    type={(showPassword) ? "text" : "password"}
+                    placeholder="Password" />
+                <ShowPasswordComponent callback={setShowPassword} showPassword={showPassword} />
 
                 <Buttom padding="true" content="save" />
 

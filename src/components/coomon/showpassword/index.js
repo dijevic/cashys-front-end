@@ -5,7 +5,7 @@ import { EyeClosed } from '../icons/EyeClosed'
 import { EyeOpen } from '../icons/EyeOpen'
 
 // styled Components
-import { Div, Span } from './styles'
+import { Div } from './styles'
 
 export const ShowPasswordComponent = ({ callback, showPassword }) => {
 
@@ -19,8 +19,7 @@ export const ShowPasswordComponent = ({ callback, showPassword }) => {
     return (
         <Div onClick={handleShow} >
             {
-                (showPassword) ? <Span showPassword={showPassword} > <EyeClosed /> </Span>
-                    : <Span showPassword={showPassword}><EyeOpen /></Span>
+                (showPassword) ? <EyeClosed /> : <EyeOpen />
 
             }
             {

@@ -16,9 +16,3 @@ animation-duration: 0.9s;
 
 `
 
-export const Span = styled.span`
-animation-name: ${({ showPassword }) => (showPassword) ? animations.fadeInup : animations.fadeInDown};
-animation-iteration-count: initial;
-animation-duration: 0.9s;
-
-`
