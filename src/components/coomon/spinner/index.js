@@ -7,7 +7,7 @@ import { Container, MainBackground } from '../div'
 
 
 
-export const Spinner = () => {
+export const Spinner = ({ extrainfo }) => {
     return (
         <MainBackground>
             <Container direction="row">
@@ -17,6 +17,9 @@ export const Spinner = () => {
                     <DotComponent spinner="true" />
                 </Span>
                 <P>Loading ...</P>
+                {
+                    <P>{extrainfo}</P>
+                }
 
             </Container>
 

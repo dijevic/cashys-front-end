@@ -19,12 +19,16 @@ span{
 `
 
 export const P = styled.p`
-font-size: 2.5rem;
-line-height: 2.5rem;
+font-size: 2rem;
+line-height: 2rem;
 color: ${colors.white};
 font-weight: bold;
 margin-top:80px;
 font-style: italic;
+@media(min-width:768px){
+font-size: 2.5rem;
+line-height: 2.5rem;
+}
 
 `
 

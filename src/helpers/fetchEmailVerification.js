@@ -1,7 +1,7 @@
 const baseUrl = process.env.REACT_APP_API_URL
-export const fetchWithToken = (data, method, endPoind, emailToken) => {
+export const fetchEmailVerification = (method, endPoind, token) => {
     const url = `${baseUrl}${endPoind}`
-    const token = localStorage.getItem('token') || emailToken
+
     if (method === 'GET') {
         return fetch(url, {
             headers: {
@@ -12,7 +12,6 @@ export const fetchWithToken = (data, method, endPoind, emailToken) => {
 
     return fetch(url, {
         method,
-        body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json', 'x-token': token }
     })
 }

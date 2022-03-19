@@ -11,6 +11,8 @@ import { useForm } from '../../../hooks/useForm'
 import { Buttom } from '../../coomon/buttom'
 import { Link } from '../../coomon/buttom/Link'
 import { ShowPasswordComponent } from '../../coomon/showpassword'
+import { emailVerificationService } from '../../../services/verifyEmailService'
+import { Spinner } from '../../coomon/spinner'
 
 
 const { colors, buttonTypes } = theme
@@ -18,6 +20,7 @@ const { colors, buttonTypes } = theme
 export const SignUpComponent = () => {
 
 
+    const [loading, setLoading] = useState(false)
 
     const initialState = {
         name: '',
@@ -54,8 +57,23 @@ export const SignUpComponent = () => {
 
         }
 
+        const data = {
+            name,
+            email,
+            password
+        }
 
 
+        emailVerificationService(data, setLoading)
+
+
+
+    }
+
+    if (loading) {
+        return (
+            <Spinner extrainfo="sending verification Email..." />
+        )
     }
 
 

@@ -68,7 +68,6 @@ export const LoginComponent = () => {
 
     }
 
-    console.log(showPassword)
 
 
     return (
