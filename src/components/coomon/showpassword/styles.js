@@ -3,7 +3,7 @@ import { theme } from '../../../styles/theme'
 
 
 const { colors, animations } = theme
-export const Div = styled.div`
+export const Button = styled.button.attrs({ type: 'button' })`
 display:flex;
 align-items:center;
 font-size: 1.2rem;
@@ -13,6 +13,7 @@ cursor: pointer;
 animation-name: ${animations.fadeInup};
 animation-iteration-count: initial;
 animation-duration: 0.9s;
+background:none;
 
 `
 

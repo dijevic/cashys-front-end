@@ -2,11 +2,19 @@ import React from 'react'
 import { PlusIcon } from '../coomon/icons/Plus'
 import { MinusIcon } from '../coomon/icons/Minus'
 import { Li, SpanIcon, P } from './styles'
+import { useUIStore } from '../../store/store'
 
 export const Operation = () => {
+
+    const setopenModal = useUIStore(state => state.setOpenModal)
+
+
+    const handleOpenModal = () => {
+        setopenModal()
+    }
     return (
 
-        <Li>
+        <Li onClick={handleOpenModal}>
             <SpanIcon>
                 <PlusIcon />
             </SpanIcon>
@@ -20,3 +28,4 @@ export const Operation = () => {
 
     )
 }
+

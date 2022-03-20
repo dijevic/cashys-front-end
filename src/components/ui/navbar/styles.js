@@ -34,9 +34,9 @@ justify-content: flex-start;
 
 
 @media(min-width:768px){
-    flex-direction:row;
-    justify-content: flex-end;
-    align-items: center;
+flex-direction:row;
+justify-content: flex-end;
+align-items: center;
   
 }
 

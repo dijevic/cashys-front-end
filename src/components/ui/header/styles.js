@@ -12,6 +12,12 @@ align-items: center;
 @media(min-width:768px){
 padding:10px 100px;
 
-span{ display:none}
+}
+`
+export const Span = styled.span`
+@media(min-width:768px){
+display: none;
+
+
 }
 `

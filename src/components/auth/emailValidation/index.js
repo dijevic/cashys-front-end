@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
-import { Navigate, useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+import validator from 'validator'
+import { changePasswordByReset } from '../../../services/changePasswordByReset'
 import { CreateUserService } from '../../../services/createUser'
 import { useUserStore } from '../../../store/store'
 import { Spinner } from '../../coomon/spinner'
@@ -7,16 +9,26 @@ import { Spinner } from '../../coomon/spinner'
 export const EmailTokenValidationComponent = () => {
     const setUser = useUserStore(state => state.setUser)
     const params = useParams()
+    const navigate = useNavigate()
+
     const token = params.token
 
+
     useEffect(() => {
-        if (token) {
-            CreateUserService(setUser, token)
+        if (token && validator.isJWT(token)) {
+
+            if (params['*'].startsWith('changepassword')) {
+                changePasswordByReset(setUser, token,)
+            } else if (params['*'].startsWith('validate')) {
+
+                CreateUserService(setUser, token)
+            }
 
         } else {
-            <Navigate to="/" />
+            navigate('/')
         }
-    }, [params])
+    }, [params, setUser, token, navigate])
+
 
     return (
         <Spinner extrainfo="wait a minute, our server is cheking your info" />

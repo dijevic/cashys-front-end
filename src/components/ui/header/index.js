@@ -8,7 +8,7 @@ import { CloseMenuIcon } from '../../coomon/icons/CloseMenuIcon'
 import { MenuIcon } from '../../coomon/icons/MenuIcon'
 import { BrandLogo } from '../../coomon/logo'
 import { NavBar } from '../navbar/NavBar'
-import { StyledHeader } from './styles'
+import { StyledHeader, Span } from './styles'
 
 const { buttonTypes } = theme
 
@@ -32,7 +32,7 @@ export const Header = () => {
             {
                 (user) &&
                 <>
-                    <span onClick={handleOpenMenu}>
+                    <Span animate={openMenu} onClick={handleOpenMenu}>
 
 
                         {
@@ -40,7 +40,7 @@ export const Header = () => {
                             (openMenu) ? <CloseMenuIcon /> : <MenuIcon />
                         }
 
-                    </span>
+                    </Span>
                     <NavBar open={openMenu} />
                 </>
             }

@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 // own imp
 import { EyeClosed } from '../icons/EyeClosed'
 import { EyeOpen } from '../icons/EyeOpen'
 
 // styled Components
-import { Div } from './styles'
+import { Button } from './styles'
 
 export const ShowPasswordComponent = ({ callback, showPassword }) => {
 
@@ -17,7 +17,7 @@ export const ShowPasswordComponent = ({ callback, showPassword }) => {
     }
 
     return (
-        <Div onClick={handleShow} >
+        <Button onClick={handleShow} >
             {
                 (showPassword) ? <EyeClosed /> : <EyeOpen />
 
@@ -26,6 +26,6 @@ export const ShowPasswordComponent = ({ callback, showPassword }) => {
                 (showPassword) ? 'Hide password' : 'Show Password'
             }
 
-        </Div>
+        </Button>
     )
 }

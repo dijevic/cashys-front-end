@@ -57,12 +57,28 @@ stroke:${colors.white}
 `
 
 export const StyledDataPicker = styled(DatePicker)`
-
 width:100%;
 border: 2px solid transparent;
 border-bottom: 2px solid ${colors.blue};
 padding: 15px 18px;
 font-size: 1.2rem;
 line-height: 1.2rem;
+
+`
+
+export const P = styled.p`
+font-size:1.3rem;
+margin-top:10px;
+line-height: 1.3rem;
+font-weight:bold;
+color: ${colors.blue};
+width: 100%;
+padding: 15px 18px;
+border-bottom: 2px solid ${colors.blue};
+@media(min-width: 768px){
+font-size:1.5rem;
+margin-top:20px;
+line-height: 1.5rem;
+}
 
 `

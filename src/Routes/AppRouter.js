@@ -14,6 +14,8 @@ import { Spinner } from '../components/coomon/spinner'
 import { Header } from '../components/ui/header'
 import { Footer } from '../pages/Footer'
 import { NotFound } from '../pages/NotFound'
+import { getBalanceService } from '../services/getBalance'
+import { getCategoriesService } from '../services/getCategories'
 import { RenewTokenService } from '../services/renewTokenService'
 import { useUserStore } from '../store/store'
 import { AuthRouter } from './AuthRouter'
@@ -31,18 +33,27 @@ export const AppRouter = () => {
 
     const user = useUserStore(state => state.user)
     const setUser = useUserStore(state => state.setUser)
-    const [checking, setChecking] = useState(true)
+    const setCategories = useUserStore(state => state.setCategories)
+    const setBalance = useUserStore(state => state.setBalance)
+    const [checking, setChecking] = useState(false)
+    const [loading, setLoading] = useState(false)
     const token = localStorage.getItem('token')
+
 
     useEffect(() => {
         if (token) {
             RenewTokenService(setUser, setChecking)
+            getBalanceService(setLoading, setBalance)
+            getCategoriesService(setLoading, setCategories)
         } else {
             setChecking(false)
         }
-    }, [token, setUser])
+    }, [token, setUser, setBalance, setCategories])
 
     if (checking) {
+        return (<Spinner />)
+    }
+    if (loading) {
         return (<Spinner />)
     }
 

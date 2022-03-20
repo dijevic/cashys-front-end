@@ -14,6 +14,7 @@ export const AuthRouter = () => {
             <Route element={<SignUp />} path="/signup" />
             <Route element={<ResetPasswordComponent />} path="/resetpassword" />
             <Route element={<EmailValidationToken />} path="/validate/:token" />
+            <Route element={<EmailValidationToken />} path="/changepassword/validate/:token" />
             <Route element={<NotFound />} path="*" />
 
 

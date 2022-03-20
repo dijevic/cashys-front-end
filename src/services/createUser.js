@@ -9,7 +9,6 @@ export const CreateUserService = async (setUser, token) => {
         try {
             const resp = await fetchEmailVerification('POST', paths.newUser, token)
             const data = await resp.json()
-            console.log(data)
             if (data.ok) {
                 localStorage.setItem('token', data.token)
                 localStorage.setItem('tokenDateStart', new Date().getTime())

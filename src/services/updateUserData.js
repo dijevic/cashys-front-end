@@ -1,7 +1,7 @@
 import { paths } from "../config/methodsFetch"
 import { fetchWithToken } from "../helpers/fetchWithToken"
 
-export const RenewTokenService = async (setUser, setLoading) => {
+export const updateUserDataService = async (fetchData, setUser, setLoading) => {
 
 
     setLoading(true)
@@ -9,23 +9,23 @@ export const RenewTokenService = async (setUser, setLoading) => {
     try {
 
         try {
-            const resp = await fetchWithToken('', 'GET', paths.renewToken)
+            const resp = await fetchWithToken(fetchData, 'PUT', paths.updateUserData)
             const data = await resp.json()
-
             if (data.ok) {
+
                 localStorage.setItem('token', data.token)
                 localStorage.setItem('tokenDateStart', new Date().getTime())
                 const user = {
                     id: data.id,
                     name: data.name
                 }
-
-                setUser(user)
                 setLoading(false)
+                setUser(user)
+
 
             } else {
 
-                setUser(false)
+                // setUser(false)
                 setLoading(false)
             }
 
