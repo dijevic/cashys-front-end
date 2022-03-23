@@ -1,6 +1,7 @@
 
 // thirt party components
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 import validator from 'validator'
 import { useForm } from '../../../hooks/useForm'
 import { resetpasswordService } from '../../../services/resetPassword'
@@ -38,20 +39,21 @@ export const ResetPasswordComponent = () => {
         e.preventDefault()
 
 
-
         if (!validator.isEmail(email)) {
-            return alert('an email is required')
+            toast.dismiss()
+            return toast.info('an email is required')
         }
-        if (validator.isEmpty(password)) {
-            return alert('a password is required')
-        }
+
 
         if (validator.isEmpty(password) || validator.isEmpty(password2)) {
-            return alert('a password is required')
+            toast.dismiss()
+            return toast.info('a password is required')
 
         }
         if (!validator.equals(password, password2)) {
-            return alert('password has to be same')
+            toast.dismiss()
+
+            return toast.error('password has to be same')
 
         }
 

@@ -13,6 +13,7 @@ import { Link } from '../../coomon/buttom/Link'
 import { ShowPasswordComponent } from '../../coomon/showpassword'
 import { emailVerificationService } from '../../../services/verifyEmailService'
 import { Spinner } from '../../coomon/spinner'
+import { toast } from 'react-toastify'
 
 
 const { colors, buttonTypes } = theme
@@ -42,27 +43,26 @@ export const SignUpComponent = () => {
 
 
         if (!validator.isEmail(email)) {
-            return alert('an email is required')
-        }
-        if (validator.isEmpty(password)) {
-            return alert('a password is required')
+            toast.dismiss()
+            return toast.info('The email is required')
         }
 
+
         if (validator.isEmpty(password) || validator.isEmpty(password2) || validator.isEmpty(name)) {
-            return alert('a password is required')
+            toast.dismiss()
+            return toast.info('please fill the empty fields')
 
         }
         if (!validator.equals(password, password2)) {
-            return alert('password has to be same')
+            toast.dismiss()
+            return toast.info('password has to be equal')
 
         }
-
         const data = {
             name,
             email,
             password
         }
-
 
         emailVerificationService(data, setLoading)
 

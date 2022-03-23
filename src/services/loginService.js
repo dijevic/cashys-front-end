@@ -1,14 +1,13 @@
 import { paths } from "../config/methodsFetch"
 import { fetchWithNotToken } from "../helpers/fetchWithoutToken"
 
-export const loginService = async (fetchData, setUser, setLoading) => {
+export const loginService = async (fetchData, setUser, setLoading, toast) => {
     setLoading(true)
     try {
 
         try {
             const resp = await fetchWithNotToken(fetchData, 'POST', paths.login)
             const data = await resp.json()
-
 
             if (data.ok) {
                 localStorage.setItem('token', data.token)
@@ -17,12 +16,15 @@ export const loginService = async (fetchData, setUser, setLoading) => {
                     id: data.id,
                     name: data.name
                 }
+
                 setLoading(false)
                 setUser(user)
 
             } else {
                 setLoading(false)
                 setUser(false)
+                toast.error('something wrong with password or Email')
+
             }
 
 

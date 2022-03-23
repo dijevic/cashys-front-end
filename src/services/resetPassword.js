@@ -1,3 +1,4 @@
+import { toast } from "react-toastify"
 import { paths } from "../config/methodsFetch"
 import { fetchWithNotToken } from "../helpers/fetchWithoutToken"
 
@@ -9,10 +10,10 @@ export const resetpasswordService = async (fetchData, setLoading) => {
             const resp = await fetchWithNotToken(fetchData, 'PUT', paths.resetPassword)
             const data = await resp.json()
 
-            console.log(data)
 
             if (data.ok) {
                 setLoading(false)
+                toast.info('a password has been sent to your email to recover your account :)')
 
 
             } else {

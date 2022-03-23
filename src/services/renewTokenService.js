@@ -11,7 +11,6 @@ export const RenewTokenService = async (setUser, setLoading) => {
         try {
             const resp = await fetchWithToken('', 'GET', paths.renewToken)
             const data = await resp.json()
-
             if (data.ok) {
                 localStorage.setItem('token', data.token)
                 localStorage.setItem('tokenDateStart', new Date().getTime())
@@ -19,7 +18,6 @@ export const RenewTokenService = async (setUser, setLoading) => {
                     id: data.id,
                     name: data.name
                 }
-
                 setUser(user)
                 setLoading(false)
 
@@ -27,6 +25,7 @@ export const RenewTokenService = async (setUser, setLoading) => {
 
                 setUser(false)
                 setLoading(false)
+                localStorage.clear()
             }
 
         } catch (e) {

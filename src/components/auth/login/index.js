@@ -16,6 +16,7 @@ import { loginService } from '../../../services/loginService'
 import { useUserStore } from '../../../store/store'
 import { Spinner } from '../../coomon/spinner'
 import { ShowPasswordComponent } from '../../coomon/showpassword'
+import { toast } from 'react-toastify'
 
 const { colors, buttonTypes } = theme
 
@@ -55,7 +56,8 @@ export const LoginComponent = () => {
 
 
 
-        loginService({ email, password }, setUser, setLoading)
+
+        loginService({ email, password }, setUser, setLoading, toast)
 
 
     }

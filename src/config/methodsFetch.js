@@ -10,7 +10,9 @@ export const paths = {
     changePasswordByReset: '/auth/change-password',
     getBalance: '/balance',
     getCategories: '/categories/',
-    updateUserData: '/user/'
+    updateUserData: '/user/',
+    createOperation: '/operation',
+    getOperations: '/operation'
 
 
 

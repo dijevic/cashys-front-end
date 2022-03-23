@@ -1,21 +1,13 @@
 // thirt party importations
 
-import React, { useEffect, useState } from 'react'
-import {
-    BrowserRouter as Router,
-    Route,
-    Routes,
-
-
-
-} from 'react-router-dom'
+import React, { useEffect, useRef, useState } from 'react'
+import { BrowserRouter as Router, Route, Routes, } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
 import { Container, MainBackground } from '../components/coomon/div'
 import { Spinner } from '../components/coomon/spinner'
 import { Header } from '../components/ui/header'
 import { Footer } from '../pages/Footer'
 import { NotFound } from '../pages/NotFound'
-import { getBalanceService } from '../services/getBalance'
-import { getCategoriesService } from '../services/getCategories'
 import { RenewTokenService } from '../services/renewTokenService'
 import { useUserStore } from '../store/store'
 import { AuthRouter } from './AuthRouter'
@@ -27,35 +19,30 @@ import { PrivateRoute } from './PrivateRoute'
 import { PublicRoute } from './PublicRoute'
 
 
+
 export const AppRouter = () => {
-
-
-
+    let token = useRef(false)
     const user = useUserStore(state => state.user)
-    const setUser = useUserStore(state => state.setUser)
-    const setCategories = useUserStore(state => state.setCategories)
-    const setBalance = useUserStore(state => state.setBalance)
-    const [checking, setChecking] = useState(false)
-    const [loading, setLoading] = useState(false)
-    const token = localStorage.getItem('token')
 
+    const setUser = useUserStore(state => state.setUser)
+    const [checking, setChecking] = useState(false)
 
     useEffect(() => {
+
+        token.current = localStorage.getItem('token')
         if (token) {
             RenewTokenService(setUser, setChecking)
-            getBalanceService(setLoading, setBalance)
-            getCategoriesService(setLoading, setCategories)
         } else {
             setChecking(false)
         }
-    }, [token, setUser, setBalance, setCategories])
+    }, [setUser])
+
 
     if (checking) {
         return (<Spinner />)
     }
-    if (loading) {
-        return (<Spinner />)
-    }
+
+
 
     return (
 
@@ -63,7 +50,7 @@ export const AppRouter = () => {
 
             <>
                 <Header />
-                <MainBackground>
+                <MainBackground >
                     <Container>
                         <Routes>
 
@@ -86,7 +73,7 @@ export const AppRouter = () => {
                         </Routes>
                     </Container>
 
-
+                    <ToastContainer />
                 </MainBackground>
 
                 <Footer />

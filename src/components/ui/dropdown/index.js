@@ -1,33 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useUserStore } from '../../../store/store'
 import { Label, Select } from './styled'
 
 export const Dropdown = ({ setOptionSelected }) => {
     const categories = useUserStore(state => state.categories)
 
+    useEffect(() => {
+        setOptionSelected({ category_id: categories[0].uuid })
+    }, [])
+
+
     const handleChange = ({ target }) => {
-        console.log(target.value)
-        setOptionSelected((state) => ({
-            ...state,
-            value: target.value
-        }))
+        setOptionSelected({ category_id: target.value })
 
     }
     return (
         <>
-            <Label htmlFor="cars">Choose a category:</Label>
-            <Select placeholder="category" onChange={handleChange} name="cars" id="cars">
+            <Label htmlFor="categories">Choose a category:</Label>
+            <Select onClick={handleChange} name="cars" id="categories">
                 {
                     categories.map(({ name, uuid: id }) =>
                         <option
+                            value={id}
                             onChange={handleChange}
-                            value={name}
                             key={id}
                         >
                             {name}
                         </option>
                     )
                 }
+
+
+
 
             </Select>
         </>

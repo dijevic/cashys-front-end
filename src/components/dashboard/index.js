@@ -1,5 +1,5 @@
 // third  party imp
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 // hooks
 
@@ -10,6 +10,11 @@ import { Div, Span, Ul } from './styles'
 import { Operation } from './Operation'
 import { useOperationStore, useUIStore, useUserStore } from '../../store/store'
 import { Modal } from '../ui/modal'
+import { getOperationsService } from '../../services/getOperations'
+import { Spinner } from '../coomon/spinner'
+import { getBalanceService } from '../../services/getBalance'
+import { getCategoriesService } from '../../services/getCategories'
+import { toast } from 'react-toastify'
 const { colors } = theme
 
 
@@ -17,26 +22,47 @@ const { colors } = theme
 export const DashboardComponent = () => {
 
     const modalState = useUIStore(state => state.modalState)
-    const setUser = useUserStore(state => state.setUser)
+    const setOperations = useUserStore(state => state.setOperations)
+    const setCategories = useUserStore(state => state.setCategories)
+    const operations = useUserStore(state => state.operations)
 
+    const [loading, setLoading] = useState(false)
     const balance = useUserStore(state => state.balance)
+    const setBalance = useUserStore(state => state.setBalance)
+
     const setopenModal = useUIStore(state => state.setOpenModal)
     const setOperationType = useOperationStore(state => state.setOperationType)
+
+
+
+    useEffect(() => {
+
+        getBalanceService(setLoading, setBalance)
+        getOperationsService(setOperations, setLoading)
+        getCategoriesService(setLoading, setCategories)
+
+    }, [setOperations, setCategories, setBalance])
+
 
 
     const handleIncome = () => {
         setOperationType('income')
         setopenModal()
-        setUser({ name: 'test' })
+
 
     }
     const handleDebt = () => {
-
         setOperationType('debt')
         setopenModal()
 
-
     }
+
+    if (loading) {
+        return (
+            <Spinner />
+        )
+    }
+
     return (
 
         <>
@@ -67,16 +93,20 @@ export const DashboardComponent = () => {
 
             <Div maxWidth="600" background shadow={false} direction="column">
                 <Ul>
-                    <Operation />
-                    <Operation />
-                    <Operation />
-                    <Operation />
-                    <Operation />
-                    <Operation />
-                    <Operation />
-                    <Operation />
-                    <Operation />
-                    <Operation />
+                    {
+                        operations.map(({ amount, date, description, operation_Type, uuid: id }) =>
+                            <Operation
+                                amount={amount}
+                                date={date}
+                                description={description}
+                                operation_Type={operation_Type}
+                                id={id}
+                                key={id}
+                            />
+
+                        )
+                    }
+
                 </Ul>
 
 

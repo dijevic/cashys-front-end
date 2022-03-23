@@ -2,7 +2,7 @@ import { toast } from "react-toastify"
 import { paths } from "../config/methodsFetch"
 import { fetchWithToken } from "../helpers/fetchWithToken"
 
-export const getCategoriesService = async (setLoading, setCategories) => {
+export const getOperationsService = async (setOperations, setLoading) => {
 
 
     setLoading(true)
@@ -10,14 +10,17 @@ export const getCategoriesService = async (setLoading, setCategories) => {
     try {
 
         try {
-            const resp = await fetchWithToken('', 'GET', paths.getCategories)
+            const resp = await fetchWithToken('', 'GET', paths.getOperations)
             const data = await resp.json()
+
             if (data.ok) {
+
+                setOperations(data.operations)
                 setLoading(false)
 
-                setCategories(data.categories)
-
             } else {
+
+                setOperations(false)
                 setLoading(false)
                 toast.error(data.message)
 

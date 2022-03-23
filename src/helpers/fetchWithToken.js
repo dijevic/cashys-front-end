@@ -2,6 +2,7 @@ const baseUrl = process.env.REACT_APP_API_URL
 export const fetchWithToken = (data, method, endPoind) => {
     const url = `${baseUrl}${endPoind}`
     const token = localStorage.getItem('token') || ''
+
     if (method === 'GET') {
         return fetch(url, {
             headers: {

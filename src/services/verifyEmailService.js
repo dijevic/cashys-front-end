@@ -1,5 +1,7 @@
 import { paths } from "../config/methodsFetch"
 import { fetchWithNotToken } from "../helpers/fetchWithoutToken"
+import { toast } from 'react-toastify'
+
 
 export const emailVerificationService = async (fetchData, setLoading) => {
     setLoading(true)
@@ -17,6 +19,7 @@ export const emailVerificationService = async (fetchData, setLoading) => {
             } else {
                 setLoading(false)
                 console.log(data)
+                toast.error(data.msg)
 
             }
 

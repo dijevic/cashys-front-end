@@ -25,7 +25,7 @@ export const updateUserDataService = async (fetchData, setUser, setLoading) => {
 
             } else {
 
-                // setUser(false)
+                setUser(false)
                 setLoading(false)
             }
 
