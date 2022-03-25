@@ -1,5 +1,6 @@
 import { paths } from "../config/methodsFetch"
 import { fetchWithToken } from "../helpers/fetchWithToken"
+import { toast } from 'react-toastify';
 
 export const RenewTokenService = async (setUser, setLoading) => {
 
@@ -26,6 +27,7 @@ export const RenewTokenService = async (setUser, setLoading) => {
                 setUser(false)
                 setLoading(false)
                 localStorage.clear()
+                toast.error(data.msg)
             }
 
         } catch (e) {

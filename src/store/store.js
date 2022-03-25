@@ -15,11 +15,15 @@ export const useUserStore = create(set => ({
 }))
 export const useUIStore = create(set => ({
     modalState: false,
+    modalMode: false,
     setOpenModal: () => set(state => ({ modalState: !state.modalState })),
+    setModalMode: (mode) => set(() => ({ modalMode: mode })),
 
 }))
 export const useOperationStore = create(set => ({
     operationType: false,
+    activeOperation: false,
     setOperationType: (type) => set(() => ({ operationType: type })),
+    setActiveOperation: (operation) => set(state => ({ activeOperation: operation }))
 
 }))

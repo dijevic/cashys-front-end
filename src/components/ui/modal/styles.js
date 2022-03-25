@@ -82,3 +82,9 @@ line-height: 1.5rem;
 }
 
 `
+
+export const ButtonContainer = styled.div`
+display: flex;
+justify-content: space-between;
+width: 100%;
+`

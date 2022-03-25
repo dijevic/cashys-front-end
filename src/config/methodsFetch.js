@@ -12,7 +12,8 @@ export const paths = {
     getCategories: '/categories/',
     updateUserData: '/user/',
     createOperation: '/operation',
-    getOperations: '/operation'
+    getOperations: '/operation',
+    updateOperation: '/operation'
 
 
 

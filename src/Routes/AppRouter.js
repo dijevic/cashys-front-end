@@ -2,7 +2,8 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes, } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify';
+
+
 import { Container, MainBackground } from '../components/coomon/div'
 import { Spinner } from '../components/coomon/spinner'
 import { Header } from '../components/ui/header'
@@ -73,7 +74,6 @@ export const AppRouter = () => {
                         </Routes>
                     </Container>
 
-                    <ToastContainer />
                 </MainBackground>
 
                 <Footer />
