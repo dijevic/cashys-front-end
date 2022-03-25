@@ -13,7 +13,8 @@ export const paths = {
     updateUserData: '/user/',
     createOperation: '/operation',
     getOperations: '/operation',
-    updateOperation: '/operation'
+    updateOperation: '/operation',
+    deleteOperation: '/operation',
 
 
 

@@ -15,7 +15,8 @@ import { Dropdown } from '../dropdown';
 
 import { Div, Span, H2, StyledDataPicker, P, ButtonContainer } from './styles'
 import { useForm } from '../../../hooks/useForm';
-import { useOperationStore, useUIStore } from '../../../store/store';
+import { useOperationStore, useUIStore, useUserStore } from '../../../store/store';
+import { updateOperationService } from '../../../services/updateOperationService';
 const { colors } = theme
 
 
@@ -25,6 +26,9 @@ export const ModalOperation = () => {
     const setOpenModal = useUIStore(state => state.setOpenModal)
 
     const activeOperation = useOperationStore(state => state.activeOperation)
+    const updateOperation = useUserStore(state => state.updateOperation)
+    const setBalance = useUserStore(state => state.setBalance)
+
 
     const { date, id } = activeOperation
     const refDiv = useRef()
@@ -42,10 +46,7 @@ export const ModalOperation = () => {
     const { description, amount } = formValues
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log('click')
-    }
+
     const handleCloseModal = () => {
         setOpenModal()
 
@@ -58,6 +59,12 @@ export const ModalOperation = () => {
 
     const handleChangeDate = (date) => {
         setStartDate(date)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        updateOperationService(formValues, id, updateOperation, setBalance)
+
     }
 
 

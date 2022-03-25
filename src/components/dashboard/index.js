@@ -34,8 +34,6 @@ export const DashboardComponent = () => {
     const setOperationType = useOperationStore(state => state.setOperationType)
 
 
-
-
     useEffect(() => {
 
         getBalanceService(setLoading, setBalance)
