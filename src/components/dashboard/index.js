@@ -14,7 +14,7 @@ import { getOperationsService } from '../../services/getOperations'
 import { Spinner } from '../coomon/spinner'
 import { getBalanceService } from '../../services/getBalance'
 import { getCategoriesService } from '../../services/getCategories'
-import { toast } from 'react-toastify'
+import { modalModes } from '../../config/modalModes'
 const { colors } = theme
 
 
@@ -22,6 +22,7 @@ const { colors } = theme
 export const DashboardComponent = () => {
 
     const modalState = useUIStore(state => state.modalState)
+    const setModalMode = useUIStore(state => state.setModalMode)
     const setOperations = useUserStore(state => state.setOperations)
     const setCategories = useUserStore(state => state.setCategories)
     const operations = useUserStore(state => state.operations)
@@ -47,12 +48,14 @@ export const DashboardComponent = () => {
     const handleIncome = () => {
         setOperationType('income')
         setopenModal()
+        setModalMode(modalModes.handleOperation)
 
 
     }
     const handleDebt = () => {
         setOperationType('debt')
         setopenModal()
+        setModalMode(modalModes.handleOperation)
 
     }
 

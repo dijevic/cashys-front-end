@@ -17,6 +17,7 @@ import { Div, Span, H2, StyledDataPicker, P, ButtonContainer } from './styles'
 import { useForm } from '../../../hooks/useForm';
 import { useOperationStore, useUIStore, useUserStore } from '../../../store/store';
 import { updateOperationService } from '../../../services/updateOperationService';
+import { deleteOperationService } from '../../../services/deleteOperationService';
 const { colors } = theme
 
 
@@ -27,6 +28,7 @@ export const ModalOperation = () => {
 
     const activeOperation = useOperationStore(state => state.activeOperation)
     const updateOperation = useUserStore(state => state.updateOperation)
+    const deleteOperation = useUserStore(state => state.deleteOperation)
     const setBalance = useUserStore(state => state.setBalance)
 
 
@@ -60,6 +62,13 @@ export const ModalOperation = () => {
     const handleChangeDate = (date) => {
         setStartDate(date)
     }
+    const handleDelete = () => {
+        deleteOperationService(id, deleteOperation, setBalance, setOpenModal)
+
+
+    }
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -107,6 +116,7 @@ export const ModalOperation = () => {
                         content="Save"
                     />
                     <Buttom
+                        onClick={handleDelete}
                         padding="true"
                         content="Delete"
                         type="button"
