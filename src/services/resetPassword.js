@@ -1,5 +1,5 @@
 import { toast } from "react-toastify"
-import { paths } from "../config/methodsFetch"
+import { paths } from "../config/endpoints"
 import { fetchWithNotToken } from "../helpers/fetchWithoutToken"
 
 export const resetpasswordService = async (fetchData, setLoading) => {

@@ -1,5 +1,5 @@
 
-import { paths } from "../config/methodsFetch"
+import { paths } from "../config/endpoints"
 import { fetchEmailVerification } from "../helpers/fetchEmailVerification"
 
 export const changePasswordByReset = async (setUser, token) => {

@@ -1,4 +1,4 @@
-import { paths } from "../config/methodsFetch"
+import { paths } from "../config/endpoints"
 import { fetchWithToken } from "../helpers/fetchWithToken"
 
 export const updateUserDataService = async (fetchData, setUser, setLoading) => {

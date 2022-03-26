@@ -1,34 +1,34 @@
-import { paths } from "../config/methodsFetch"
+import { paths } from "../config/endpoints"
 import { fetchWithNotToken } from "../helpers/fetchWithoutToken"
 import { toast } from 'react-toastify'
 
 
 export const emailVerificationService = async (fetchData, setLoading) => {
     setLoading(true)
+    toast.info('sending an email')
+
+
     try {
-
-        try {
-            const resp = await fetchWithNotToken(fetchData, 'POST', paths.confirmEmail)
-            const data = await resp.json()
+        const resp = await fetchWithNotToken(fetchData, 'POST', paths.confirmEmail)
+        const data = await resp.json()
 
 
-            if (data.ok) {
-                console.log(data)
-                setLoading(false)
+        if (data.ok) {
+            toast.dismiss()
+            toast.info('great an email has been send to your email account')
 
-            } else {
-                setLoading(false)
-                console.log(data)
-                toast.error(data.msg)
+            setLoading(false)
 
-            }
+        } else {
+            setLoading(false)
+            toast.error(data.msg)
 
-
-        } catch (e) {
-            console.log(e)
         }
 
-    } catch (error) {
-        console.log(error)
+
+    } catch (e) {
+        console.log(e)
     }
+
+
 }

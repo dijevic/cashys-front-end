@@ -1,5 +1,5 @@
 import { toast } from "react-toastify"
-import { paths } from "../config/methodsFetch"
+import { paths } from "../config/endpoints"
 import { fetchEmailVerification } from "../helpers/fetchEmailVerification"
 
 export const CreateUserService = async (setUser, token) => {

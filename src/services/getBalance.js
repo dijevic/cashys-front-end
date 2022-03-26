@@ -1,5 +1,5 @@
 import { toast } from "react-toastify"
-import { paths } from "../config/methodsFetch"
+import { paths } from "../config/endpoints"
 import { fetchWithToken } from "../helpers/fetchWithToken"
 
 export const getBalanceService = async (setLoading, setBalance) => {
