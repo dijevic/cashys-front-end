@@ -21,7 +21,6 @@ import { deleteOperationService } from '../../../services/deleteOperationService
 const { colors } = theme
 
 
-
 export const ModalOperation = () => {
 
     const setOpenModal = useUIStore(state => state.setOpenModal)
@@ -34,6 +33,7 @@ export const ModalOperation = () => {
 
     const { date, id } = activeOperation
     const refDiv = useRef()
+
     const formInitialState = {
         description: activeOperation.description,
         amount: activeOperation.amount,
@@ -51,8 +51,8 @@ export const ModalOperation = () => {
 
     const handleCloseModal = () => {
         setOpenModal()
-
     }
+
     const handleCloseOutSide = ({ target }) => {
         if (target === refDiv.current) {
             setOpenModal()
@@ -65,13 +65,16 @@ export const ModalOperation = () => {
     const handleDelete = () => {
         deleteOperationService(id, deleteOperation, setBalance, setOpenModal)
 
-
     }
 
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        if (!validator.isNumeric(amount)) {
+            return toast.error('try with numbers')
+        }
         updateOperationService(formValues, id, updateOperation, setBalance)
 
     }

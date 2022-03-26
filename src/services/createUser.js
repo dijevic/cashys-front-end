@@ -1,8 +1,8 @@
+import { toast } from "react-toastify"
 import { paths } from "../config/methodsFetch"
 import { fetchEmailVerification } from "../helpers/fetchEmailVerification"
 
 export const CreateUserService = async (setUser, token) => {
-
 
     try {
 
@@ -10,6 +10,7 @@ export const CreateUserService = async (setUser, token) => {
             const resp = await fetchEmailVerification('POST', paths.newUser, token)
             const data = await resp.json()
             if (data.ok) {
+                toast.info('Great ! your user has been created successfully')
                 localStorage.setItem('token', data.token)
                 localStorage.setItem('tokenDateStart', new Date().getTime())
                 const user = {
@@ -20,6 +21,7 @@ export const CreateUserService = async (setUser, token) => {
 
 
             } else {
+                toast.error('we really sorry , something goes wrong ')
                 setUser(false)
 
             }

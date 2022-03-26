@@ -15,7 +15,7 @@ export const deleteOperationService = async (id, deleteOperation, setBalance, se
             toast.dismiss()
             setBalance(data.balance.amount)
             deleteOperation(id)
-            toast.info('Delting successfully')
+            toast.info('Operation deleted successfully')
             setModalOpen()
         } else {
             toast.dismiss()

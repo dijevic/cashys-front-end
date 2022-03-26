@@ -72,7 +72,7 @@ export const DashboardComponent = () => {
             {
                 (modalState) && <Modal />
             }
-            <Span color={colors.black}>Take Control of your income and debts</Span>
+            <Span color={colors.black}>Take Control of your incomes and debts</Span>
             <Span> BALANCE : {balance} $</Span>
 
             <Div
