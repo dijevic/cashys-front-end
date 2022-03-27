@@ -2,7 +2,8 @@ import React, { useRef, useState } from 'react'
 import { toast } from 'react-toastify';
 import validator from 'validator'
 import { useForm } from '../../../hooks/useForm';
-import { useUIStore } from '../../../store/store';
+import { createCategoryService } from '../../../services/createCategory';
+import { useUIStore, useUserStore } from '../../../store/store';
 
 // SERVICES
 
@@ -24,6 +25,7 @@ const { colors } = theme
 export const ModalCategories = () => {
 
     const setOpenModal = useUIStore(state => state.setOpenModal)
+    const addCategory = useUserStore(state => state.addCategory)
 
     const initialFormState = {
         name: ''
@@ -37,8 +39,8 @@ export const ModalCategories = () => {
     const [formValues, handleInputChange, reset] = useForm(initialFormState)
     const { name } = formValues
 
-    const createRef = useRef(false)
-    const updateRef = useRef(false)
+    const createRef = useRef()
+    const updateRef = useRef()
     const refDiv = useRef()
 
     const [optionSelected, setOptionSelected] = useState(initialState)
@@ -78,9 +80,16 @@ export const ModalCategories = () => {
     }
 
 
-
     const handleSubmit = (e) => {
-        console.log(';e')
+        e.preventDefault()
+        if (validator.isEmpty(name.trim())) {
+            toast.dismiss()
+            return toast.error('Try using a name for the category')
+        }
+        if (categoryCrudOption === 'create') {
+            console.log('creating')
+            createCategoryService({ name }, addCategory)
+        }
 
     }
 
@@ -130,7 +139,7 @@ export const ModalCategories = () => {
                                     onClick={handleCategoryCrud}
                                     padding="true"
                                     content="Save"
-                                    type="button"
+                                    type="submit"
 
                                 />
                             </ButtonContainer>

@@ -12,6 +12,8 @@ export const useUserStore = create(set => ({
     addOperation: (operation) => set((state) => ({ operations: [operation, ...state.operations] })),
     updateOperation: (id, operation) => set((state) => ({ operations: state.operations.map((op) => (op.uuid === id) ? operation : op) })),
     deleteOperation: (id) => set((state) => ({ operations: state.operations.filter((op) => op.uuid !== id) })),
+    addCategory: (category) => set((state) => ({ categories: [category, ...state.categories] })),
+
 
 
 
