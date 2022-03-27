@@ -119,7 +119,7 @@ export const ModalHandleOperations = () => {
                     onChange={handleInputChange}
                 />
                 <P>Type : {operationType}</P>
-                <Dropdown setOptionSelected={setOptionSelected} placeholder="Category" />
+                <Dropdown setOptionSelected={setOptionSelected} />
 
                 <Buttom padding="true" content="Save" />
             </Form>

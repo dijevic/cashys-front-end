@@ -35,3 +35,26 @@ line-height:1.2rem;
 }
 
 `
+
+export const Div = styled.div`
+width:100%;
+display:flex;
+justify-content: center;
+align-items: end;
+
+`
+export const Span = styled.span`
+background:${colors.blue};
+border-radius: 10px;
+height: fit-content;
+padding: 3px;
+margin-left: 10px;
+transition:0.3s ease all;
+cursor:pointer;
+@media (min-width: 768px){
+padding: 5px;
+    &:hover{
+        background: ${colors.lightBlue};
+    }
+}
+`

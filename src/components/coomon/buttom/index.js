@@ -3,6 +3,5 @@ import { StyledButtom } from './styles';
 
 // core Buttom
 export const Buttom = ({ content, ...props }) => {
-
-    return <StyledButtom {...props} >{content}</StyledButtom>
+    return <StyledButtom ref={props.reference}{...props} >{content}</StyledButtom>
 }

@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { toast } from 'react-toastify';
 import validator from 'validator'
-import dayjs from 'dayjs';
 
 // SERVICES
 

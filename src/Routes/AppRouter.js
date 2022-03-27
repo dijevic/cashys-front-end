@@ -24,17 +24,14 @@ import { PublicRoute } from './PublicRoute'
 export const AppRouter = () => {
     let token = useRef(false)
     const user = useUserStore(state => state.user)
-
     const setUser = useUserStore(state => state.setUser)
     const [checking, setChecking] = useState(false)
-    const test = useCallback(
-        useUserStore(state => state.user),
-        [token.current])
-    console.log(test)
+
+
     useEffect(() => {
 
         token.current = localStorage.getItem('token')
-        if (token) {
+        if (token.current) {
             RenewTokenService(setUser, setChecking)
         } else {
             setChecking(false)

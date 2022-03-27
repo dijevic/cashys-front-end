@@ -14,7 +14,7 @@ padding:15px 18px ;
 outline: none;
 width:100%;
 &::placeholder{
-    font-size: 1.3rem;
+    font-size: 1rem;
     color:${({ modal }) => (modal) ? 'rgba(0, 0, 0, 0.5)' : colors.white}
 
 }
