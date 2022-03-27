@@ -71,6 +71,9 @@ export const ModalOperation = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        if (validator.isEmpty(description.trim()) || validator.isEmpty(amount.trim())) {
+            return toast.info('Cant update empty fields')
+        }
 
         if (!validator.isNumeric(amount)) {
             return toast.error('try with numbers')

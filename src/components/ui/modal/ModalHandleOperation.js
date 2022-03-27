@@ -69,7 +69,7 @@ export const ModalHandleOperations = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (validator.isEmpty(description) || validator.isEmpty(amount)) {
+        if (validator.isEmpty(description.trim()) || validator.isEmpty(amount.trim())) {
             return toast.info('please complete the empty fields')
         }
 
