@@ -11,6 +11,8 @@ export const paths = {
     getBalance: '/balance',
     getCategories: '/categories/',
     createCategory: '/categories/',
+    updateCategory: '/categories/',
+    deleteCategory: '/categories/',
     updateUserData: '/user/',
     createOperation: '/operation',
     getOperations: '/operation',
