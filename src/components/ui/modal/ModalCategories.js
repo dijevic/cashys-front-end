@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import validator from 'validator'
 import { useForm } from '../../../hooks/useForm';
 import { createCategoryService } from '../../../services/createCategory';
+import { deleteCategoryService } from '../../../services/deleteCategory';
 import { updateCategoryService } from '../../../services/updateCategory';
 import { useUIStore, useUserStore } from '../../../store/store';
 
@@ -16,7 +17,7 @@ import { Minimize } from '../../coomon/icons/Minimize'
 import { Input } from '../../coomon/input';
 import { Dropdown } from '../dropdown';
 
-import { Div, Span, H2, ButtonContainer, } from './styles'
+import { Div, Span, H2, ButtonContainer, P } from './styles'
 const { colors } = theme
 
 
@@ -28,27 +29,31 @@ export const ModalCategories = () => {
     const setOpenModal = useUIStore(state => state.setOpenModal)
     const addCategory = useUserStore(state => state.addCategory)
     const updateCategory = useUserStore(state => state.updateCategory)
+    const deleteCategory = useUserStore(state => state.deleteCategory)
 
     const initialFormState = {
         name: ''
     }
     const initialState = {
-        category_id: ''
+        category_id: '',
+        name: ''
     }
     const [optionSelected, setOptionSelected] = useState(initialState)
 
     const [categoryCrudOption, setCategoryCrudOption] = useState(false)
     const [showInput, setShowInput] = useState(false)
+    const [showNotification, setShowNotification] = useState(false)
 
 
 
 
     const [formValues, handleInputChange, reset] = useForm(initialFormState)
     const { name } = formValues
-    const { category_id } = optionSelected
+    const { category_id, name: categoryName } = optionSelected
 
     const createRef = useRef()
     const updateRef = useRef()
+    const deleteRef = useRef()
     const refDiv = useRef()
 
 
@@ -62,6 +67,11 @@ export const ModalCategories = () => {
         }
     }
 
+    const handleShowDeleteNotification = ({ target }) => {
+        setShowNotification(!showNotification)
+        setCategoryCrudOption(target.name)
+    }
+
 
     const handleDelete = () => {
         console.log('dshgfhsjh')
@@ -70,28 +80,32 @@ export const ModalCategories = () => {
 
 
     const handleShowInput = ({ target }) => {
+
         setShowInput(!showInput)
 
-        if (target === createRef.current || target === updateRef.current) {
+        if (target === createRef.current || target === updateRef.current || target === deleteRef.current) {
             setCategoryCrudOption(target.name)
-
         }
 
 
     }
 
 
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (validator.isEmpty(name.trim())) {
+        if (validator.isEmpty(name.trim()) && categoryCrudOption !== 'delete') {
             toast.dismiss()
             return toast.error('Try using a name for the category')
         }
+
         if (categoryCrudOption === 'create') {
 
             createCategoryService({ name }, addCategory)
         } else if (categoryCrudOption === 'update') {
             updateCategoryService({ name }, category_id, updateCategory)
+        } else if (categoryCrudOption === 'delete') {
+            deleteCategoryService(category_id, deleteCategory)
         }
 
     }
@@ -147,34 +161,64 @@ export const ModalCategories = () => {
                             </ButtonContainer>
                         </>
 
-                        : <>
-                            <Buttom
-                                onClick={handleShowInput}
-                                reference={createRef}
-                                padding="true"
-                                content="Create"
-                                type="button"
-                                name="create"
+                        : (showNotification)
+                            ? <>
+                                <P>are you sure you want to delete <b>{categoryName}</b> category ? </P>
+                                <ButtonContainer>
 
-                            />
-                            <Buttom
-                                onClick={handleShowInput}
-                                padding="true"
-                                content="Delete"
-                                type="button"
+                                    <Buttom
+                                        onClick={handleShowDeleteNotification}
+                                        padding="true"
+                                        content="Go back"
+                                        type="button"
 
-                                background={colors.burgundy}
-                            />
-                            <Buttom
-                                onClick={handleShowInput}
-                                reference={updateRef}
-                                padding="true"
-                                name="update"
-                                content="Update"
-                                type="button"
-                            />
+                                    />
 
-                        </>
+                                    <Buttom
+                                        padding="true"
+                                        content="DELETE"
+                                        type="submit"
+                                        background={colors.burgundy}
+
+                                    />
+                                </ButtonContainer>
+
+                            </>
+                            :
+
+                            <>
+                                <Buttom
+                                    onClick={handleShowInput}
+                                    reference={createRef}
+                                    padding="true"
+                                    content="Create"
+                                    type="button"
+                                    name="create"
+
+                                />
+                                <Buttom
+                                    onClick={handleShowDeleteNotification}
+                                    padding="true"
+                                    content="Delete"
+                                    type="button"
+                                    name="delete"
+                                    reference={deleteRef}
+
+                                    background={colors.burgundy}
+                                />
+                                <Buttom
+                                    onClick={handleShowInput}
+                                    reference={updateRef}
+                                    padding="true"
+                                    name="update"
+                                    content="Update"
+                                    type="button"
+                                />
+
+                            </>
+
+
+
 
                 }
 

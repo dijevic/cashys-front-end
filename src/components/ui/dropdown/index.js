@@ -16,7 +16,9 @@ export const Dropdown = ({ setOptionSelected }) => {
 
 
     const handleChange = ({ target }) => {
-        setOptionSelected({ category_id: target.value, name: target.value })
+        console.log(target.option)
+
+        setOptionSelected({ category_id: target.value, name: target.name })
 
     }
 
@@ -29,12 +31,12 @@ export const Dropdown = ({ setOptionSelected }) => {
         <>
             <Label htmlFor="categories">Choose a category:</Label>
             <Div>
-                <Select onClick={handleChange} name="cars" id="categories">
+                <Select onChange={handleChange} id="categories">
                     {
                         categories.map(({ name, uuid: id }) =>
                             <option
-                                value={id}
-                                onChange={handleChange}
+                                value={[id, name]}
+
                                 key={id}
                                 name={name}
                             >
