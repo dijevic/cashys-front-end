@@ -5,25 +5,22 @@ import { Profile } from '../pages/Profile'
 import { NotFound } from '../pages/NotFound'
 
 
-export const ContentRouter = React.memo(
-
-    () => {
+export const ContentRouter = () => {
 
 
 
-        return (
-            <>
+    return (
+        <>
 
-                <Routes>
-                    <Route element={<Dashboard />} path="/" />
-                    <Route element={<Profile />} path="/profile" />
-                    <Route element={<NotFound />} path="*" />
+            <Routes>
+                <Route element={<Dashboard />} path="/" />
+                <Route element={<Profile />} path="/profile" />
+                <Route element={<NotFound />} path="*" />
 
 
-                </Routes>
-            </>
+            </Routes>
+        </>
 
-        )
-    }
+    )
+}
 
-)

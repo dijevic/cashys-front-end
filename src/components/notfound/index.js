@@ -13,7 +13,10 @@ export const NotFoundComponent = () => {
                     <span>:</span><span>|</span>
                 </P>
                 <Span>The page you are looking for does not exist </Span>
-                <Link to="/">GO BACK HOME</Link>
+                <Link
+                    padding="true"
+                    to="/"
+                >GO BACK HOME</Link>
 
             </Container>
 

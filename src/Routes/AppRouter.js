@@ -1,6 +1,6 @@
 // thirt party importations
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes, } from 'react-router-dom'
 
 
@@ -27,7 +27,10 @@ export const AppRouter = () => {
 
     const setUser = useUserStore(state => state.setUser)
     const [checking, setChecking] = useState(false)
-
+    const test = useCallback(
+        useUserStore(state => state.user),
+        [token.current])
+    console.log(test)
     useEffect(() => {
 
         token.current = localStorage.getItem('token')
