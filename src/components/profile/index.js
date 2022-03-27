@@ -20,7 +20,7 @@ import { Form } from '../coomon/form'
 import { ShowPasswordComponent } from '../coomon/showpassword'
 import { useForm } from '../../hooks/useForm'
 import { updateUserDataService } from '../../services/updateUserData'
-import { Spinner } from '../coomon/spinner'
+import { toast } from 'react-toastify'
 
 
 
@@ -30,7 +30,6 @@ export const ProfileComponent = () => {
     const user = useUserStore(state => state.user)
     const setUser = useUserStore(state => state.setUser)
     const [showPassword, setShowPassword] = useState(false)
-    const [loading, setLoading] = useState(false)
 
     const initialState = {
         name: '',
@@ -41,21 +40,15 @@ export const ProfileComponent = () => {
     const { name, password } = formValues
     const handleUpdate = async (e) => {
         e.preventDefault()
-        if (validator.isEmpty(password) && validator.isEmpty(name)) {
-            return alert('error')
+        if (validator.isEmpty(password.trim()) && validator.isEmpty(name.trim())) {
+            return toast.error('try filling the inputs')
         }
 
-        const test = updateUserDataService({ name, password }, setUser, setLoading)
-        // console.log(test)
+        updateUserDataService({ name, password }, setUser)
 
-
-
-        // setUser(test)
     }
 
-    if (loading) {
-        return (<Spinner extrainfo="updating... wait a minute" />)
-    }
+
 
     return (
 
