@@ -123,24 +123,17 @@ export const ModalCategories = () => {
 
             {
 
-                (showInput)
-                    ?
+                (showInput) ?
                     <UpdateOrCreateCategory
                         handleInputChange={handleInputChange}
                         handleShowInput={handleShowInput}
                         name={name}
-                    />
-
-                    : (showNotification)
-                        ?
+                    /> :
+                    (showNotification) ?
                         <DeleteCategory
                             categoryName={categoryName}
                             handleShowDeleteNotification={handleShowDeleteNotification}
-                        />
-
-
-                        :
-
+                        /> :
                         <CategoryActionButtons
                             handleShowInput={handleShowInput}
                             createRef={createRef}
@@ -148,15 +141,7 @@ export const ModalCategories = () => {
                             deleteRef={deleteRef}
                             updateRef={updateRef}
                         />
-
-
-
-
             }
-
-
-
-
 
         </Form>
 

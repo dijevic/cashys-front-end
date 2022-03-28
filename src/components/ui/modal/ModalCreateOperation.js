@@ -71,6 +71,10 @@ export const ModalCreateOperations = () => {
             return toast.info('try to submit a numeric amount :) ')
 
         }
+        if (Number(amount) == 0 || Number(amount) < 0) {
+            return toast.info('try to submit an amount over 0 :) ')
+
+        }
 
         const data = {
             description,
