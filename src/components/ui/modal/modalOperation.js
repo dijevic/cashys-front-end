@@ -11,7 +11,7 @@ import { Form } from '../../coomon/form'
 import { Minimize } from '../../coomon/icons/Minimize'
 import { Input } from '../../coomon/input'
 
-import { Div, Span, H2, StyledDataPicker, P, ButtonContainer } from './styles'
+import { Span, H2, StyledDataPicker, P, ButtonContainer } from './styles'
 import { useForm } from '../../../hooks/useForm';
 import { useOperationStore, useUIStore, useUserStore } from '../../../store/store';
 import { updateOperationService } from '../../../services/updateOperationService';
@@ -50,11 +50,7 @@ export const ModalOperation = () => {
         setOpenModal()
     }
 
-    const handleCloseOutSide = ({ target }) => {
-        if (target === refDiv.current) {
-            setOpenModal()
-        }
-    }
+
 
     const handleChangeDate = (date) => {
         setStartDate(date)
@@ -84,51 +80,51 @@ export const ModalOperation = () => {
 
     return (
 
-        <Div ref={refDiv} onClick={handleCloseOutSide}>
-            <Form
-                onSubmit={handleSubmit}
+
+        <Form
+            onSubmit={handleSubmit}
+            modal="true"
+            background={colors.white}>
+            <Span onClick={handleCloseModal}>
+                <Minimize />
+            </Span>
+            <H2>Your Operation </H2>
+            <StyledDataPicker className="datepicker" selected={startDate} onChange={handleChangeDate} />
+            <Input
                 modal="true"
-                background={colors.white}>
-                <Span onClick={handleCloseModal}>
-                    <Minimize />
-                </Span>
-                <H2>Your Operation </H2>
-                <StyledDataPicker className="datepicker" selected={startDate} onChange={handleChangeDate} />
-                <Input
-                    modal="true"
-                    type="text"
-                    placeholder="Concept"
-                    name="description"
-                    value={description}
-                    autoComplete="off"
-                    onChange={handleInputChange}
+                type="text"
+                placeholder="Concept"
+                name="description"
+                value={description}
+                autoComplete="off"
+                onChange={handleInputChange}
+            />
+            <Input
+                modal="true"
+                type="text"
+                placeholder="Mount"
+                name="amount"
+                value={amount}
+                onChange={handleInputChange}
+            />
+            <P>Type :{activeOperation.operation_Type}</P>
+            <P>Category :{activeOperation.category}</P>
+            <ButtonContainer>
+                <Buttom
+                    padding="true"
+                    content="Save"
                 />
-                <Input
-                    modal="true"
-                    type="text"
-                    placeholder="Mount"
-                    name="amount"
-                    value={amount}
-                    onChange={handleInputChange}
+                <Buttom
+                    onClick={handleDelete}
+                    padding="true"
+                    content="Delete"
+                    type="button"
+                    background={colors.burgundy}
                 />
-                <P>Type :{activeOperation.operation_Type}</P>
-                <P>Category :{activeOperation.category}</P>
-                <ButtonContainer>
-                    <Buttom
-                        padding="true"
-                        content="Save"
-                    />
-                    <Buttom
-                        onClick={handleDelete}
-                        padding="true"
-                        content="Delete"
-                        type="button"
-                        background={colors.burgundy}
-                    />
 
-                </ButtonContainer>
+            </ButtonContainer>
 
-            </Form>
-        </Div>
+        </Form>
+
     )
 }

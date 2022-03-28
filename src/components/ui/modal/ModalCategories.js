@@ -56,18 +56,12 @@ export const ModalCategories = () => {
     const createRef = useRef()
     const updateRef = useRef()
     const deleteRef = useRef()
-    const refDiv = useRef()
 
 
     const handleCloseModal = () => {
         setOpenModal()
     }
 
-    const handleCloseOutSide = ({ target }) => {
-        if (target === refDiv.current) {
-            setOpenModal()
-        }
-    }
 
     const handleShowDeleteNotification = ({ target }) => {
         setShowNotification(!showNotification)
@@ -111,60 +105,60 @@ export const ModalCategories = () => {
 
     return (
 
-        <Div ref={refDiv} onClick={handleCloseOutSide}>
-            <Form
-                onSubmit={handleSubmit}
-                modal="true"
-                background={colors.white}>
-                <Span onClick={handleCloseModal}>
-                    <Minimize />
-                </Span>
-                <H2>Categories </H2>
-                <H3>Choose an action for categories</H3>
 
-                {
-                    (categoryCrudOption !== 'create') && <Dropdown setOptionSelected={setOptionSelected} />
-                }
+        <Form
+            onSubmit={handleSubmit}
+            modal="true"
+            background={colors.white}>
+            <Span onClick={handleCloseModal}>
+                <Minimize />
+            </Span>
+            <H2>Categories </H2>
+            <H3>Choose an action for categories</H3>
+
+            {
+                (categoryCrudOption !== 'create') && <Dropdown setOptionSelected={setOptionSelected} />
+            }
 
 
-                {
+            {
 
-                    (showInput)
+                (showInput)
+                    ?
+                    <UpdateOrCreateCategory
+                        handleInputChange={handleInputChange}
+                        handleShowInput={handleShowInput}
+                        name={name}
+                    />
+
+                    : (showNotification)
                         ?
-                        <UpdateOrCreateCategory
-                            handleInputChange={handleInputChange}
-                            handleShowInput={handleShowInput}
-                            name={name}
+                        <DeleteCategory
+                            categoryName={categoryName}
+                            handleShowDeleteNotification={handleShowDeleteNotification}
                         />
 
-                        : (showNotification)
-                            ?
-                            <DeleteCategory
-                                categoryName={categoryName}
-                                handleShowDeleteNotification={handleShowDeleteNotification}
-                            />
 
+                        :
 
-                            :
-
-                            <CategoryActionButtons
-                                handleShowInput={handleShowInput}
-                                createRef={createRef}
-                                handleShowDeleteNotification={handleShowDeleteNotification}
-                                deleteRef={deleteRef}
-                                updateRef={updateRef}
-                            />
+                        <CategoryActionButtons
+                            handleShowInput={handleShowInput}
+                            createRef={createRef}
+                            handleShowDeleteNotification={handleShowDeleteNotification}
+                            deleteRef={deleteRef}
+                            updateRef={updateRef}
+                        />
 
 
 
 
-                }
+            }
 
 
 
 
 
-            </Form>
-        </Div>
+        </Form>
+
     )
 }
