@@ -31,6 +31,17 @@ font-size:1.5rem;
 line-height: 1.5rem; 
 }
 `
+export const H3 = styled.h3`
+font-size:1rem;
+margin:25px 0px;
+line-height: 1rem;
+font-style: bold;
+padding: 10px;
+@media (min-width: 768px) {
+font-size:1.3rem;
+line-height: 1.3rem; 
+}
+`
 
 export const Span = styled.span`
 position: absolute;
@@ -87,5 +98,9 @@ export const ButtonContainer = styled.div`
 display: flex;
 justify-content: space-between;
 width: 100%;
+`
+export const B = styled.b`
+color: ${colors.black};
+font-size: 1.5rem;
 `
 

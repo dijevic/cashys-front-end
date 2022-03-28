@@ -17,7 +17,7 @@ import { Minimize } from '../../coomon/icons/Minimize'
 import { Input } from '../../coomon/input';
 import { Dropdown } from '../dropdown';
 
-import { Div, Span, H2, ButtonContainer, P } from './styles'
+import { Div, Span, H2, ButtonContainer, P, H3, B } from './styles'
 const { colors } = theme
 
 
@@ -28,6 +28,8 @@ export const ModalCategories = () => {
 
     const setOpenModal = useUIStore(state => state.setOpenModal)
     const addCategory = useUserStore(state => state.addCategory)
+    const setBalance = useUserStore(state => state.setBalance)
+    const deleteOperation = useUserStore(state => state.deleteOperation)
     const updateCategory = useUserStore(state => state.updateCategory)
     const deleteCategory = useUserStore(state => state.deleteCategory)
 
@@ -102,10 +104,13 @@ export const ModalCategories = () => {
         if (categoryCrudOption === 'create') {
 
             createCategoryService({ name }, addCategory)
+            reset()
         } else if (categoryCrudOption === 'update') {
             updateCategoryService({ name }, category_id, updateCategory)
+            reset()
+
         } else if (categoryCrudOption === 'delete') {
-            deleteCategoryService(category_id, deleteCategory)
+            deleteCategoryService(category_id, deleteCategory, setBalance, deleteOperation)
         }
 
     }
@@ -123,8 +128,12 @@ export const ModalCategories = () => {
                     <Minimize />
                 </Span>
                 <H2>Categories </H2>
+                <H3>Choose an action for categories</H3>
 
-                <Dropdown setOptionSelected={setOptionSelected} />
+                {
+                    (categoryCrudOption !== 'create') && <Dropdown setOptionSelected={setOptionSelected} />
+                }
+
 
                 {
 
@@ -163,7 +172,7 @@ export const ModalCategories = () => {
 
                         : (showNotification)
                             ? <>
-                                <P>are you sure you want to delete <b>{categoryName}</b> category ? </P>
+                                <P>Are you sure you want to DELETE <B>{categoryName.toUpperCase()}</B> category ? </P>
                                 <ButtonContainer>
 
                                     <Buttom

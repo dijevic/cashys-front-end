@@ -11,14 +11,18 @@ export const Dropdown = ({ setOptionSelected }) => {
     const modalMode = useUIStore(state => state.modalMode)
 
     useEffect(() => {
-        setOptionSelected({ category_id: categories[0].uuid, name: categories[0].name })
+        if (categories.length > 0) {
+            setOptionSelected({ category_id: categories[0].uuid, name: categories[0].name })
+        }
     }, [])
 
 
     const handleChange = ({ target }) => {
-        console.log(target.option)
+        // console.log(target.value)
+        const completeValueString = target.value
+        const parsedValue = completeValueString.split(',')
 
-        setOptionSelected({ category_id: target.value, name: target.name })
+        setOptionSelected({ category_id: parsedValue[0], name: parsedValue[1] })
 
     }
 

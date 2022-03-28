@@ -8,7 +8,6 @@ export const createCategoryService = async (fetchData, addCategory) => {
     try {
         const resp = await fetchWithToken(fetchData, 'POST', paths.createCategory)
         const data = await resp.json()
-        console.log(data)
         if (data.ok) {
             toast.dismiss()
             toast.info('great a new category has been added !')
