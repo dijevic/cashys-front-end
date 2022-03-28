@@ -2,7 +2,7 @@ import { paths } from "../config/endpoints"
 import { fetchWithToken } from "../helpers/fetchWithToken"
 import { toast } from 'react-toastify';
 
-export const updateOperationService = async (fetchData, id, updateOperation, setBalance) => {
+export const updateOperationService = async (fetchData, id, updateOperation, setBalance, category) => {
 
     toast.info('Updating wait a minute .....')
 
@@ -15,6 +15,8 @@ export const updateOperationService = async (fetchData, id, updateOperation, set
             if (data.ok) {
                 toast.dismiss()
                 setBalance(data.balance.amount)
+                let operationUpdated = data.operation
+                operationUpdated.category = { name: category }
                 updateOperation(data.operation.uuid, data.operation)
                 toast.info('updated successfully')
             } else {

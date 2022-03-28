@@ -45,7 +45,7 @@ export const ModalHandleOperations = () => {
     const [formValues, handleInputChange] = useForm(formInitialState)
 
     const { description, amount, operation_Type } = formValues
-    const { category_id } = optionSelected
+    const { category_id, name: categoryName } = optionSelected
 
 
 
@@ -58,7 +58,6 @@ export const ModalHandleOperations = () => {
     const handleChangeDate = (date) => {
         setStartDate(date)
     }
-
 
 
 
@@ -79,7 +78,7 @@ export const ModalHandleOperations = () => {
             operation_Type,
             category_id
         }
-        createOperationService(data, setBalance, addOperation)
+        createOperationService(data, setBalance, addOperation, categoryName)
     }
 
 

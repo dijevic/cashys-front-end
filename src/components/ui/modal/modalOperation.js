@@ -29,8 +29,7 @@ export const ModalOperation = () => {
     const setBalance = useUserStore(state => state.setBalance)
 
 
-    const { date, id } = activeOperation
-    const refDiv = useRef()
+    const { date, id, category } = activeOperation
 
     const formInitialState = {
         description: activeOperation.description,
@@ -71,7 +70,7 @@ export const ModalOperation = () => {
         if (!validator.isNumeric(amount)) {
             return toast.error('try with numbers')
         }
-        updateOperationService(formValues, id, updateOperation, setBalance)
+        updateOperationService(formValues, id, updateOperation, setBalance, category)
 
     }
 

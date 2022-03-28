@@ -2,7 +2,7 @@ import { toast } from "react-toastify"
 import { paths } from "../config/endpoints"
 import { fetchWithToken } from "../helpers/fetchWithToken"
 
-export const createOperationService = async (fetchData, setBalance, addOperation) => {
+export const createOperationService = async (fetchData, setBalance, addOperation, category) => {
 
 
     toast.info('creating the operation...wait a minute')
@@ -16,6 +16,7 @@ export const createOperationService = async (fetchData, setBalance, addOperation
                 toast.dismiss()
                 const balance = data.balance.amount
                 const operation = data.operation
+                operation.category = { name: category }
                 addOperation(operation)
                 setBalance(balance)
                 toast.info('Great ! the operations has been created successfully')

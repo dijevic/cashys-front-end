@@ -18,7 +18,6 @@ export const Dropdown = ({ setOptionSelected }) => {
 
 
     const handleChange = ({ target }) => {
-        // console.log(target.value)
         const completeValueString = target.value
         const parsedValue = completeValueString.split(',')
 
