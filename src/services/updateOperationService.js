@@ -11,7 +11,6 @@ export const updateOperationService = async (fetchData, id, updateOperation, set
         try {
             const resp = await fetchWithToken(fetchData, 'PUT', `${paths.updateOperation}/${id}`)
             const data = await resp.json()
-            console.log(data.operation)
             if (data.ok) {
                 toast.dismiss()
                 setBalance(data.balance.amount)

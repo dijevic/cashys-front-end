@@ -21,7 +21,7 @@ const { colors } = theme
 
 
 
-export const ModalHandleOperations = () => {
+export const ModalCreateOperations = () => {
     const operationType = useOperationStore((state) => state.operationType)
     const setBalance = useUserStore((state) => state.setBalance)
     const addOperation = useUserStore((state) => state.addOperation)

@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { modalModes } from '../../../config/modalModes'
 import { useUIStore } from '../../../store/store'
 import { ModalCategories } from './ModalCategories'
-import { ModalHandleOperations } from './ModalHandleOperation'
+import { ModalCreateOperations } from './ModalCreateOperation'
 import { ModalOperation } from './modalOperation'
 import { Div } from './styles'
 const { handleOperation, operationInfo, categories } = modalModes
@@ -22,7 +22,7 @@ export const Modal = () => {
         <Div ref={refDiv} onClick={handleCloseOutSide}>
 
             {
-                (modalMode === handleOperation) ? <ModalHandleOperations /> :
+                (modalMode === handleOperation) ? <ModalCreateOperations /> :
                     (modalMode === operationInfo) ? <ModalOperation /> :
                         (modalMode === categories) && <ModalCategories />
             }
