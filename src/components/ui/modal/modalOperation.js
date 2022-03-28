@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import validator from 'validator'
 
@@ -29,7 +29,7 @@ export const ModalOperation = () => {
     const setBalance = useUserStore(state => state.setBalance)
 
 
-    const { date, id, category } = activeOperation
+    const { id, category } = activeOperation
 
     const formInitialState = {
         description: activeOperation.description,

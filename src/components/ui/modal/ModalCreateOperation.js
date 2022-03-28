@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import validator from 'validator'
 import { toast } from 'react-toastify';
 
@@ -71,7 +71,7 @@ export const ModalCreateOperations = () => {
             return toast.info('try to submit a numeric amount :) ')
 
         }
-        if (Number(amount) == 0 || Number(amount) < 0) {
+        if (Number(amount) === 0 || Number(amount) < 0) {
             return toast.info('try to submit an amount over 0 :) ')
 
         }

@@ -20,7 +20,7 @@ import { DeleteCategory } from './DeleteCategory';
 import { theme } from '../../../styles/theme'
 import { Form } from '../../coomon/form'
 import { Minimize } from '../../coomon/icons/Minimize'
-import { Div, Span, H2, H3 } from './styles'
+import { Span, H2, H3 } from './styles'
 const { colors } = theme
 
 

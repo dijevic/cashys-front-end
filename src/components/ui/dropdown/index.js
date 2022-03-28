@@ -14,7 +14,7 @@ export const Dropdown = ({ setOptionSelected }) => {
         if (categories.length > 0) {
             setOptionSelected({ category_id: categories[0].uuid, name: categories[0].name })
         }
-    }, [])
+    }, [setOptionSelected, categories])
 
 
     const handleChange = ({ target }) => {
