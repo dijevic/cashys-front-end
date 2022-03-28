@@ -34,7 +34,6 @@ export const DashboardComponent = () => {
     const setopenModal = useUIStore(state => state.setOpenModal)
     const setOperationType = useOperationStore(state => state.setOperationType)
 
-
     useEffect(() => {
 
         getBalanceService(setLoading, setBalance)
@@ -96,12 +95,13 @@ export const DashboardComponent = () => {
             <Div maxWidth="600" background shadow={false} direction="column">
                 <Ul>
                     {
-                        operations.map(({ amount, date, description, operation_Type, uuid: id }) =>
+                        operations.map(({ amount, date, description, operation_Type, uuid: id, category }) =>
                             <Operation
                                 amount={amount}
                                 date={date}
                                 description={description}
                                 operation_Type={operation_Type}
+                                category={category.name}
                                 id={id}
                                 key={id}
                             />

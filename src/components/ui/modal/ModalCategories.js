@@ -1,27 +1,27 @@
 import React, { useRef, useState } from 'react'
 import { toast } from 'react-toastify';
 import validator from 'validator'
+
+// hooks
 import { useForm } from '../../../hooks/useForm';
+import { useUIStore, useUserStore } from '../../../store/store';
+// services
 import { createCategoryService } from '../../../services/createCategory';
 import { deleteCategoryService } from '../../../services/deleteCategory';
 import { updateCategoryService } from '../../../services/updateCategory';
-import { useUIStore, useUserStore } from '../../../store/store';
 
-// SERVICES
+// component
+import { Dropdown } from '../dropdown';
+import { UpdateOrCreateCategory } from './UpdateOrCreateCategory';
+import { CategoryActionButtons } from './categoryActionButtons';
+import { DeleteCategory } from './DeleteCategory';
 
 // styled components 
 import { theme } from '../../../styles/theme'
-import { Buttom } from '../../coomon/buttom'
 import { Form } from '../../coomon/form'
 import { Minimize } from '../../coomon/icons/Minimize'
-import { Input } from '../../coomon/input';
-import { Dropdown } from '../dropdown';
-
-import { Div, Span, H2, ButtonContainer, P, H3, B } from './styles'
+import { Div, Span, H2, H3 } from './styles'
 const { colors } = theme
-
-
-
 
 
 export const ModalCategories = () => {
@@ -75,12 +75,6 @@ export const ModalCategories = () => {
     }
 
 
-    const handleDelete = () => {
-        console.log('dshgfhsjh')
-
-    }
-
-
     const handleShowInput = ({ target }) => {
 
         setShowInput(!showInput)
@@ -115,8 +109,6 @@ export const ModalCategories = () => {
 
     }
 
-
-
     return (
 
         <Div ref={refDiv} onClick={handleCloseOutSide}>
@@ -139,92 +131,29 @@ export const ModalCategories = () => {
 
                     (showInput)
                         ?
-                        <>
-                            <Input
-                                modal="true"
-                                type="text"
-                                placeholder="Category Name"
-                                name="name"
-                                value={name}
-                                autoComplete="off"
-                                onChange={handleInputChange}
-                                maxLength="40"
-                            />
-                            <ButtonContainer>
-
-                                <Buttom
-                                    onClick={handleShowInput}
-                                    padding="true"
-                                    content="Go back"
-                                    type="button"
-                                    background={colors.burgundy}
-
-                                />
-
-                                <Buttom
-                                    padding="true"
-                                    content="Save"
-                                    type="submit"
-
-                                />
-                            </ButtonContainer>
-                        </>
+                        <UpdateOrCreateCategory
+                            handleInputChange={handleInputChange}
+                            handleShowInput={handleShowInput}
+                            name={name}
+                        />
 
                         : (showNotification)
-                            ? <>
-                                <P>Are you sure you want to DELETE <B>{categoryName.toUpperCase()}</B> category ? </P>
-                                <ButtonContainer>
+                            ?
+                            <DeleteCategory
+                                categoryName={categoryName}
+                                handleShowDeleteNotification={handleShowDeleteNotification}
+                            />
 
-                                    <Buttom
-                                        onClick={handleShowDeleteNotification}
-                                        padding="true"
-                                        content="Go back"
-                                        type="button"
 
-                                    />
-
-                                    <Buttom
-                                        padding="true"
-                                        content="DELETE"
-                                        type="submit"
-                                        background={colors.burgundy}
-
-                                    />
-                                </ButtonContainer>
-
-                            </>
                             :
 
-                            <>
-                                <Buttom
-                                    onClick={handleShowInput}
-                                    reference={createRef}
-                                    padding="true"
-                                    content="Create"
-                                    type="button"
-                                    name="create"
-
-                                />
-                                <Buttom
-                                    onClick={handleShowDeleteNotification}
-                                    padding="true"
-                                    content="Delete"
-                                    type="button"
-                                    name="delete"
-                                    reference={deleteRef}
-
-                                    background={colors.burgundy}
-                                />
-                                <Buttom
-                                    onClick={handleShowInput}
-                                    reference={updateRef}
-                                    padding="true"
-                                    name="update"
-                                    content="Update"
-                                    type="button"
-                                />
-
-                            </>
+                            <CategoryActionButtons
+                                handleShowInput={handleShowInput}
+                                createRef={createRef}
+                                handleShowDeleteNotification={handleShowDeleteNotification}
+                                deleteRef={deleteRef}
+                                updateRef={updateRef}
+                            />
 
 
 

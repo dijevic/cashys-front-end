@@ -12,7 +12,6 @@ export const getOperationsService = async (setOperations, setLoading) => {
         try {
             const resp = await fetchWithToken('', 'GET', paths.getOperations)
             const data = await resp.json()
-
             if (data.ok) {
 
                 setOperations(data.operations)

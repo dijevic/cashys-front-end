@@ -10,7 +10,6 @@ import { Buttom } from '../../coomon/buttom'
 import { Form } from '../../coomon/form'
 import { Minimize } from '../../coomon/icons/Minimize'
 import { Input } from '../../coomon/input'
-import { Dropdown } from '../dropdown';
 
 import { Div, Span, H2, StyledDataPicker, P, ButtonContainer } from './styles'
 import { useForm } from '../../../hooks/useForm';
@@ -38,7 +37,6 @@ export const ModalOperation = () => {
         amount: activeOperation.amount,
 
     }
-
 
 
     const [startDate, setStartDate] = useState(new Date());
@@ -114,7 +112,7 @@ export const ModalOperation = () => {
                     onChange={handleInputChange}
                 />
                 <P>Type :{activeOperation.operation_Type}</P>
-                {/* <Dropdown setOptionSelected={setOptionSelected} placeholder="Category" /> */}
+                <P>Category :{activeOperation.category}</P>
                 <ButtonContainer>
                     <Buttom
                         padding="true"

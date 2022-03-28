@@ -10,19 +10,18 @@ import { modalModes } from '../../config/modalModes'
 
 const { operationInfo } = modalModes
 
-export const Operation = React.memo(({ amount, date, description, operation_Type, id }) => {
+export const Operation = React.memo(({ amount, date, description, operation_Type, id, category }) => {
 
     const setopenModal = useUIStore(state => state.setOpenModal)
     const setActiveOperation = useOperationStore(state => state.setActiveOperation)
     const setModalMode = useUIStore(state => state.setModalMode)
 
     const parsedDate = dayjs(date).format("MM-DD-YYYY")
-    console.log()
 
     const handleOpenModal = () => {
         setopenModal()
         setModalMode(operationInfo)
-        setActiveOperation({ amount, date, description, operation_Type, id })
+        setActiveOperation({ amount, date, description, operation_Type, id, category })
     }
     return (
 
