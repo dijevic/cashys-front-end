@@ -77,7 +77,6 @@ export const ModalCategories = () => {
             setCategoryCrudOption(target.name)
         }
 
-
     }
 
 

@@ -2,61 +2,44 @@
 import React, { useEffect, useState } from 'react'
 
 // hooks
+import { useUIStore, useUserStore } from '../../store/store'
 
-// styled components 
-import { theme } from '../../styles/theme'
-import { Buttom } from '../coomon/buttom'
-import { Div, Span, Ul } from './styles'
-import { Operation } from './Operation'
-import { useOperationStore, useUIStore, useUserStore } from '../../store/store'
-import { Modal } from '../ui/modal'
+// services
 import { getOperationsService } from '../../services/getOperations'
-import { Spinner } from '../coomon/spinner'
-import { getBalanceService } from '../../services/getBalance'
+
 import { getCategoriesService } from '../../services/getCategories'
-import { modalModes } from '../../config/modalModes'
-const { colors } = theme
+
+//  components 
+import { Modal } from '../ui/modal'
+import { Spinner } from '../coomon/spinner'
+import { OperationsContainer } from './OperationsContainer'
+import { DashboardActionButtons } from './dashboardActionButtons'
+import { DashboardHeader } from './dashboardHeader'
 
 
 
 export const DashboardComponent = () => {
 
     const modalState = useUIStore(state => state.modalState)
-    const setModalMode = useUIStore(state => state.setModalMode)
     const setOperations = useUserStore(state => state.setOperations)
     const setCategories = useUserStore(state => state.setCategories)
-    const operations = useUserStore(state => state.operations)
+
 
     const [loading, setLoading] = useState(false)
-    const balance = useUserStore(state => state.balance)
-    const setBalance = useUserStore(state => state.setBalance)
 
-    const setopenModal = useUIStore(state => state.setOpenModal)
-    const setOperationType = useOperationStore(state => state.setOperationType)
+
 
     useEffect(() => {
 
-        getBalanceService(setLoading, setBalance)
+
         getOperationsService(setOperations, setLoading)
         getCategoriesService(setLoading, setCategories)
 
-    }, [setOperations, setCategories, setBalance])
+    }, [setOperations, setCategories])
 
 
 
-    const handleIncome = () => {
-        setOperationType('income')
-        setopenModal()
-        setModalMode(modalModes.handleOperation)
 
-
-    }
-    const handleDebt = () => {
-        setOperationType('debt')
-        setopenModal()
-        setModalMode(modalModes.handleOperation)
-
-    }
 
     if (loading) {
         return (
@@ -71,49 +54,10 @@ export const DashboardComponent = () => {
             {
                 (modalState) && <Modal />
             }
-            <Span color={colors.black}>Take Control of your incomes and debts</Span>
-            <Span> BALANCE : {balance} $</Span>
+            <DashboardHeader />
+            <DashboardActionButtons />
 
-            <Div
-                maxWidth="320">
-                <Buttom
-                    onClick={handleIncome}
-
-                    padding
-                    content="Add Money"
-                />
-
-                <Buttom
-                    onClick={handleDebt}
-                    padding
-                    background={colors.burgundy}
-                    content="Debt Money"
-                />
-
-            </Div>
-
-            <Div maxWidth="600" background shadow={false} direction="column">
-                <Ul>
-                    {
-                        operations.map(({ amount, date, description, operation_Type, uuid: id, category }) =>
-                            <Operation
-                                amount={amount}
-                                date={date}
-                                description={description}
-                                operation_Type={operation_Type}
-                                category={category.name}
-                                id={id}
-                                key={id}
-                            />
-
-                        )
-                    }
-
-                </Ul>
-
-
-
-            </Div>
+            <OperationsContainer />
 
 
 
