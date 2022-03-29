@@ -96,6 +96,13 @@ flex-direction:column;
 font-size:1.3rem;
 line-height:1.3rem;
 font-weight: bold;
+margin-left: ${({ marginleft }) => (marginleft) && '15px'};
+color: ${({ color }) => color};
+cursor:pointer;
+
+&:active{
+    color:red;
+}
 span{
     font-style:italic;
 }
@@ -114,12 +121,33 @@ padding:5px;
 width:40px;
 
 `
+export const FilterButton = styled.button`
+background:rgba(255,255,255,0.7);
+padding:5px 8px;
+margin-left:${({ marginleft }) => (marginleft) && '10px'};
+border-radius:5px;
+font-size:1rem;
+line-height:1rem;
+margin-bottom:6px;
 
-export const DivOperation = styled.div`
+@media(min-width:768px){
+    &:hover{
+        background:${colors.white};
+
+    }
+}
+`
+
+
+export const DivContainer = styled.div`
 display: flex;
 align-items: center;
+justify-content: center;
+flex-wrap:wrap;
+
 
 `
+
 
 
 

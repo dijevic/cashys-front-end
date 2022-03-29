@@ -2,9 +2,9 @@ import { toast } from "react-toastify"
 import { paths } from "../config/endpoints"
 import { fetchWithToken } from "../helpers/fetchWithToken"
 
-export const getBalanceService = async (setLoading, setBalance) => {
+export const getBalanceService = async (setBalance) => {
 
-    setLoading(true)
+
 
     try {
 
@@ -14,10 +14,10 @@ export const getBalanceService = async (setLoading, setBalance) => {
             if (data.ok) {
                 const balance = data.balance
                 setBalance(balance)
-                setLoading(false)
+
 
             } else {
-                setLoading(false)
+
                 toast.error(data.message)
 
             }

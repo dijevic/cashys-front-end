@@ -5,7 +5,7 @@ import { useOperationStore, useUIStore } from '../../store/store'
 
 import { PlusIcon } from '../coomon/icons/Plus'
 import { MinusIcon } from '../coomon/icons/Minus'
-import { Li, SpanIcon, P, DivOperation } from './styles'
+import { Li, SpanIcon, P, DivContainer } from './styles'
 import { modalModes } from '../../config/modalModes'
 
 const { operationInfo } = modalModes
@@ -26,7 +26,7 @@ export const Operation = React.memo(({ amount, date, description, operation_Type
     return (
 
         <Li onClick={handleOpenModal} operationtype={operation_Type}>
-            <DivOperation>
+            <DivContainer>
                 <SpanIcon operationtype={operation_Type}>
                     {
                         (operation_Type === 'income') ? <PlusIcon /> : <MinusIcon />
@@ -38,7 +38,7 @@ export const Operation = React.memo(({ amount, date, description, operation_Type
                     <span>{parsedDate}</span>
 
                 </P>
-            </DivOperation>
+            </DivContainer>
             <P>
                 {amount}
             </P>

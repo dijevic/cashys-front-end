@@ -15,7 +15,6 @@ import { Dropdown } from '../dropdown';
 import { UpdateOrCreateCategory } from './UpdateOrCreateCategory';
 import { CategoryActionButtons } from './categoryActionButtons';
 import { DeleteCategory } from './DeleteCategory';
-
 // styled components 
 import { theme } from '../../../styles/theme'
 import { Form } from '../../coomon/form'

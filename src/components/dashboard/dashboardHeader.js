@@ -6,7 +6,6 @@ import { getBalanceService } from '../../services/getBalance'
 import { useUserStore } from '../../store/store'
 // styled components
 import { theme } from '../../styles/theme'
-import { Spinner } from '../coomon/spinner'
 import { Span } from './styles'
 const { colors } = theme
 
@@ -14,17 +13,12 @@ export const DashboardHeader = React.memo(() => {
 
     const balance = useUserStore(state => state.balance)
     const setBalance = useUserStore(state => state.setBalance)
-    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        getBalanceService(setLoading, setBalance)
+        getBalanceService(setBalance)
     }, [setBalance])
 
-    if (loading) {
-        return (
-            <Spinner />
-        )
-    }
+
 
     return (
         <>
