@@ -2,23 +2,31 @@ import { toast } from "react-toastify"
 import { paths } from "../config/endpoints"
 import { fetchWithToken } from "../helpers/fetchWithToken"
 
-export const getOperationsService = async (setOperations, operation_Type, category_id) => {
+export const getOperationsService = async (setOperations, filters) => {
+
+    const { categoryId, operationType } = filters
+
     let endpoint = ''
 
-    if (operation_Type && !category_id) {
-        endpoint = `${paths.getOperationsFiltered}?operation_Type=${operation_Type}`
+    if (operationType && !categoryId) {
+        endpoint = `${paths.getOperationsFiltered}?operation_Type=${operationType}`
 
     }
-    if (!operation_Type && category_id) {
-        endpoint = `${paths.getOperationsFiltered}?category_id=${category_id}`
+    if (!operationType && categoryId) {
+        endpoint = `${paths.getOperationsFiltered}?category_id=${categoryId}`
     }
 
-    if (operation_Type && category_id) {
-        endpoint = `${paths.getOperationsFiltered}?operation_Type=${operation_Type}&category_id=${category_id}`
+    if (operationType && categoryId) {
+        endpoint = `${paths.getOperationsFiltered}?operation_Type=${operationType}&category_id=${categoryId}`
     }
+    if (!operationType && !categoryId) {
+        endpoint = paths.getOperationsFiltered
+
+    }
+
 
     try {
-        const resp = await fetchWithToken({}, 'GET', paths.getOperationsFiltered)
+        const resp = await fetchWithToken({}, 'GET', endpoint)
         const data = await resp.json()
         if (data.ok) {
 
@@ -26,7 +34,7 @@ export const getOperationsService = async (setOperations, operation_Type, catego
 
         } else {
 
-            setOperations(false)
+            // setOperations(false)
             toast.error(data.message)
 
         }

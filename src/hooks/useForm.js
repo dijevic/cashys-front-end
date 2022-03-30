@@ -11,7 +11,7 @@ export const useForm = (initialState = {}) => {
     const ref = useRef('')
 
     const handleInputChange = ({ target }) => {
-        // handle the numerica type of amount
+        // handle the numeric type of amount
         // checking if the data from input is a NAN
         if (target.name === 'amount' && isNaN(target.value)) {
 
