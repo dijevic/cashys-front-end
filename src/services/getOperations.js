@@ -2,10 +2,10 @@ import { toast } from "react-toastify"
 import { paths } from "../config/endpoints"
 import { fetchWithToken } from "../helpers/fetchWithToken"
 
-export const getOperationsService = async (setOperations, setLoading) => {
+export const getOperationsService = async (setOperations) => {
 
 
-    setLoading(true)
+
 
 
 
@@ -13,14 +13,9 @@ export const getOperationsService = async (setOperations, setLoading) => {
         const resp = await fetchWithToken('', 'GET', paths.getOperations)
         const data = await resp.json()
         if (data.ok) {
-
             setOperations(data.operations)
-            setLoading(false)
-
         } else {
-
             setOperations(false)
-            setLoading(false)
             toast.error(data.message)
 
         }

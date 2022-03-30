@@ -15,6 +15,7 @@ export const RenewTokenService = async (setUser, setLoading) => {
         if (data.ok) {
             localStorage.setItem('token', data.token)
             localStorage.setItem('tokenDateStart', new Date().getTime())
+
             const user = {
                 id: data.id,
                 name: data.name

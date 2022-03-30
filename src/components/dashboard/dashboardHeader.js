@@ -23,7 +23,7 @@ export const DashboardHeader = React.memo(() => {
     return (
         <>
             <Span color={colors.black}>Take Control of your incomes and debts</Span>
-            <Span> BALANCE : {balance} $</Span>
+            <Span> BALANCE : {(balance) ? balance : 0} $</Span>
         </>
     )
 })

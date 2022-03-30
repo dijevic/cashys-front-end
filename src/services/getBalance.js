@@ -5,9 +5,6 @@ import { fetchWithToken } from "../helpers/fetchWithToken"
 export const getBalanceService = async (setBalance) => {
 
 
-
-
-
     try {
         const resp = await fetchWithToken('', 'GET', paths.getBalance)
         const data = await resp.json()
@@ -17,7 +14,6 @@ export const getBalanceService = async (setBalance) => {
 
 
         } else {
-
             toast.error(data.message)
 
         }

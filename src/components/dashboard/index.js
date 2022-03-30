@@ -26,28 +26,14 @@ export const DashboardComponent = () => {
     const setOperations = useOperationStore(state => state.setOperations)
     const setCategories = useCategoriesStore(state => state.setCategories)
 
-
-    const [loading, setLoading] = useState(false)
-
-
-
     useEffect(() => {
 
 
-        getOperationsService(setOperations, setLoading)
-        getCategoriesService(setLoading, setCategories)
+        getOperationsService(setOperations)
+        getCategoriesService(setCategories)
 
     }, [setOperations, setCategories])
 
-
-
-
-
-    if (loading) {
-        return (
-            <Spinner />
-        )
-    }
 
     return (
 

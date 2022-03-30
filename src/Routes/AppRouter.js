@@ -28,7 +28,6 @@ export const AppRouter = () => {
     const setUser = useUserStore(state => state.setUser)
     const [checking, setChecking] = useState(false)
 
-
     useEffect(() => {
 
         token.current = localStorage.getItem('token')
