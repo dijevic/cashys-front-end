@@ -6,14 +6,14 @@ import validator from 'validator'
 
 // styled components 
 import { theme } from '../../../styles/theme'
-import { Buttom } from '../../coomon/buttom'
+import { Button } from '../../coomon/button'
 import { Form } from '../../coomon/form'
 import { Minimize } from '../../coomon/icons/Minimize'
 import { Input } from '../../coomon/input'
 
 import { Span, H2, StyledDataPicker, P, ButtonContainer } from './styles'
 import { useForm } from '../../../hooks/useForm';
-import { useBalanceStore, useOperationStore, useUIStore, useUserStore } from '../../../store/store';
+import { useBalanceStore, useOperationStore, useUIStore } from '../../../store/store';
 import { updateOperationService } from '../../../services/updateOperationService';
 import { deleteOperationService } from '../../../services/deleteOperationService';
 const { colors } = theme
@@ -109,11 +109,11 @@ export const ModalOperation = () => {
             <P>Type :{activeOperation.operation_Type}</P>
             <P>Category :{activeOperation.category}</P>
             <ButtonContainer>
-                <Buttom
+                <Button
                     padding="true"
                     content="Save"
                 />
-                <Buttom
+                <Button
                     onClick={handleDelete}
                     padding="true"
                     content="Delete"

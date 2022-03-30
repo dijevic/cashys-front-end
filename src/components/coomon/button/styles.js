@@ -58,7 +58,7 @@ min-width:170px;
 ${customLinkCss}
 `
 
-export const StyledButtom = styled.button`
+export const StyledButton = styled.button`
 ${sharedStyle}
 
 `

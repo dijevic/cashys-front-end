@@ -1,13 +1,13 @@
 import React from 'react'
 import { theme } from '../../../styles/theme'
-import { Buttom } from '../../coomon/buttom'
+import { Button } from '../../coomon/button'
 const { colors } = theme
 
 export const CategoryActionButtons = ({ handleShowInput, createRef, handleShowDeleteNotification, deleteRef, updateRef }) => {
     return (
         <>
 
-            <Buttom
+            <Button
                 onClick={handleShowInput}
                 reference={createRef}
                 padding="true"
@@ -16,7 +16,7 @@ export const CategoryActionButtons = ({ handleShowInput, createRef, handleShowDe
                 name="create"
 
             />
-            <Buttom
+            <Button
                 onClick={handleShowDeleteNotification}
                 padding="true"
                 content="Delete"
@@ -26,7 +26,7 @@ export const CategoryActionButtons = ({ handleShowInput, createRef, handleShowDe
 
                 background={colors.burgundy}
             />
-            <Buttom
+            <Button
                 onClick={handleShowInput}
                 reference={updateRef}
                 padding="true"

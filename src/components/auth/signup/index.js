@@ -8,8 +8,8 @@ import { theme } from '../../../styles/theme'
 import { Form } from '../../coomon/form'
 import { Input } from '../../coomon/input'
 import { useForm } from '../../../hooks/useForm'
-import { Buttom } from '../../coomon/buttom'
-import { Link } from '../../coomon/buttom/Link'
+import { Button } from '../../coomon/button'
+import { Link } from '../../coomon/button/Link'
 import { ShowPasswordComponent } from '../../coomon/showpassword'
 import { emailVerificationService } from '../../../services/verifyEmailService'
 import { Spinner } from '../../coomon/spinner'
@@ -119,7 +119,7 @@ export const SignUpComponent = () => {
                 <ShowPasswordComponent callback={setshowPassword} showPassword={showPassword} />
 
 
-                <Buttom
+                <Button
                     padding="true"
                     content="Sign Up !"
                 />

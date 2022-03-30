@@ -3,7 +3,7 @@ import React from 'react'
 
 // styled components imp
 import { theme } from '../../../styles/theme'
-import { Link } from '../../coomon/buttom/Link'
+import { Link } from '../../coomon/button/Link'
 import { StyledNav, Ul, Li, P } from './styles'
 import { UserIcon } from '../../coomon/icons/User'
 import { LogoutIcon } from '../../coomon/icons/LogoutIcon'

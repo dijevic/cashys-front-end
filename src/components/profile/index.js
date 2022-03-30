@@ -12,8 +12,8 @@ import { useUserStore } from '../../store/store'
 
 // styled components
 import { Input } from '../coomon/input'
-import { Buttom } from '../coomon/buttom'
-import { Link } from '../coomon/buttom/Link'
+import { Button } from '../coomon/button'
+import { Link } from '../coomon/button/Link'
 import { theme } from '../../styles/theme'
 import { H2 } from './styles'
 import { Form } from '../coomon/form'
@@ -75,7 +75,7 @@ export const ProfileComponent = () => {
                 />
                 <ShowPasswordComponent callback={setShowPassword} showPassword={showPassword} />
 
-                <Buttom
+                <Button
                     padding="true"
                     content="save" />
 

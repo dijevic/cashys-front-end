@@ -10,7 +10,7 @@ import { useForm } from '../../../hooks/useForm';
 import { useBalanceStore, useOperationStore, useUIStore } from '../../../store/store'
 // styled components
 import { theme } from '../../../styles/theme'
-import { Buttom } from '../../coomon/buttom'
+import { Button } from '../../coomon/button'
 import { Form } from '../../coomon/form'
 import { Minimize } from '../../coomon/icons/Minimize'
 import { Input } from '../../coomon/input'
@@ -118,7 +118,7 @@ export const ModalCreateOperations = ({ operationType }) => {
             <P>Type : {operationType}</P>
             <Dropdown setOptionSelected={setOptionSelected} />
 
-            <Buttom padding="true" content="Save" />
+            <Button padding="true" content="Save" />
         </Form>
 
     )

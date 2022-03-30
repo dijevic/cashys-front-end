@@ -9,8 +9,8 @@ import { theme } from '../../../styles/theme'
 
 
 // styled components
-import { Buttom } from '../../coomon/buttom'
-import { Link } from '../../coomon/buttom/Link'
+import { Button } from '../../coomon/button'
+import { Link } from '../../coomon/button/Link'
 import { Form } from '../../coomon/form'
 import { Input } from '../../coomon/input'
 import { ShowPasswordComponent } from '../../coomon/showpassword'
@@ -103,7 +103,7 @@ export const ResetPasswordComponent = () => {
                 <ShowPasswordComponent callback={setShowPassword} showPassword={showPassword} />
 
 
-                <Buttom
+                <Button
                     padding="true"
                     content="Recover password now !"
                 />

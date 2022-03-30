@@ -1,6 +1,6 @@
 import React from 'react'
 import { theme } from '../../../styles/theme'
-import { Buttom } from '../../coomon/buttom'
+import { Button } from '../../coomon/button'
 import { Input } from '../../coomon/input'
 import { ButtonContainer } from './styles'
 const { colors } = theme
@@ -20,7 +20,7 @@ export const UpdateOrCreateCategory = ({ handleInputChange, handleShowInput, nam
             />
             <ButtonContainer>
 
-                <Buttom
+                <Button
                     onClick={handleShowInput}
                     padding="true"
                     content="Go back"
@@ -29,7 +29,7 @@ export const UpdateOrCreateCategory = ({ handleInputChange, handleShowInput, nam
 
                 />
 
-                <Buttom
+                <Button
                     padding="true"
                     content="Save"
                     type="submit"

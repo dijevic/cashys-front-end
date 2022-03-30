@@ -2,7 +2,7 @@ import React from 'react'
 import { modalModes } from '../../config/modalModes'
 import { useUIStore } from '../../store/store'
 import { theme } from '../../styles/theme'
-import { Buttom } from '../coomon/buttom'
+import { Button } from '../coomon/button'
 import { Div } from './styles'
 
 const { colors } = theme
@@ -29,14 +29,14 @@ export const DashboardActionButtons = React.memo(({ operationType }) => {
 
         <Div
             maxWidth="320">
-            <Buttom
+            <Button
                 onClick={handleIncome}
 
                 padding
                 content="Add Money"
             />
 
-            <Buttom
+            <Button
                 onClick={handleDebt}
                 padding
                 background={colors.burgundy}

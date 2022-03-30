@@ -3,7 +3,7 @@ import { useUserStore } from '../../../store/store'
 
 // styled components
 import { theme } from '../../../styles/theme'
-import { Link } from '../../coomon/buttom/Link'
+import { Link } from '../../coomon/button/Link'
 import { CloseMenuIcon } from '../../coomon/icons/CloseMenuIcon'
 import { MenuIcon } from '../../coomon/icons/MenuIcon'
 import { BrandLogo } from '../../coomon/logo'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { MainBackground, Container } from '../coomon/div'
-import { Link } from '../coomon/buttom/Link'
+import { Link } from '../coomon/button/Link'
 import { P, Span } from './styles'
 
 export const NotFoundComponent = () => {

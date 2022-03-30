@@ -4,10 +4,10 @@ import validator from 'validator'
 // own files and files
 
 import { useForm } from '../../../hooks/useForm'
-import { Buttom } from '../../coomon/buttom'
+import { Button } from '../../coomon/button'
 import { Form } from '../../coomon/form'
 import { Input } from '../../coomon/input'
-import { Link } from '../../coomon/buttom/Link'
+import { Link } from '../../coomon/button/Link'
 
 // style component
 import { P, Span } from '../styles'
@@ -97,7 +97,7 @@ export const LoginComponent = () => {
 
                 <ShowPasswordComponent callback={setShowPassword} showPassword={showPassword} />
 
-                <Buttom
+                <Button
                     padding="true"
                     content="Login"
                 />
