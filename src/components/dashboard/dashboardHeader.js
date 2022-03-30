@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 // services
 import { getBalanceService } from '../../services/getBalance'
 

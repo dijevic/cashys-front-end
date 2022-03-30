@@ -7,30 +7,28 @@ export const getOperationsService = async (setOperations, setLoading) => {
 
     setLoading(true)
 
+
+
     try {
+        const resp = await fetchWithToken('', 'GET', paths.getOperations)
+        const data = await resp.json()
+        if (data.ok) {
 
-        try {
-            const resp = await fetchWithToken('', 'GET', paths.getOperations)
-            const data = await resp.json()
-            if (data.ok) {
+            setOperations(data.operations)
+            setLoading(false)
 
-                setOperations(data.operations)
-                setLoading(false)
+        } else {
 
-            } else {
+            setOperations(false)
+            setLoading(false)
+            toast.error(data.message)
 
-                setOperations(false)
-                setLoading(false)
-                toast.error(data.message)
-
-            }
-
-        } catch (e) {
-            console.log(e)
         }
 
-    } catch (error) {
-        console.log(error)
+    } catch (e) {
+        console.log(e)
     }
+
+
 
 }

@@ -6,28 +6,26 @@ export const getBalanceService = async (setBalance) => {
 
 
 
+
+
     try {
-
-        try {
-            const resp = await fetchWithToken('', 'GET', paths.getBalance)
-            const data = await resp.json()
-            if (data.ok) {
-                const balance = data.balance
-                setBalance(balance)
+        const resp = await fetchWithToken('', 'GET', paths.getBalance)
+        const data = await resp.json()
+        if (data.ok) {
+            const balance = data.balance
+            setBalance(balance)
 
 
-            } else {
+        } else {
 
-                toast.error(data.message)
+            toast.error(data.message)
 
-            }
-
-        } catch (e) {
-            console.log(e)
         }
 
-    } catch (error) {
-        console.log(error)
+    } catch (e) {
+        console.log(e)
     }
+
+
 
 }

@@ -34,7 +34,7 @@ export const getOperationsService = async (setOperations, filters) => {
 
         } else {
 
-            // setOperations(false)
+            setOperations(false)
             toast.error(data.message)
 
         }

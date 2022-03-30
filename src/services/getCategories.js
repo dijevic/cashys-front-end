@@ -7,28 +7,26 @@ export const getCategoriesService = async (setLoading, setCategories) => {
 
     setLoading(true)
 
+
+
     try {
+        const resp = await fetchWithToken('', 'GET', paths.getCategories)
+        const data = await resp.json()
+        if (data.ok) {
+            setLoading(false)
 
-        try {
-            const resp = await fetchWithToken('', 'GET', paths.getCategories)
-            const data = await resp.json()
-            if (data.ok) {
-                setLoading(false)
+            setCategories(data.categories)
 
-                setCategories(data.categories)
+        } else {
+            setLoading(false)
+            toast.error(data.message)
 
-            } else {
-                setLoading(false)
-                toast.error(data.message)
-
-            }
-
-        } catch (e) {
-            console.log(e)
         }
 
-    } catch (error) {
-        console.log(error)
+    } catch (e) {
+        console.log(e)
     }
+
+
 
 }

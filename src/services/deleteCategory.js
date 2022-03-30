@@ -8,29 +8,27 @@ export const deleteCategoryService = async (id, deleteCategory, setBalance, dele
 
 
 
-    try {
-        const resp = await fetchWithToken({}, 'DELETE', `${paths.deleteCategory}/${id}`)
-        const data = await resp.json()
-        if (data.ok) {
 
-            deleteCategory(id)
-            setBalance(data.balance.amount)
+    const resp = await fetchWithToken({}, 'DELETE', `${paths.deleteCategory}/${id}`)
+    const data = await resp.json()
+    if (data.ok) {
 
-            data.operations.forEach((op) => {
+        deleteCategory(id)
+        setBalance(data.balance.amount)
 
-                deleteOperation(op.uuid)
-            })
+        data.operations.forEach((op) => {
 
-            toast.info('category deleted successfully')
+            deleteOperation(op.uuid)
+        })
 
-        } else {
-            toast.dismiss()
-            toast.error(data.msg)
-        }
+        toast.info('category deleted successfully')
 
-    } catch (e) {
-        console.log(e)
+    } else {
+        toast.dismiss()
+        toast.error(data.msg)
     }
+
+
 
 
 
