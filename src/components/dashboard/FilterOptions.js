@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { getOperationsService } from '../../services/getOperationsFiltered'
-import { useCategoriesStore, useUserStore } from '../../store/store'
+import { useCategoriesStore, useOperationStore } from '../../store/store'
 import { theme } from '../../styles/theme'
 import { FilterButton, DivContainer } from './styles'
 const { colors } = theme
@@ -13,7 +13,7 @@ export const FilterOptions = () => {
     let categoryId = useRef(false)
 
     const categories = useCategoriesStore(state => (state.categories))
-    const setOperations = useUserStore(state => (state.setOperations))
+    const setOperations = useOperationStore(state => (state.setOperations))
 
 
 

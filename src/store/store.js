@@ -2,17 +2,7 @@ import create from 'zustand'
 
 export const useUserStore = create(set => ({
     user: false,
-
-
-    operations: [],
     setUser: (userData) => set(() => ({ user: userData })),
-
-    setOperations: (operationsArray) => set(() => ({ operations: operationsArray })),
-    addOperation: (operation) => set((state) => ({ operations: [operation, ...state.operations] })),
-    updateOperation: (id, operation) => set((state) => ({ operations: state.operations.map((op) => (op.uuid === id) ? operation : op) })),
-    deleteOperation: (id) => set((state) => ({ operations: state.operations.filter((op) => op.uuid !== id) })),
-
-
 
 }))
 export const useBalanceStore = create(set => ({
@@ -36,9 +26,13 @@ export const useUIStore = create(set => ({
 
 }))
 export const useOperationStore = create(set => ({
-    operationType: false,
+
     activeOperation: false,
-    setOperationType: (type) => set(() => ({ operationType: type })),
-    setActiveOperation: (operation) => set(state => ({ activeOperation: operation }))
+    operations: [],
+    setActiveOperation: (operation) => set(() => ({ activeOperation: operation })),
+    setOperations: (operationsArray) => set(() => ({ operations: operationsArray })),
+    addOperation: (operation) => set((state) => ({ operations: [operation, ...state.operations] })),
+    updateOperation: (id, operation) => set((state) => ({ operations: state.operations.map((op) => (op.uuid === id) ? operation : op) })),
+    deleteOperation: (id) => set((state) => ({ operations: state.operations.filter((op) => op.uuid !== id) })),
 
 }))

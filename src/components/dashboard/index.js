@@ -1,8 +1,8 @@
 // third  party imp
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 // hooks
-import { useCategoriesStore, useUIStore, useUserStore } from '../../store/store'
+import { useCategoriesStore, useOperationStore, useUIStore } from '../../store/store'
 
 // services
 import { getOperationsService } from '../../services/getOperations'
@@ -20,8 +20,10 @@ import { DashboardHeader } from './dashboardHeader'
 
 export const DashboardComponent = () => {
 
+    const operationTypeRef = useRef()
+
     const modalState = useUIStore(state => state.modalState)
-    const setOperations = useUserStore(state => state.setOperations)
+    const setOperations = useOperationStore(state => state.setOperations)
     const setCategories = useCategoriesStore(state => state.setCategories)
 
 
@@ -52,10 +54,10 @@ export const DashboardComponent = () => {
         <>
 
             {
-                (modalState) && <Modal />
+                (modalState) && <Modal operationType={operationTypeRef.current} />
             }
             <DashboardHeader />
-            <DashboardActionButtons />
+            <DashboardActionButtons operationType={operationTypeRef} />
 
             <OperationsContainer />
 

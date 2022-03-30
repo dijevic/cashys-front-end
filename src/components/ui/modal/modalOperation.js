@@ -24,8 +24,8 @@ export const ModalOperation = () => {
     const setOpenModal = useUIStore(state => state.setOpenModal)
 
     const activeOperation = useOperationStore(state => state.activeOperation)
-    const updateOperation = useUserStore(state => state.updateOperation)
-    const deleteOperation = useUserStore(state => state.deleteOperation)
+    const updateOperation = useOperationStore(state => state.updateOperation)
+    const deleteOperation = useOperationStore(state => state.deleteOperation)
     const setBalance = useBalanceStore(state => state.setBalance)
 
 
@@ -63,11 +63,11 @@ export const ModalOperation = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (validator.isEmpty(description.trim()) || validator.isEmpty(amount.trim())) {
+        if (validator.isEmpty(description.trim()) || validator.isEmpty((amount + '').trim())) {
             return toast.info('Cant update empty fields')
         }
 
-        if (!validator.isNumeric(amount)) {
+        if (isNaN(amount)) {
             return toast.error('try with numbers')
         }
         updateOperationService(formValues, id, updateOperation, setBalance, category)

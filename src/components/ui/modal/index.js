@@ -6,7 +6,7 @@ import { ModalCreateOperations } from './ModalCreateOperation'
 import { ModalOperation } from './modalOperation'
 import { Div } from './styles'
 const { handleOperation, operationInfo, categories } = modalModes
-export const Modal = () => {
+export const Modal = ({ operationType }) => {
     const modalMode = useUIStore(state => state.modalMode)
     const setOpenModal = useUIStore(state => state.setOpenModal)
 
@@ -27,7 +27,7 @@ export const Modal = () => {
         <Div ref={refDiv} onClick={handleCloseOutSide}>
 
             {
-                (modalMode === handleOperation) ? <ModalCreateOperations /> :
+                (modalMode === handleOperation) ? <ModalCreateOperations operationType={operationType} /> :
                     (modalMode === operationInfo) ? <ModalOperation /> :
                         (modalMode === categories) && <ModalCategories />
             }

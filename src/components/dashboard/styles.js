@@ -100,9 +100,7 @@ margin-left: ${({ marginleft }) => (marginleft) && '15px'};
 color: ${({ color }) => color};
 cursor:pointer;
 
-&:active{
-    color:red;
-}
+
 span{
     font-style:italic;
 }

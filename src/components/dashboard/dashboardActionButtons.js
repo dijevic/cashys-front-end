@@ -1,27 +1,26 @@
 import React from 'react'
 import { modalModes } from '../../config/modalModes'
-import { useOperationStore, useUIStore } from '../../store/store'
+import { useUIStore } from '../../store/store'
 import { theme } from '../../styles/theme'
 import { Buttom } from '../coomon/buttom'
 import { Div } from './styles'
 
 const { colors } = theme
 
-export const DashboardActionButtons = React.memo(() => {
+export const DashboardActionButtons = React.memo(({ operationType }) => {
     const setopenModal = useUIStore(state => state.setOpenModal)
     const setModalMode = useUIStore(state => state.setModalMode)
-    const setOperationType = useOperationStore(state => state.setOperationType)
 
 
     const handleIncome = () => {
-        setOperationType('income')
+        operationType.current = 'income'
         setopenModal()
         setModalMode(modalModes.handleOperation)
 
 
     }
     const handleDebt = () => {
-        setOperationType('debt')
+        operationType.current = 'debt'
         setopenModal()
         setModalMode(modalModes.handleOperation)
 
