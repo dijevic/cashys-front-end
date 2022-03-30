@@ -13,7 +13,7 @@ import { Input } from '../../coomon/input'
 
 import { Span, H2, StyledDataPicker, P, ButtonContainer } from './styles'
 import { useForm } from '../../../hooks/useForm';
-import { useOperationStore, useUIStore, useUserStore } from '../../../store/store';
+import { useBalanceStore, useOperationStore, useUIStore, useUserStore } from '../../../store/store';
 import { updateOperationService } from '../../../services/updateOperationService';
 import { deleteOperationService } from '../../../services/deleteOperationService';
 const { colors } = theme
@@ -26,7 +26,7 @@ export const ModalOperation = () => {
     const activeOperation = useOperationStore(state => state.activeOperation)
     const updateOperation = useUserStore(state => state.updateOperation)
     const deleteOperation = useUserStore(state => state.deleteOperation)
-    const setBalance = useUserStore(state => state.setBalance)
+    const setBalance = useBalanceStore(state => state.setBalance)
 
 
     const { id, category } = activeOperation

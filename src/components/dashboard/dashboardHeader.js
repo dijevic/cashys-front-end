@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { getBalanceService } from '../../services/getBalance'
 
 // hooks
-import { useUserStore } from '../../store/store'
+import { useBalanceStore } from '../../store/store'
 // styled components
 import { theme } from '../../styles/theme'
 import { Span } from './styles'
@@ -11,8 +11,8 @@ const { colors } = theme
 
 export const DashboardHeader = React.memo(() => {
 
-    const balance = useUserStore(state => state.balance)
-    const setBalance = useUserStore(state => state.setBalance)
+    const balance = useBalanceStore(state => state.balance)
+    const setBalance = useBalanceStore(state => state.setBalance)
 
     useEffect(() => {
         getBalanceService(setBalance)

@@ -4,7 +4,7 @@ import validator from 'validator'
 
 // hooks
 import { useForm } from '../../../hooks/useForm';
-import { useUIStore, useUserStore } from '../../../store/store';
+import { useBalanceStore, useUIStore, useUserStore } from '../../../store/store';
 // services
 import { createCategoryService } from '../../../services/createCategory';
 import { deleteCategoryService } from '../../../services/deleteCategory';
@@ -27,7 +27,7 @@ export const ModalCategories = () => {
 
     const setOpenModal = useUIStore(state => state.setOpenModal)
     const addCategory = useUserStore(state => state.addCategory)
-    const setBalance = useUserStore(state => state.setBalance)
+    const setBalance = useBalanceStore(state => state.setBalance)
     const deleteOperation = useUserStore(state => state.deleteOperation)
     const updateCategory = useUserStore(state => state.updateCategory)
     const deleteCategory = useUserStore(state => state.deleteCategory)

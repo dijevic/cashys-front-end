@@ -11,6 +11,11 @@ export const Modal = () => {
     const setOpenModal = useUIStore(state => state.setOpenModal)
 
     const refDiv = useRef()
+
+
+
+
+
     const handleCloseOutSide = ({ target }) => {
         if (target === refDiv.current) {
             setOpenModal()

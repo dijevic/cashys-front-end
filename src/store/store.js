@@ -19,6 +19,11 @@ export const useUserStore = create(set => ({
 
 
 }))
+export const useBalanceStore = create(set => ({
+    balance: 0,
+    setBalance: (mount) => set(() => ({ balance: mount })),
+
+}))
 export const useUIStore = create(set => ({
     modalState: false,
     modalMode: false,

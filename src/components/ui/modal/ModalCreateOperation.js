@@ -7,7 +7,7 @@ import { createOperationService } from '../../../services/createOperation';
 // hooks
 import { useForm } from '../../../hooks/useForm';
 // STORE
-import { useOperationStore, useUIStore, useUserStore } from '../../../store/store'
+import { useBalanceStore, useOperationStore, useUIStore, useUserStore } from '../../../store/store'
 // styled components
 import { theme } from '../../../styles/theme'
 import { Buttom } from '../../coomon/buttom'
@@ -23,8 +23,8 @@ const { colors } = theme
 
 export const ModalCreateOperations = () => {
     const operationType = useOperationStore((state) => state.operationType)
-    const setBalance = useUserStore((state) => state.setBalance)
     const addOperation = useUserStore((state) => state.addOperation)
+    const setBalance = useBalanceStore(state => state.setBalance)
 
     const initialState = {
         category_id: ''
