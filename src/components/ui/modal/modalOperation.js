@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import validator from 'validator'
-
+import dayjs from 'dayjs'
 // SERVICES
 
 // styled components 
@@ -11,7 +11,7 @@ import { Form } from '../../coomon/form'
 import { Minimize } from '../../coomon/icons/Minimize'
 import { Input } from '../../coomon/input'
 
-import { Span, H2, StyledDataPicker, P, ButtonContainer } from './styles'
+import { Span, H2, StyledDataPicker, P, ButtonContainer, H3 } from './styles'
 import { useForm } from '../../../hooks/useForm';
 import { useBalanceStore, useOperationStore, useUIStore } from '../../../store/store';
 import { updateOperationService } from '../../../services/updateOperationService';
@@ -28,9 +28,9 @@ export const ModalOperation = () => {
     const deleteOperation = useOperationStore(state => state.deleteOperation)
     const setBalance = useBalanceStore(state => state.setBalance)
 
-
     const { id, category } = activeOperation
 
+    const date = dayjs(activeOperation.date).toDate()
     const formInitialState = {
         description: activeOperation.description,
         amount: activeOperation.amount,
@@ -38,7 +38,7 @@ export const ModalOperation = () => {
     }
 
 
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(date);
 
     const [formValues, handleInputChange] = useForm(formInitialState)
     const { description, amount } = formValues
@@ -70,7 +70,14 @@ export const ModalOperation = () => {
         if (isNaN(amount)) {
             return toast.error('try with numbers')
         }
-        updateOperationService(formValues, id, updateOperation, setBalance, category)
+
+        const data = {
+            description,
+            amount,
+            date: startDate
+
+        }
+        updateOperationService(data, id, updateOperation, setBalance, category)
 
     }
 
@@ -89,6 +96,7 @@ export const ModalOperation = () => {
             </Span>
             <H2>Your Operation </H2>
             <StyledDataPicker className="datepicker" selected={startDate} onChange={handleChangeDate} />
+
             <Input
                 modal="true"
                 type="text"

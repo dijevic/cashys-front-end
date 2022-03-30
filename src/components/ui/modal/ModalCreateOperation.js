@@ -79,7 +79,9 @@ export const ModalCreateOperations = ({ operationType }) => {
             description,
             amount,
             operation_Type,
-            category_id
+            category_id,
+            date: startDate
+
         }
         createOperationService(data, setBalance, addOperation, categoryName)
     }

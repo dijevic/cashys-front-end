@@ -8,7 +8,6 @@ export const createOperationService = async (fetchData, setBalance, addOperation
     toast.info('creating the operation...wait a minute')
 
 
-
     try {
         const resp = await fetchWithToken(fetchData, 'POST', paths.createOperation)
         const data = await resp.json()
