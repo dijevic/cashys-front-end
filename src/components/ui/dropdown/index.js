@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { modalModes } from '../../../config/modalModes'
-import { useUIStore, useUserStore } from '../../../store/store'
+import { useCategoriesStore, useUIStore } from '../../../store/store'
 import { PlusIcon } from '../../coomon/icons/Plus'
 import { Label, Select, Div, Span } from './styled'
 
 
 export const Dropdown = ({ setOptionSelected }) => {
-    const categories = useUserStore(state => state.categories)
+    const categories = useCategoriesStore(state => state.categories)
     const setModalMode = useUIStore(state => state.setModalMode)
     const modalMode = useUIStore(state => state.modalMode)
 

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 
 // hooks
-import { useUIStore, useUserStore } from '../../store/store'
+import { useCategoriesStore, useUIStore, useUserStore } from '../../store/store'
 
 // services
 import { getOperationsService } from '../../services/getOperations'
@@ -22,7 +22,7 @@ export const DashboardComponent = () => {
 
     const modalState = useUIStore(state => state.modalState)
     const setOperations = useUserStore(state => state.setOperations)
-    const setCategories = useUserStore(state => state.setCategories)
+    const setCategories = useCategoriesStore(state => state.setCategories)
 
 
     const [loading, setLoading] = useState(false)

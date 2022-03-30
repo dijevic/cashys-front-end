@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes, } from 'react-router-dom'
-import dayjs from 'dayjs'
 
 import { Container, MainBackground } from '../components/coomon/div'
 import { Spinner } from '../components/coomon/spinner'
@@ -23,12 +22,12 @@ import { PublicRoute } from './PublicRoute'
 
 export const AppRouter = () => {
     let token = useRef(false)
-    const tokenWt = localStorage.getItem('tokenDateStart')
 
     const user = useUserStore(state => state.user)
+
     const setUser = useUserStore(state => state.setUser)
     const [checking, setChecking] = useState(false)
-    console.log(tokenWt)
+
 
     useEffect(() => {
 

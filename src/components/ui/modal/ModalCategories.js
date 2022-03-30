@@ -4,7 +4,7 @@ import validator from 'validator'
 
 // hooks
 import { useForm } from '../../../hooks/useForm';
-import { useBalanceStore, useUIStore, useUserStore } from '../../../store/store';
+import { useBalanceStore, useCategoriesStore, useUIStore, useUserStore } from '../../../store/store';
 // services
 import { createCategoryService } from '../../../services/createCategory';
 import { deleteCategoryService } from '../../../services/deleteCategory';
@@ -26,11 +26,11 @@ const { colors } = theme
 export const ModalCategories = () => {
 
     const setOpenModal = useUIStore(state => state.setOpenModal)
-    const addCategory = useUserStore(state => state.addCategory)
     const setBalance = useBalanceStore(state => state.setBalance)
+    const addCategory = useCategoriesStore(state => state.addCategory)
+    const updateCategory = useCategoriesStore(state => state.updateCategory)
+    const deleteCategory = useCategoriesStore(state => state.deleteCategory)
     const deleteOperation = useUserStore(state => state.deleteOperation)
-    const updateCategory = useUserStore(state => state.updateCategory)
-    const deleteCategory = useUserStore(state => state.deleteCategory)
 
     const initialFormState = {
         name: ''
