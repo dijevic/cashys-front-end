@@ -1,6 +1,6 @@
 // react imp
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import DatePicker from "react-datepicker";
 
 
@@ -20,6 +20,7 @@ border-radius: 10px;
 width: 40%;
 margin-top:20px;
 flex-direction: ${({ direction }) => direction || 'row'};
+flex-wrap: wrap;
 width: 100%;
 max-width : ${({ maxWidth }) => (maxWidth) && maxWidth}px;
 
@@ -101,6 +102,14 @@ font-weight: bold;
 margin-left: ${({ marginleft }) => (marginleft) && '15px'};
 color: ${({ color }) => color};
 cursor:pointer;
+
+
+${({ actionbutton }) => (actionbutton) && css`
+margin-bottom:20px;
+text-align: center;
+
+
+`}
 
 
 span{

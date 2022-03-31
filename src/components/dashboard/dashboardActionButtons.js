@@ -3,7 +3,9 @@ import { modalModes } from '../../config/modalModes'
 import { useUIStore } from '../../store/store'
 import { theme } from '../../styles/theme'
 import { Button } from '../coomon/button'
-import { Div } from './styles'
+import { DebtArrowIcon } from '../coomon/icons/DebtArrowIcon'
+import { IncomeArrowIcon } from '../coomon/icons/IncomeArrowIcon'
+import { Div, P } from './styles'
 
 const { colors } = theme
 
@@ -29,19 +31,38 @@ export const DashboardActionButtons = React.memo(({ operationType }) => {
 
         <Div
             maxWidth="320">
-            <Button
-                onClick={handleIncome}
 
-                padding
-                content="Add Money"
-            />
+            <div>
+                <Button
+                    onClick={handleIncome}
+                    padding="true"
+                    actionbutton="true"
+                    content={<IncomeArrowIcon />}
+                />
+                <P
+                    onClick={handleDebt}
+                    actionbutton="true"
+                    color={colors.white}>INCOME</P>
 
-            <Button
-                onClick={handleDebt}
-                padding
-                background={colors.burgundy}
-                content="Debt Money"
-            />
+            </div>
+
+            <div>
+
+                <Button
+                    onClick={handleDebt}
+                    padding="true"
+                    actionbutton="true"
+                    background={colors.burgundy}
+                    content={<DebtArrowIcon />}
+                />
+
+                <P
+                    onClick={handleDebt}
+                    actionbutton="true"
+                    color={colors.white}>DEBT</P>
+
+            </div>
+
 
         </Div>
     )

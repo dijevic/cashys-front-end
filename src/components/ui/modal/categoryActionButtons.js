@@ -22,9 +22,8 @@ export const CategoryActionButtons = ({ handleShowInput, createRef, handleShowDe
                 content="Delete"
                 type="button"
                 name="delete"
+                deletebutton="true"
                 reference={deleteRef}
-
-                background={colors.burgundy}
             />
             <Button
                 onClick={handleShowInput}
@@ -33,6 +32,8 @@ export const CategoryActionButtons = ({ handleShowInput, createRef, handleShowDe
                 name="update"
                 content="Update"
                 type="button"
+                background={colors.burgundy}
+
             />
         </>
     )

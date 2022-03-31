@@ -35,12 +35,7 @@ export const FilterOptions = () => {
             date: dateParsed.current
 
         }
-
-        console.log(dateParsed.current)
         getOperationsService(setOperations, filters, false)
-
-
-
 
 
     }
