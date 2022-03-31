@@ -8,7 +8,11 @@ export const OperationsContainer = React.memo(() => {
     const operations = useOperationStore(state => state.operations)
     return (
         <>
-            <FilterOptions />
+
+            {
+                (operations && operations.length > 0) &&
+                <FilterOptions />
+            }
             <Div maxWidth="600" background shadow={false} direction="column">
                 <Ul>
                     {

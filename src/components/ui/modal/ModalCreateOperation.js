@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import validator from 'validator'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
 // SERVICES
 import { createOperationService } from '../../../services/createOperation';
 // hooks
@@ -17,7 +19,7 @@ import { Dropdown } from '../dropdown';
 import { Span, H2, StyledDataPicker, P } from './styles'
 const { colors } = theme
 
-
+dayjs.extend(utc)
 
 
 export const ModalCreateOperations = ({ operationType }) => {
@@ -56,8 +58,8 @@ export const ModalCreateOperations = ({ operationType }) => {
     const handleChangeDate = (date) => {
         setStartDate(date)
 
-    }
 
+    }
 
 
     const handleSubmit = (e) => {
@@ -80,7 +82,7 @@ export const ModalCreateOperations = ({ operationType }) => {
             amount,
             operation_Type,
             category_id,
-            date: startDate
+            date: dayjs.utc(startDate).format()
 
         }
         createOperationService(data, setBalance, addOperation, categoryName)

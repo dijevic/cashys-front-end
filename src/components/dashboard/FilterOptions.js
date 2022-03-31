@@ -10,7 +10,9 @@ import { useCategoriesStore, useOperationStore } from '../../store/store'
 import { theme } from '../../styles/theme'
 import { FilterButton, DivContainer, StyledDataPickerButton } from './styles'
 const { colors } = theme
+
 dayjs.extend(utc)
+
 export const FilterOptions = () => {
     let operationButtonRef = useRef()
     let categoryButtonRef = useRef()
@@ -26,14 +28,15 @@ export const FilterOptions = () => {
     const handleChangeDate = (date) => {
         setStartDate(date)
 
-        dateParsed.current = date
+        dateParsed.current = dayjs.utc(date).format()
         const filters = {
             operationType: operationType.current,
             categoryId: categoryId.current,
             date: dateParsed.current
 
         }
-        console.log(filters)
+
+        console.log(dateParsed.current)
         getOperationsService(setOperations, filters, false)
 
 
@@ -41,10 +44,7 @@ export const FilterOptions = () => {
 
 
     }
-    const handleDateClick = (e) => {
 
-        console.log(e.target)
-    }
 
 
     const handleCategorySelected = ({ target }) => {
@@ -205,7 +205,6 @@ export const FilterOptions = () => {
                 )
             }
             <StyledDataPickerButton
-                onClick={handleDateClick}
                 filterselected={dateParsed.current}
                 className="datepicker"
                 selected={startDate}

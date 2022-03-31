@@ -12,6 +12,7 @@ export const createOperationService = async (fetchData, setBalance, addOperation
         const resp = await fetchWithToken(fetchData, 'POST', paths.createOperation)
         const data = await resp.json()
         if (data.ok) {
+            console.log(data)
             toast.dismiss()
             const balance = data.balance.amount
             const operation = data.operation
