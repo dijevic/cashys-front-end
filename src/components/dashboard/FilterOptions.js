@@ -1,8 +1,13 @@
-import React, { useRef } from 'react'
+// third party imp
+import React, { useRef, useState } from 'react'
+import DatePicker from "react-datepicker";
+// services
 import { getOperationsService } from '../../services/getOperationsFiltered'
+// hooks
 import { useCategoriesStore, useOperationStore } from '../../store/store'
+// styled components
 import { theme } from '../../styles/theme'
-import { FilterButton, DivContainer } from './styles'
+import { FilterButton, DivContainer, StyledDataPickerButton } from './styles'
 const { colors } = theme
 export const FilterOptions = () => {
 
@@ -15,6 +20,11 @@ export const FilterOptions = () => {
     const categories = useCategoriesStore(state => (state.categories))
     const setOperations = useOperationStore(state => (state.setOperations))
 
+    const [startDate, setStartDate] = useState(new Date());
+
+    const handleChangeDate = (date) => {
+        setStartDate(date)
+    }
 
 
     const handleCategorySelected = ({ target }) => {
@@ -82,6 +92,12 @@ export const FilterOptions = () => {
 
 
     }
+
+
+
+
+
+
     return (
         <DivContainer>
             <FilterButton
@@ -118,6 +134,9 @@ export const FilterOptions = () => {
                     </FilterButton>
                 )
             }
+            <StyledDataPickerButton className="datepicker" selected={startDate} onChange={handleChangeDate} />
+
+
 
         </DivContainer>
     )

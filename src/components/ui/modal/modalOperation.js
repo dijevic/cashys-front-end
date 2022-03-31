@@ -40,6 +40,7 @@ export const ModalOperation = () => {
 
     const [startDate, setStartDate] = useState(date);
 
+
     const [formValues, handleInputChange] = useForm(formInitialState)
     const { description, amount } = formValues
 

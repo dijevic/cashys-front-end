@@ -1,9 +1,11 @@
 // react imp
+import React from 'react'
 import styled from 'styled-components'
+import DatePicker from "react-datepicker";
+
 
 // styled Components
 import { theme } from '../../styles/theme'
-import React from 'react'
 
 
 const { colors, animations } = theme
@@ -143,6 +145,28 @@ align-items: center;
 justify-content: center;
 flex-wrap:wrap;
 
+
+`
+
+export const StyledDataPickerButton = styled(DatePicker)`
+background:rgba(255,255,255,0.5);
+padding:5px 8px;
+margin-left:${({ marginleft }) => (marginleft) && '10px'};
+border-radius:5px;
+font-size:1rem;
+line-height:1rem;
+margin-bottom:6px;
+margin: 0px auto;
+text-align: center;
+display: flex;
+justify-content:center;
+cursor:pointer;
+@media(min-width:768px){
+    &:hover{
+        background:${colors.white};
+
+    }
+}
 
 `
 
