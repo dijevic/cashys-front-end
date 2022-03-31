@@ -149,7 +149,8 @@ flex-wrap:wrap;
 `
 
 export const StyledDataPickerButton = styled(DatePicker)`
-background:rgba(255,255,255,0.5);
+background:${({ filterselected }) => (filterselected) ? colors.blue : 'rgba(255,255,255,0.5)'};
+color:${({ filterselected }) => (filterselected) ? colors.white : colors.black};
 padding:5px 8px;
 margin-left:${({ marginleft }) => (marginleft) && '10px'};
 border-radius:5px;
@@ -163,7 +164,7 @@ justify-content:center;
 cursor:pointer;
 @media(min-width:768px){
     &:hover{
-        background:${colors.white};
+     background:${({ filterselected }) => (filterselected) ? colors.lightBlue : colors.white};
 
     }
 }

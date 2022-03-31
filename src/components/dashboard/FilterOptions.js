@@ -1,6 +1,7 @@
 // third party imp
 import React, { useRef, useState } from 'react'
-import DatePicker from "react-datepicker";
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
 // services
 import { getOperationsService } from '../../services/getOperationsFiltered'
 // hooks
@@ -9,13 +10,13 @@ import { useCategoriesStore, useOperationStore } from '../../store/store'
 import { theme } from '../../styles/theme'
 import { FilterButton, DivContainer, StyledDataPickerButton } from './styles'
 const { colors } = theme
+dayjs.extend(utc)
 export const FilterOptions = () => {
-
-
     let operationButtonRef = useRef()
     let categoryButtonRef = useRef()
     let operationType = useRef(false)
     let categoryId = useRef(false)
+    let dateParsed = useRef(false)
 
     const categories = useCategoriesStore(state => (state.categories))
     const setOperations = useOperationStore(state => (state.setOperations))
@@ -24,6 +25,25 @@ export const FilterOptions = () => {
 
     const handleChangeDate = (date) => {
         setStartDate(date)
+
+        dateParsed.current = date
+        const filters = {
+            operationType: operationType.current,
+            categoryId: categoryId.current,
+            date: dateParsed.current
+
+        }
+        console.log(filters)
+        getOperationsService(setOperations, filters, false)
+
+
+
+
+
+    }
+    const handleDateClick = (e) => {
+
+        console.log(e.target)
     }
 
 
@@ -32,20 +52,42 @@ export const FilterOptions = () => {
         if (categoryButtonRef.current) {
             categoryButtonRef.current.style.background = ''
             categoryButtonRef.current.style.color = ''
+        }
+
+        if (categoryButtonRef.current === target) {
+            categoryId.current = false
+            categoryButtonRef.current = false
+
+            const filters = {
+                operationType: operationType.current,
+                categoryId: categoryId.current,
+                date: dateParsed.current
+            }
+
+
+            getOperationsService(setOperations, filters, false)
+
+
+
+        } else {
+
+            categoryButtonRef.current = target
+            categoryButtonRef.current.style.background = theme.colors.blue
+            categoryButtonRef.current.style.color = theme.colors.white
+
+            categoryId.current = target.value
+
+            const filters = {
+                operationType: operationType.current,
+                categoryId: categoryId.current,
+                date: dateParsed.current
+            }
+
+            getOperationsService(setOperations, filters, false)
+
+
 
         }
-        categoryButtonRef.current = target
-
-        categoryButtonRef.current.style.background = theme.colors.blue
-        categoryButtonRef.current.style.color = theme.colors.white
-
-        categoryId.current = target.value
-
-        const filters = { operationType: operationType.current, categoryId: categoryId.current }
-
-
-        getOperationsService(setOperations, filters, false)
-
 
 
     }
@@ -53,20 +95,39 @@ export const FilterOptions = () => {
         if (operationButtonRef.current) {
             operationButtonRef.current.style.background = ''
             operationButtonRef.current.style.color = ''
+        }
 
+
+        if (operationButtonRef.current === target) {
+            operationType.current = false
+            operationButtonRef.current = false
+            const filters = {
+                operationType: operationType.current,
+                categoryId: categoryId.current,
+                date: dateParsed.current
+            }
+
+            getOperationsService(setOperations, filters, false)
+
+
+
+        } else {
+            operationButtonRef.current = target
+            operationButtonRef.current.style.background = theme.colors.blue
+            operationButtonRef.current.style.color = theme.colors.white
+
+            operationType.current = target.name
+
+            const filters = {
+                operationType: operationType.current,
+                categoryId: categoryId.current,
+                date: dateParsed.current
+            }
+
+            getOperationsService(setOperations, filters, false)
 
         }
-        operationButtonRef.current = target
 
-        operationButtonRef.current.style.background = theme.colors.blue
-        operationButtonRef.current.style.color = theme.colors.white
-
-        operationType.current = target.name
-
-        const filters = { operationType: operationType.current, categoryId: categoryId.current }
-
-
-        getOperationsService(setOperations, filters, false)
 
 
 
@@ -76,15 +137,24 @@ export const FilterOptions = () => {
         if (categoryButtonRef.current) {
             categoryButtonRef.current.style.background = ''
             categoryButtonRef.current.style.color = ''
+
+
         }
         if (operationButtonRef.current) {
             operationButtonRef.current.style.background = ''
             operationButtonRef.current.style.color = ''
+
         }
 
-        const filters = { operationType: false, categoryId: false }
+        const filters = { operationType: false, categoryId: false, date: false }
 
-        if (operationType.current || categoryId.current) {
+        if (operationType.current || categoryId.current || dateParsed.current) {
+            operationType.current = false
+            categoryId.current = false
+            dateParsed.current = false
+            operationButtonRef.current = false
+            categoryButtonRef.current = false
+
             getOperationsService(setOperations, filters, false)
 
         }
@@ -134,7 +204,12 @@ export const FilterOptions = () => {
                     </FilterButton>
                 )
             }
-            <StyledDataPickerButton className="datepicker" selected={startDate} onChange={handleChangeDate} />
+            <StyledDataPickerButton
+                onClick={handleDateClick}
+                filterselected={dateParsed.current}
+                className="datepicker"
+                selected={startDate}
+                onChange={handleChangeDate} />
 
 
 

@@ -18,7 +18,6 @@ export const Operation = React.memo(({ amount, date, description, operation_Type
 
     const parsedDate = dayjs(date).format("MM-DD-YYYY")
 
-
     const handleOpenModal = () => {
         setopenModal()
         setModalMode(operationInfo)

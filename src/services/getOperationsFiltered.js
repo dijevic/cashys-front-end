@@ -4,22 +4,41 @@ import { fetchWithToken } from "../helpers/fetchWithToken"
 
 export const getOperationsService = async (setOperations, filters) => {
 
-    const { categoryId, operationType } = filters
+    const { categoryId, operationType, date } = filters
 
     let endpoint = ''
 
-    if (operationType && !categoryId) {
+    if (operationType && !categoryId && !date) {
         endpoint = `${paths.getOperationsFiltered}?operation_Type=${operationType}`
 
     }
-    if (!operationType && categoryId) {
+    if (categoryId && !operationType && !date) {
         endpoint = `${paths.getOperationsFiltered}?category_id=${categoryId}`
     }
-
-    if (operationType && categoryId) {
-        endpoint = `${paths.getOperationsFiltered}?operation_Type=${operationType}&category_id=${categoryId}`
+    if (date && !operationType && !categoryId) {
+        endpoint = `${paths.getOperationsFiltered}?date=${date}`
     }
-    if (!operationType && !categoryId) {
+
+    if (date && operationType && !categoryId) {
+        endpoint = `${paths.getOperationsFiltered}?operation_Type=${operationType}&date=${date}`
+
+    }
+    if (date && categoryId && !operationType) {
+        endpoint = `${paths.getOperationsFiltered}?category_id=${categoryId}&date=${date}`
+
+    }
+
+
+    if (operationType && categoryId && !date) {
+        endpoint = `${paths.getOperationsFiltered}?category_id=${categoryId}&operation_Type=${operationType}`
+
+    }
+
+
+    if (operationType && categoryId && date) {
+        endpoint = `${paths.getOperationsFiltered}?operation_Type=${operationType}&category_id=${categoryId}&date=${date}`
+    }
+    if (!operationType && !categoryId && !date) {
         endpoint = paths.getOperationsFiltered
 
     }

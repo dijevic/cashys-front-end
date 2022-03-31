@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import validator from 'validator'
 import { toast } from 'react-toastify';
-
+import validator from 'validator'
 // SERVICES
 import { createOperationService } from '../../../services/createOperation';
 // hooks
@@ -56,6 +55,7 @@ export const ModalCreateOperations = ({ operationType }) => {
 
     const handleChangeDate = (date) => {
         setStartDate(date)
+
     }
 
 

@@ -11,7 +11,7 @@ import { Form } from '../../coomon/form'
 import { Minimize } from '../../coomon/icons/Minimize'
 import { Input } from '../../coomon/input'
 
-import { Span, H2, StyledDataPicker, P, ButtonContainer, H3 } from './styles'
+import { Span, H2, StyledDataPicker, P, ButtonContainer } from './styles'
 import { useForm } from '../../../hooks/useForm';
 import { useBalanceStore, useOperationStore, useUIStore } from '../../../store/store';
 import { updateOperationService } from '../../../services/updateOperationService';
