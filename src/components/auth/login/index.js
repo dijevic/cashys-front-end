@@ -16,6 +16,8 @@ import { loginService } from '../../../services/loginService'
 import { useUserStore } from '../../../store/store'
 import { Spinner } from '../../coomon/spinner'
 import { ShowPasswordComponent } from '../../coomon/showpassword'
+import { LogIn } from '../../coomon/icons/LogIn'
+import { InfoIcon } from '../../coomon/icons/InfoIcon'
 
 const { colors, buttonTypes } = theme
 
@@ -99,13 +101,14 @@ export const LoginComponent = () => {
 
                 <Button
                     padding="true"
-                    content="Login"
+                    content={<LogIn />}
                 />
 
                 <Link
                     padding="true"
                     background={colors.burgundy}
-                    to="/resetpassword">Forgot Your password ?
+                    to="/resetpassword">
+                    <InfoIcon />
                 </Link>
             </Form>
 

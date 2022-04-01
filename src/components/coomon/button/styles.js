@@ -45,7 +45,9 @@ min-width:120px;
 padding:${({ padding }) => (padding) && '12px 15px'};
 text-align:center;
 transition:.3s ease-in-out all ;
-
+display:flex;
+justify-content: center;
+align-items: center;
 @media(min-width:768px){
 &:hover{
 background:${({ background }) => (background) ? colors.lightBurgundy : colors.lightBlue};

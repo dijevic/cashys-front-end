@@ -5,13 +5,14 @@ import { theme } from '../../styles/theme'
 import { Button } from '../coomon/button'
 import { DebtArrowIcon } from '../coomon/icons/DebtArrowIcon'
 import { IncomeArrowIcon } from '../coomon/icons/IncomeArrowIcon'
-import { Div, P } from './styles'
+import { Div, P, ActionButtonContainer } from './styles'
 
 const { colors } = theme
 
 export const DashboardActionButtons = React.memo(({ operationType }) => {
     const setopenModal = useUIStore(state => state.setOpenModal)
     const setModalMode = useUIStore(state => state.setModalMode)
+
 
 
     const handleIncome = () => {
@@ -32,7 +33,7 @@ export const DashboardActionButtons = React.memo(({ operationType }) => {
         <Div
             maxWidth="320">
 
-            <div>
+            <ActionButtonContainer>
                 <Button
                     onClick={handleIncome}
                     padding="true"
@@ -42,11 +43,11 @@ export const DashboardActionButtons = React.memo(({ operationType }) => {
                 <P
                     onClick={handleDebt}
                     actionbutton="true"
-                    color={colors.white}>INCOME</P>
+                    color={colors.white}>ADD INCOME</P>
 
-            </div>
+            </ActionButtonContainer>
 
-            <div>
+            <ActionButtonContainer>
 
                 <Button
                     onClick={handleDebt}
@@ -59,9 +60,9 @@ export const DashboardActionButtons = React.memo(({ operationType }) => {
                 <P
                     onClick={handleDebt}
                     actionbutton="true"
-                    color={colors.white}>DEBT</P>
+                    color={colors.white}>ADD DEBT</P>
 
-            </div>
+            </ActionButtonContainer>
 
 
         </Div>

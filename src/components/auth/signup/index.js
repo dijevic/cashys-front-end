@@ -14,6 +14,7 @@ import { ShowPasswordComponent } from '../../coomon/showpassword'
 import { emailVerificationService } from '../../../services/verifyEmailService'
 import { Spinner } from '../../coomon/spinner'
 import { toast } from 'react-toastify'
+import { RunningIcon } from '../../coomon/icons/RunningIcon'
 
 
 const { colors, buttonTypes } = theme
@@ -121,7 +122,7 @@ export const SignUpComponent = () => {
 
                 <Button
                     padding="true"
-                    content="Sign Up !"
+                    content={<RunningIcon msg="Sign Up!" />}
                 />
 
             </Form>

@@ -4,9 +4,12 @@ import { getBalanceService } from '../../services/getBalance'
 
 // hooks
 import { useBalanceStore } from '../../store/store'
+
+// components
+import { Span } from './styles'
 // styled components
 import { theme } from '../../styles/theme'
-import { Span } from './styles'
+import { CoinIcon } from '../coomon/icons/CoinIcon'
 const { colors } = theme
 
 export const DashboardHeader = React.memo(() => {
@@ -23,7 +26,11 @@ export const DashboardHeader = React.memo(() => {
     return (
         <>
             <Span color={colors.black}>Take Control of your incomes and debts</Span>
-            <Span> BALANCE : {(balance) ? balance : 0} $</Span>
+            <Span>
+                BALANCE : {(balance) ? balance : 0}
+
+                <CoinIcon />
+            </Span>
         </>
     )
 })

@@ -40,10 +40,17 @@ font-weight:bold;
 line-height: 2rem;
 margin-top:50px;
 text-align:center;
+display: flex;
+align-items: center;
+
+
 @media(min-width:768px){
 font-size: 2.5rem;
 line-height: 2.5rem;
 }
+
+
+
 
 
 `
@@ -107,6 +114,9 @@ cursor:pointer;
 ${({ actionbutton }) => (actionbutton) && css`
 margin-bottom:20px;
 text-align: center;
+border-bottom: 2px solid ${colors.blue};
+padding:5px;
+
 
 
 `}
@@ -179,6 +189,38 @@ cursor:pointer;
 }
 
 `
+
+export const NooperationContainer = styled.div`
+display:flex;
+flex-direction:column;
+justify-content:center;
+width:100%;
+align-items: center;
+margin-top:25px;
+animation-duration: 0.9s;
+animation-iteration-count: initial;
+animation-name:${animations.fadeInLeft};
+`
+
+
+
+export const NoOpeartionText = styled.p`
+font-size:2rem;
+line-height:2rem;
+color:${colors.white};
+animation-duration: 0.9s;
+animation-iteration-count: initial;
+animation-name:${animations.fadeInDown};
+
+`
+
+export const ActionButtonContainer = styled.div`
+display: flex;
+justify-content:center;
+flex-direction:column;
+align-items:center;
+`
+
 
 
 

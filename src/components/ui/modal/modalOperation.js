@@ -4,6 +4,10 @@ import validator from 'validator'
 import dayjs from 'dayjs'
 // SERVICES
 
+// components
+import { TrashIcon } from '../../coomon/icons/TrashIcon';
+import { SaveIcon } from '../../coomon/icons/SaveIcon';
+
 // styled components 
 import { theme } from '../../../styles/theme'
 import { Button } from '../../coomon/button'
@@ -120,12 +124,13 @@ export const ModalOperation = () => {
             <ButtonContainer>
                 <Button
                     padding="true"
-                    content="Save"
+                    content={<SaveIcon />}
                 />
                 <Button
+                    deletebutton="true"
                     onClick={handleDelete}
                     padding="true"
-                    content="Delete"
+                    content={<TrashIcon />}
                     type="button"
                     background={colors.burgundy}
                 />

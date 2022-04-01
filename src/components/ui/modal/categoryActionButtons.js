@@ -1,6 +1,16 @@
 import React from 'react'
+
+// components
+
+import { TrashIcon } from '../../coomon/icons/TrashIcon'
+import { UpdateIcon } from '../../coomon/icons/UpdateIcon'
+
+// styled compoenents
 import { theme } from '../../../styles/theme'
 import { Button } from '../../coomon/button'
+import { AddCategoryIcon } from '../../coomon/icons/AddCategoryIcon'
+
+
 const { colors } = theme
 
 export const CategoryActionButtons = ({ handleShowInput, createRef, handleShowDeleteNotification, deleteRef, updateRef }) => {
@@ -11,7 +21,7 @@ export const CategoryActionButtons = ({ handleShowInput, createRef, handleShowDe
                 onClick={handleShowInput}
                 reference={createRef}
                 padding="true"
-                content="Create"
+                content={<AddCategoryIcon />}
                 type="button"
                 name="create"
 
@@ -19,7 +29,7 @@ export const CategoryActionButtons = ({ handleShowInput, createRef, handleShowDe
             <Button
                 onClick={handleShowDeleteNotification}
                 padding="true"
-                content="Delete"
+                content={<TrashIcon />}
                 type="button"
                 name="delete"
                 deletebutton="true"
@@ -30,7 +40,7 @@ export const CategoryActionButtons = ({ handleShowInput, createRef, handleShowDe
                 reference={updateRef}
                 padding="true"
                 name="update"
-                content="Update"
+                content={<UpdateIcon />}
                 type="button"
                 background={colors.burgundy}
 

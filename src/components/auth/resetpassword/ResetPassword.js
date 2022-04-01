@@ -12,6 +12,7 @@ import { theme } from '../../../styles/theme'
 import { Button } from '../../coomon/button'
 import { Link } from '../../coomon/button/Link'
 import { Form } from '../../coomon/form'
+import { MailIcon } from '../../coomon/icons/MailIcon'
 import { Input } from '../../coomon/input'
 import { ShowPasswordComponent } from '../../coomon/showpassword'
 import { Spinner } from '../../coomon/spinner'
@@ -105,7 +106,7 @@ export const ResetPasswordComponent = () => {
 
                 <Button
                     padding="true"
-                    content="Recover password now !"
+                    content={<MailIcon msg="Recover Password now !" />}
                 />
 
 

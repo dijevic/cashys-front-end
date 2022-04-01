@@ -17,6 +17,7 @@ import { Minimize } from '../../coomon/icons/Minimize'
 import { Input } from '../../coomon/input'
 import { Dropdown } from '../dropdown';
 import { Span, H2, StyledDataPicker, P } from './styles'
+import { SaveIcon } from '../../coomon/icons/SaveIcon';
 const { colors } = theme
 
 dayjs.extend(utc)
@@ -122,7 +123,9 @@ export const ModalCreateOperations = ({ operationType }) => {
             <P>Type : {operationType}</P>
             <Dropdown setOptionSelected={setOptionSelected} />
 
-            <Button padding="true" content="Save" />
+            <Button
+                padding="true"
+                content={<SaveIcon />} />
         </Form>
 
     )
