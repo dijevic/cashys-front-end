@@ -23,7 +23,7 @@ export const loginService = async (fetchData, setUser, setLoading) => {
         } else {
             setLoading(false)
             setUser(false)
-            toast.error('something wrong with password or Email')
+            toast.error(data.msg)
 
         }
 
