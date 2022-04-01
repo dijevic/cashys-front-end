@@ -3,7 +3,7 @@
 
  <br/>
 
- <p>the idea of the project was to create a complete MERN stack development to deal with incomes and debts , having a balance of them and be able to do a CRUD of operation(debts and incomes) and categories</p>
+ <p>the idea of the project was to create a complete MERN stack development to deal with incomes and debts , having a balance of them and be able to do a CRUD of operations(debts and incomes) and categories</p>
 
 <p margin="20px">The project has been done with React & zustand(global state) , React Router v6 , Styled components for styles , Toast for the notifications and love</p>
 
@@ -48,7 +48,12 @@ password : 123456
 <b>Steps and instructions to use the backend are in the link</b>
 
 <p>You can also change the enviroment  to use the backend that is alive with heroku and clever cloud(DB) </p>
-- Change the API url in the enviroments(development enviroment) for: **REACT_APP_API_URL=https://cashys.herokuapp.com/api/v1**
+- Change the API url in the enviroments(development enviroment) for:
+
+```
+REACT_APP_API_URL=https://cashys.herokuapp.com/api/v1
+
+```
 
 <p>You can also see the app alive here :</p>
 
