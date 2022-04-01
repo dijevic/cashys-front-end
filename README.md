@@ -45,7 +45,7 @@ password : 123456
 - clone the Backend , follow the backend instructions and run it up :
 
 <a href="https://github.com/dijevic/Cashys" target="_blank">cashys backend</a>
-<b>Steps and instructions to use the backend are in the link</b>
+<b>(Steps and instructions to use the backend are in the link)</b>
 
 <p>You can also change the enviroment  to use the backend that is alive with heroku and clever cloud(DB) </p>
 - Change the API url in the enviroments(development enviroment) for:
