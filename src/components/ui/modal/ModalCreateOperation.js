@@ -105,6 +105,7 @@ export const ModalCreateOperations = ({ operationType }) => {
             <StyledDataPicker className="datepicker" selected={startDate} onChange={handleChangeDate} />
             <Input
                 modal="true"
+                maxLength={50}
                 type="text"
                 placeholder="Concept"
                 name="description"

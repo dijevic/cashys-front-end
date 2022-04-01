@@ -22,7 +22,7 @@ export const UpdateOrCreateCategory = ({ handleInputChange, handleShowInput, nam
                 value={name}
                 autoComplete="off"
                 onChange={handleInputChange}
-                maxLength="40"
+                maxLength={40}
             />
             <ButtonContainer>
 

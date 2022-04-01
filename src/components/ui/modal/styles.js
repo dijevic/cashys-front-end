@@ -104,3 +104,16 @@ color: ${colors.black};
 font-size: 1.5rem;
 `
 
+export const InputTitle = styled.p`
+font-size:1.3rem;
+line-height:1rem;
+color:${colors.black};
+text-align:left;
+width: 100%;
+padding-left: 18px;
+font-weight:bold;
+font-style: italic;
+margin-bottom: -15px;
+margin-top:10px;
+`
+

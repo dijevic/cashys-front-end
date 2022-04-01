@@ -31,8 +31,8 @@ export const LoginComponent = () => {
 
     const [loading, setLoading] = useState(false)
     const initialState = {
-        email: 'dijevic.developer@gmail.com',
-        password: '1234567'
+        email: '',
+        password: ''
 
     }
     const [stateValues, handleInputChange] = useForm(initialState)

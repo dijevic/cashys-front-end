@@ -3,23 +3,27 @@ import { toast } from 'react-toastify';
 import validator from 'validator'
 import dayjs from 'dayjs'
 // SERVICES
+import { updateOperationService } from '../../../services/updateOperationService';
+import { deleteOperationService } from '../../../services/deleteOperationService';
+// hook
+import { useBalanceStore, useOperationStore, useUIStore } from '../../../store/store';
+import { useForm } from '../../../hooks/useForm';
+
 
 // components
 import { TrashIcon } from '../../coomon/icons/TrashIcon';
 import { SaveIcon } from '../../coomon/icons/SaveIcon';
+import { Minimize } from '../../coomon/icons/Minimize'
+import { Button } from '../../coomon/button'
+import { Form } from '../../coomon/form'
+import { Input } from '../../coomon/input'
+
 
 // styled components 
 import { theme } from '../../../styles/theme'
-import { Button } from '../../coomon/button'
-import { Form } from '../../coomon/form'
-import { Minimize } from '../../coomon/icons/Minimize'
-import { Input } from '../../coomon/input'
+import { Span, H2, StyledDataPicker, P, ButtonContainer, InputTitle } from './styles'
 
-import { Span, H2, StyledDataPicker, P, ButtonContainer } from './styles'
-import { useForm } from '../../../hooks/useForm';
-import { useBalanceStore, useOperationStore, useUIStore } from '../../../store/store';
-import { updateOperationService } from '../../../services/updateOperationService';
-import { deleteOperationService } from '../../../services/deleteOperationService';
+
 const { colors } = theme
 
 
@@ -101,7 +105,7 @@ export const ModalOperation = () => {
             </Span>
             <H2>Your Operation </H2>
             <StyledDataPicker className="datepicker" selected={startDate} onChange={handleChangeDate} />
-
+            <InputTitle>Concept</InputTitle>
             <Input
                 modal="true"
                 type="text"
@@ -109,8 +113,11 @@ export const ModalOperation = () => {
                 name="description"
                 value={description}
                 autoComplete="off"
+                maxLength={50}
                 onChange={handleInputChange}
             />
+            <InputTitle>Mount</InputTitle>
+
             <Input
                 modal="true"
                 type="text"
@@ -118,6 +125,7 @@ export const ModalOperation = () => {
                 name="amount"
                 value={amount}
                 onChange={handleInputChange}
+
             />
             <P>Type :{activeOperation.operation_Type}</P>
             <P>Category :{activeOperation.category}</P>

@@ -42,7 +42,9 @@ margin-top:50px;
 text-align:center;
 display: flex;
 align-items: center;
-
+animation-duration: 0.9s;
+animation-iteration-count: initial;
+animation-name:${animations.fadeInup};
 
 @media(min-width:768px){
 font-size: 2.5rem;
@@ -109,6 +111,11 @@ font-weight: bold;
 margin-left: ${({ marginleft }) => (marginleft) && '15px'};
 color: ${({ color }) => color};
 cursor:pointer;
+text-overflow: ellipsis;
+overflow: hidden;
+word-wrap: break-word;
+word-break: break-all;
+
 
 
 ${({ actionbutton }) => (actionbutton) && css`
@@ -161,7 +168,8 @@ cursor:pointer;
 export const DivContainer = styled.div`
 display: flex;
 align-items: center;
-justify-content: center;
+justify-content: ${({ justify }) => (justify) && justify};
+
 flex-wrap:wrap;
 
 
@@ -219,6 +227,9 @@ display: flex;
 justify-content:center;
 flex-direction:column;
 align-items:center;
+animation-duration: 0.9s;
+animation-iteration-count: initial;
+animation-name:${animations.fadeInDown};
 `
 
 

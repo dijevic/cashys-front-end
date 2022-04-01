@@ -164,7 +164,7 @@ export const FilterOptions = () => {
 
 
     return (
-        <DivContainer>
+        <DivContainer justify="center">
             <FilterButton
                 color={colors.white}
                 onClick={handleGetAllOperations}

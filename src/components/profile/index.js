@@ -21,6 +21,8 @@ import { ShowPasswordComponent } from '../coomon/showpassword'
 import { useForm } from '../../hooks/useForm'
 import { updateUserDataService } from '../../services/updateUserData'
 import { toast } from 'react-toastify'
+import { GoBackIcon } from '../coomon/icons/GoBackIcon'
+import { SaveIcon } from '../coomon/icons/SaveIcon'
 
 
 
@@ -77,12 +79,14 @@ export const ProfileComponent = () => {
 
                 <Button
                     padding="true"
-                    content="save" />
+                    content={<SaveIcon />} />
 
                 <Link
                     padding="true"
                     background={colors.burgundy}
-                    to="/">Go Back </Link>
+                    to="/">
+                    <GoBackIcon />
+                </Link>
 
             </Form>
         </>
