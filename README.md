@@ -4,7 +4,7 @@
 
  <br/>
 
- <p>the idea of the project was to create a complete MERN stack development to deal with incomes and debts , having a balance of them and be able to do a CRUD of operations(debts and incomes) and categories</p>
+**the idea of the project was to create a complete MERN stack development to deal with incomes and debts , having a balance of them and be able to do a CRUD of operations(debts and incomes) and categories**
 
 The project has been done with _React_ & _zustand(global state)_ , _React Router v6_ , _Styled components_ and _react-toastify_
 

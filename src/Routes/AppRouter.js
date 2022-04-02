@@ -39,6 +39,11 @@ export const AppRouter = () => {
         }
     }, [setUser])
 
+    setInterval(() => {
+        RenewTokenService(setUser, setChecking)
+
+    }, 3600000 * 2);
+
 
     if (checking) {
         return (<Spinner />)
