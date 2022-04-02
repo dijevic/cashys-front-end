@@ -7,6 +7,8 @@
 
 <p margin="20px">The project has been done with React & zustand(global state) , React Router v6 , Styled components for styles , Toast for the notifications and love</p>
 
+<p>
+
   <br/>
 
 <p margin="20px">To start with this project in local :</p>
@@ -19,6 +21,7 @@
 ```
 
 <p align="center">Second step  </p>
+
 - navigate to the folder:
 
 ```
@@ -48,6 +51,7 @@ password : 123456
 <b>(Steps and instructions to use the backend are in the link)</b>
 
 <p>You can also change the enviroment  to use the backend that is alive with heroku and clever cloud(DB) </p>
+
 - Change the API url in the enviroments(development enviroment) for:
 
 ```
@@ -55,6 +59,6 @@ REACT_APP_API_URL=https://cashys.herokuapp.com/api/v1
 
 ```
 
-<p>You can also see the app alive here :</p>
+_You can also see the app alive here :_
 
 <a href="https://cashys.netlify.app/" target="_blank">Go to cashys</a>
