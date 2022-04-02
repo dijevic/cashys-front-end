@@ -1,4 +1,4 @@
-# HI ! WELCOME TO CASHYS :D
+<h1 color="red" align="center"> WELCOME TO CASHYS 😎😎</h1>
 
 <h3 color="red" align="center">A React app to keep on track my debts and incomes </h3>
 
@@ -15,43 +15,49 @@ For the styles I decide to del with them using **Styled components**(and no regr
 
 Overall I tried to be as atomic as possible with my components, always trying to keep the components simples and easy to read.
 
-<p margin="20px">To start with this project in local :</p>
+**To start with this project in local**
 
-<p align="center">First step </p>
+_First step :_
+
 - copy and paste the follow in you cd:
 
 ```
  https://github.com/dijevic/cashys-front-end.git
 ```
 
-<p align="center">Second step  </p>
+_Second step :_
 
 - navigate to the folder:
 
 ```
  cd cashys-front-end
+
+```
+
+_open the folder in your favorite IDE:_
+
+```
  code .
 ```
 
-<p align="center">Finally install all the dependencies and run the project </p>
+_Install all the dependencies :_
 
 ```
  npm install
+```
+
+_run the project:_
+
+```
+
  npm start
-```
-
-- User to test the app
-
-```
-Email    : dijevic.developer@gmail.com
-password : 123456
 ```
 
 <p align="center">Then you have two ways to use the backend and integrate it with this front-end</p>
 
 - clone the Backend , follow the backend instructions and run it up :
 
-<a href="https://github.com/dijevic/Cashys" target="_blank">cashys backend</a>
+[cashys backend](https://github.com/dijevic/Cashys)
 <b>(Steps and instructions to use the backend are in the link)</b>
 
 <p>You can also change the enviroment  to use the backend that is alive with heroku and clever cloud(DB) </p>
@@ -64,5 +70,12 @@ REACT_APP_API_URL=https://cashys.herokuapp.com/api/v1
 ```
 
 _You can also see the app alive here :_
+
+- User to Log into the app :+1:
+
+```
+**Email**    : dijevic.developer@gmail.com
+**password** : 123456
+```
 
 <a href="https://cashys.netlify.app/" target="_blank">Go to cashys</a>
