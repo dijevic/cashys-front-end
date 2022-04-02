@@ -1,15 +1,19 @@
-<h1 align="center"> HI ! WELCOME TO CASHYS :D </h1>
+# HI ! WELCOME TO CASHYS :D
+
 <h3 color="red" align="center">A React app to keep on track my debts and incomes </h3>
 
  <br/>
 
  <p>the idea of the project was to create a complete MERN stack development to deal with incomes and debts , having a balance of them and be able to do a CRUD of operations(debts and incomes) and categories</p>
 
-<p margin="20px">The project has been done with React & zustand(global state) , React Router v6 , Styled components for styles , Toast for the notifications and love</p>
+The project has been done with _React_ & _zustand(global state)_ , _React Router v6_ , _Styled components_ and _react-toastify_
 
-<p>
+To deal with the global state I am using **zustand** which is less weight than **React-Redux & Redux** , and really easy to setup and use.
+For the App routing and using React-router v6 which is the latest known version of React-Router.
 
-  <br/>
+For the styles I decide to del with them using **Styled components**(and no regrets are coming to me, this is for me the best way to style components while possible) and the beauty and easy to use **react-toastify** to work with the notifications and messages.
+
+Overall I tried to be as atomic as possible with my components, always trying to keep the components simples and easy to read.
 
 <p margin="20px">To start with this project in local :</p>
 
