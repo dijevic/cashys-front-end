@@ -16,6 +16,7 @@ export const EmailTokenValidationComponent = () => {
 
     useEffect(() => {
         if (token && validator.isJWT(token)) {
+            console.log('eh')
 
             if (params['*'].startsWith('changepassword')) {
                 changePasswordByReset(setUser, token,)

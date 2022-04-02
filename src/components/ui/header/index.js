@@ -12,7 +12,7 @@ import { StyledHeader, Span } from './styles'
 
 const { buttonTypes } = theme
 
-export const Header = () => {
+export const Header = ({ handleSessionExpired }) => {
     const user = useUserStore(state => state.user)
     const [openMenu, setOpenMenu] = useState(false)
 
@@ -41,7 +41,7 @@ export const Header = () => {
                         }
 
                     </Span>
-                    <NavBar open={openMenu} />
+                    <NavBar open={openMenu} handleSessionExpired={handleSessionExpired} />
                 </>
             }
 

@@ -11,11 +11,12 @@ import { useUserStore } from '../../../store/store'
 
 
 const { buttonTypes } = theme
-export const NavBar = ({ open }) => {
+export const NavBar = ({ open, handleSessionExpired }) => {
     const setUser = useUserStore(state => state.setUser)
 
 
     const handleLogOut = () => {
+        clearInterval(handleSessionExpired.current)
         setUser(false)
         localStorage.clear()
     }

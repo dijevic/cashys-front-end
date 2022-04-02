@@ -8,6 +8,7 @@ export const CreateUserService = async (setUser, token) => {
     try {
         const resp = await fetchEmailVerification('POST', paths.newUser, token)
         const data = await resp.json()
+
         if (data.ok) {
             toast.info('Great ! your user has been created successfully')
             localStorage.setItem('token', data.token)
