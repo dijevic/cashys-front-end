@@ -21,7 +21,7 @@ import { Input } from '../../coomon/input'
 
 // styled components 
 import { theme } from '../../../styles/theme'
-import { Span, H2, StyledDataPicker, P, ButtonContainer, InputTitle } from './styles'
+import { Span, H2, StyledDataPicker, P, ButtonContainer, InputTitle, SpanCaracters } from './styles'
 
 
 const { colors } = theme
@@ -116,6 +116,10 @@ export const ModalOperation = () => {
                 maxLength={50}
                 onChange={handleInputChange}
             />
+            <SpanCaracters>
+
+                {description.length}/50
+            </SpanCaracters>
             <InputTitle>Mount</InputTitle>
 
             <Input

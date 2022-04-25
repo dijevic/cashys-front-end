@@ -16,7 +16,7 @@ import { Form } from '../../coomon/form'
 import { Minimize } from '../../coomon/icons/Minimize'
 import { Input } from '../../coomon/input'
 import { Dropdown } from '../dropdown';
-import { Span, H2, StyledDataPicker, P } from './styles'
+import { Span, H2, StyledDataPicker, P, SpanCaracters } from './styles'
 import { SaveIcon } from '../../coomon/icons/SaveIcon';
 const { colors } = theme
 
@@ -113,6 +113,10 @@ export const ModalCreateOperations = ({ operationType }) => {
                 autoComplete="off"
                 onChange={handleInputChange}
             />
+            <SpanCaracters>
+
+                {description.length}/50
+            </SpanCaracters>
             <Input
                 modal="true"
                 type="text"

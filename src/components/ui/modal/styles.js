@@ -117,3 +117,12 @@ margin-bottom: -15px;
 margin-top:10px;
 `
 
+export const SpanCaracters = styled.span`
+display: block;
+text-align:right;
+width: 100%;
+margin-top:10px;
+font-size:1rem;
+font-weight:bold;
+`
+

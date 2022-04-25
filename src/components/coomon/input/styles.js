@@ -10,7 +10,7 @@ cursor:pointer;
 color:#fff;
 font-size:1rem;
 margin-top:12px ;
-padding:15px 18px ;
+padding:15px 30px 15px 18px;
 outline: none;
 width:100%;
 &::placeholder{
