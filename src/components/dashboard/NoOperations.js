@@ -1,5 +1,4 @@
 import React from 'react'
-import { HappyMoodIcon } from '../coomon/icons/HappyMoodIcon'
 import { NoOpeartionText, NooperationContainer } from './styles'
 
 export const NoOperations = () => {
@@ -7,7 +6,7 @@ export const NoOperations = () => {
 
 
         <NooperationContainer>
-            <HappyMoodIcon />
+
             <NoOpeartionText>NOTHING HERE !</NoOpeartionText>
 
         </NooperationContainer>

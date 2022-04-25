@@ -221,10 +221,12 @@ animation-name:${animations.fadeInLeft};
 export const NoOpeartionText = styled.p`
 font-size:2rem;
 line-height:2rem;
+width:100%;
+text-align:center;
 color:${colors.white};
 animation-duration: 0.9s;
 animation-iteration-count: initial;
-animation-name:${animations.fadeInDown};
+animation-name:${animations.fadeInup};
 
 `
 
