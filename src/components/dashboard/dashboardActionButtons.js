@@ -41,6 +41,7 @@ export const DashboardActionButtons = React.memo(({ operationType }) => {
                     content={<IncomeArrowIcon />}
                 />
                 <P
+                    fontsize="1.2rem"
                     onClick={handleDebt}
                     actionbutton="true"
                     color={colors.white}>ADD INCOME</P>
@@ -58,6 +59,7 @@ export const DashboardActionButtons = React.memo(({ operationType }) => {
                 />
 
                 <P
+                    fontsize="1.2rem"
                     onClick={handleDebt}
                     actionbutton="true"
                     color={colors.white}>ADD DEBT</P>

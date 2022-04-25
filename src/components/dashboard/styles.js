@@ -105,8 +105,8 @@ export const P = React.memo(
     styled.p`
 display:flex;
 flex-direction:column;
-font-size:1.3rem;
-line-height:1.3rem;
+font-size:${({ fontsize }) => (fontsize) ? fontsize : '1rem'};
+line-height:${({ fontsize }) => (fontsize) ? fontsize : '1rem'};
 font-weight: bold;
 margin-left: ${({ marginleft }) => (marginleft) && '15px'};
 color: ${({ color }) => color};
@@ -115,6 +115,12 @@ text-overflow: ellipsis;
 overflow: hidden;
 word-wrap: break-word;
 word-break: break-all;
+max-width :${({ maxwidth }) => (maxwidth) && '70%'};
+
+@media (min-width: 768px) {
+font-size:1.3rem;
+line-height:1.3rem;
+}
 
 
 
@@ -170,7 +176,7 @@ display: flex;
 align-items: center;
 justify-content: ${({ justify }) => (justify) && justify};
 
-flex-wrap:wrap;
+flex-wrap:${({ wrap }) => (wrap) ? wrap : 'wrap'};
 
 
 `

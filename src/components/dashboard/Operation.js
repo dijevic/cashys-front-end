@@ -26,7 +26,9 @@ export const Operation = React.memo(({ amount, date, description, operation_Type
     return (
 
         <Li onClick={handleOpenModal} operationtype={operation_Type}>
-            <DivContainer justify="start">
+            <DivContainer
+                wrap="nowrap"
+                justify="start">
                 <SpanIcon operationtype={operation_Type}>
                     {
                         (operation_Type === 'income') ? <PlusIcon /> : <MinusIcon />
@@ -34,7 +36,9 @@ export const Operation = React.memo(({ amount, date, description, operation_Type
 
                 </SpanIcon>
 
-                <P>{description}
+                <P
+                    maxwidth="true">
+                    {description}
                     <span>{parsedDate}</span>
 
                 </P>
