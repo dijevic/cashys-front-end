@@ -44,7 +44,7 @@ align-items: end;
 
 `
 export const Span = styled.span`
-background:${colors.blue};
+background:rgba(245, 0, 0, 0.8);
 border-radius: 10px;
 height: fit-content;
 padding: 3px;

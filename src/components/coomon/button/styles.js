@@ -82,8 +82,8 @@ border-radius: 100%;
 
 
 `
-export const deleteButtonStyles = css`
-${({ deletebutton }) => (deletebutton) && css`
+const RedButtonStyles = css`
+${({ deletebutton, addbutton }) => (deletebutton || addbutton) && css`
 background:rgba(245, 0, 0, 0.8);
 colors:colors.white;
 
@@ -110,7 +110,7 @@ ${sharedStyle}
 ${actionButton}
 
 
-${deleteButtonStyles}
+${RedButtonStyles}
 
 
 `
