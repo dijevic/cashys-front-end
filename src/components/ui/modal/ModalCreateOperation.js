@@ -16,7 +16,7 @@ import { Form } from '../../coomon/form'
 import { Minimize } from '../../coomon/icons/Minimize'
 import { Input } from '../../coomon/input'
 import { Dropdown } from '../dropdown';
-import { Span, H2, StyledDataPicker, P, SpanCharacters } from './styles'
+import { Span, H2, StyledDataPicker, P, SpanCharacters, InputTitle } from './styles'
 import { SaveIcon } from '../../coomon/icons/SaveIcon';
 const { colors } = theme
 
@@ -103,6 +103,7 @@ export const ModalCreateOperations = ({ operationType }) => {
             </Span>
             <H2>Creating {operationType} Operation </H2>
             <StyledDataPicker className="datepicker" selected={startDate} onChange={handleChangeDate} />
+            <InputTitle>operation Description</InputTitle>
             <Input
                 modal="true"
                 maxLength={50}
@@ -117,6 +118,7 @@ export const ModalCreateOperations = ({ operationType }) => {
 
                 {description.length}/50
             </SpanCharacters>
+            <InputTitle>Mount</InputTitle>
             <Input
                 modal="true"
                 type="text"
