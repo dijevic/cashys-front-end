@@ -46,6 +46,16 @@ _Install all the dependencies :_
  npm install
 ```
 
+_Create a .env.development file:_
+
+- add the following enviroment var for the API local URL :
+
+```
+REACT_APP_API_URL=http://localhost:4000/api/v1
+```
+
+NOTE : the port number has to be the same you has setted on the backend .
+
 _run the project:_
 
 ```
