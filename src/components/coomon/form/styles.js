@@ -25,6 +25,7 @@ max-width: 450px;
 position: relative;
 border:2px solid ${colors.blue};
 top: 20px;
+margin-bottom:20px;
 `
     };
 

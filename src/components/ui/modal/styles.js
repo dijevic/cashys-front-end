@@ -45,7 +45,7 @@ line-height: 1.3rem;
 
 export const Span = styled.span`
 position: absolute;
-top: -70px;
+top: -30px;
 right:0px;
 border-radius: 100%;
 padding: 5px;
@@ -117,7 +117,7 @@ margin-bottom: -15px;
 margin-top:10px;
 `
 
-export const SpanCaracters = styled.span`
+export const SpanCharacters = styled.span`
 display: block;
 text-align:right;
 width: 100%;
