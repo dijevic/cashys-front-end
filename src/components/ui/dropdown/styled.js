@@ -54,7 +54,8 @@ cursor:pointer;
 @media (min-width: 768px){
 padding: 5px;
     &:hover{
-        background: ${colors.lightBlue};
+        background:rgba(245, 0, 0, 0.6);
+
     }
 }
 `
