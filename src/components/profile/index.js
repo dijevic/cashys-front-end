@@ -1,28 +1,29 @@
 
 // third  party imp
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 import validator from 'validator'
 // components
 
+import { SaveIcon } from '../coomon/icons/SaveIcon'
 import { UserProfileIcon } from '../coomon/icons/UserProfileIcon'
-
-// hooks
-import { useUserStore } from '../../store/store'
-
-
-// styled components
+import { ShowPasswordComponent } from '../coomon/showpassword'
+import { GoBackIcon } from '../coomon/icons/GoBackIcon'
+import { Form } from '../coomon/form'
 import { Input } from '../coomon/input'
 import { Button } from '../coomon/button'
 import { Link } from '../coomon/button/Link'
-import { theme } from '../../styles/theme'
-import { H2 } from './styles'
-import { Form } from '../coomon/form'
-import { ShowPasswordComponent } from '../coomon/showpassword'
+
+// hooks
+import { useUserStore } from '../../store/store'
 import { useForm } from '../../hooks/useForm'
+
+// service
 import { updateUserDataService } from '../../services/updateUserData'
-import { toast } from 'react-toastify'
-import { GoBackIcon } from '../coomon/icons/GoBackIcon'
-import { SaveIcon } from '../coomon/icons/SaveIcon'
+
+// styled components
+import { theme } from '../../styles/theme'
+import { H2, H3 } from './styles'
 
 
 
@@ -43,7 +44,7 @@ export const ProfileComponent = () => {
     const handleUpdate = async (e) => {
         e.preventDefault()
         if (validator.isEmpty(password.trim()) && validator.isEmpty(name.trim())) {
-            return toast.error('try filling the inputs')
+            return toast.error('try filling the empty fields')
         }
 
         updateUserDataService({ name, password }, setUser)
@@ -57,7 +58,9 @@ export const ProfileComponent = () => {
 
         <>
             <UserProfileIcon />
-            <H2>Hi Again {user.name} </H2>
+            <H2>Hi {user.name} </H2>
+
+            <H3>Update your account</H3>
 
             <Form onSubmit={handleUpdate}>
                 <Input
@@ -79,7 +82,8 @@ export const ProfileComponent = () => {
 
                 <Button
                     padding="true"
-                    content={<SaveIcon />} />
+                    content={<SaveIcon />}
+                />
 
                 <Link
                     padding="true"
