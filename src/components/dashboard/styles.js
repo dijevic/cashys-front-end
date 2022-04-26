@@ -115,7 +115,7 @@ text-overflow: ellipsis;
 overflow: hidden;
 word-wrap: break-word;
 word-break: break-all;
-max-width :${({ maxwidth }) => (maxwidth) && '70%'};
+max-width :${({ maxwidth }) => (maxwidth) && '90%'};
 
 @media (min-width: 768px) {
 font-size:1.3rem;
