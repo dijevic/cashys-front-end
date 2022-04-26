@@ -23,6 +23,8 @@ export const FilterOptions = () => {
     const categories = useCategoriesStore(state => (state.categories))
     const setOperations = useOperationStore(state => (state.setOperations))
 
+
+
     const [startDate, setStartDate] = useState(new Date());
 
     const handleChangeDate = (date) => {

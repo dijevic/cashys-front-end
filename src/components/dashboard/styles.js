@@ -158,8 +158,8 @@ background:rgba(255,255,255,0.5);
 padding:5px 8px;
 margin-left:${({ marginleft }) => (marginleft) && '10px'};
 border-radius:5px;
-font-size:1rem;
-line-height:1rem;
+font-size:1.2rem;
+line-height:1.2rem;
 margin-bottom:6px;
 cursor:pointer;
 @media(min-width:768px){
