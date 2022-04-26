@@ -15,11 +15,13 @@ background: ${colors.white};
 padding: 25px;
 transform: translateX( ${({ open }) => (open) ? '0px' : '-100%'});
 transition: 0.3s ease all;
+border-bottom: 15px solid rgba(0,0,0,0.7);
 @media(min-width:768px){
 position: static;
 background: none;
 padding: 0px;
 transform: translateX(0);
+border:none;
 
 }
 
@@ -68,6 +70,7 @@ position: relative;
 animation-name: ${({ open }) => open && animations.fadeInLeft};
 animation-iteration-count: initial;
 animation-duration:1s ;
+background:${({ opacity }) => (opacity) && 'rgba(0,0,0,0.7)'};
 @media(min-width:768px){
 padding: 5px;
 margin-left: 20px;
