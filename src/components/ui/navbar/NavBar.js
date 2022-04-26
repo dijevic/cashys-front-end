@@ -41,6 +41,7 @@ export const NavBar = ({ open, handleSessionExpired }) => {
                     <P>log out</P>
 
                 </Li>
+
             </Ul>
 
 

@@ -49,6 +49,7 @@ line-height: 1.3rem;
 border-bottom:2px solid transparent ;
 color:${colors.black};
 transition:.3s ease all;
+font-weight: bold;
 @media(min-width:768px){
 font-size: 1.5rem;
 line-height: 1.5rem;
